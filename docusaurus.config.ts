@@ -19,6 +19,11 @@ const config: Config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
+  customFields: {
+    latestVersion: '3.0.0',
+    versions: ['2.0.0'],
+  },
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -29,19 +34,16 @@ const config: Config = {
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
+          sidebarPath: require.resolve('./sidebars.ts'),
+          sidebarCollapsible: true,
+          lastVersion: 'current',
           versions: {
             current: {
-              label: 'v3 (Current)',
-              path: 'v3',
+              label: '3.0 (Current)',
+              path: '3.0',
             },
           },
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   editUrl:
-        //     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        // },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -62,19 +64,13 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
         },
         {
           type: 'docSidebar',
           position: 'left',
-          sidebarId: 'plugins',
-          label: 'Plugins',
-        },
-        {
-          type: 'docSidebar',
-          position: 'left',
-          sidebarId: 'template',
-          label: 'Template',
+          sidebarId: 'apiSidebar',
+          label: 'API',
         },
         {
           type: 'docsVersionDropdown',

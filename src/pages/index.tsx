@@ -1,40 +1,34 @@
-import React from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
-
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/esboot/intro">
-            ESBoot Tutorial - 5min ⏱️
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
+import Link from '@docusaurus/Link';
 
 export default function Home(): JSX.Element {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
+      title={`Welcome to ${siteConfig.title}`}
+      description="Discover and share inspiring quotes from around the world"
+    >
+      <main className={`${styles.main} ${styles.frostedBackground}`}>
+        <h1 className={`${styles.title} ${styles.gradientText}`}>ESBoot</h1>
+        <h1 className={`${styles.title} ${styles.gradientText}`}>
+          Frontend Infrastructure Toolkit
+        </h1>
+        <p className={styles.subtitle}>
+          <span className={styles.highlight}>Speed</span>,
+          <span className={styles.highlight}>niversality</span>,
+          <span className={styles.highlight}>support for webpack</span>,
+          <span className={styles.highlight}>vite</span>,
+          <span className={styles.highlight}>rspack</span>
+        </p>
+
+        <div>
+          <Link to="/docs/3.0/docs/intro" className={styles.quoteButton}>
+            Explore Now
+          </Link>
+        </div>
       </main>
     </Layout>
   );
