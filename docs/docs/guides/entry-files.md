@@ -1,12 +1,10 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
-# Development
+# Entry Files
 
-## 入口文件
-
-### 匹配规则
+## Matching Rule
 
 `esboot`的规则是匹配指定`platform` + `pageType`目录下的`*.entry.tsx`。
 
@@ -21,7 +19,7 @@ ESBOOT_PAGE_TYPE=native
 
 例如你有一个`home.entry.tsx`，那么在浏览器中的地址就是`http://localhost:8001/home.html`(域名和端口是基于你的配置决定).
 
-### 配置
+## Page Metadata
 
 入口文件支持一些配置，如默认`title`之类的。写法是在`*.entry.tsx`中导出一个对象，如：
 

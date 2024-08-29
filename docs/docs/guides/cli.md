@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # CLI
@@ -97,73 +97,6 @@ $ esboot lint
 ...
 ```
 
-## docs
-
-启动项目文档，基于`docs`目录，支持MDX。
-
-### dev
-
-启动dev服务器。
-
-```bash
-$ esboot docs dev
-
-info  - dumi v2.2.1
-warn  - Hash history is temporarily incompatible, it is recommended to use browser history for now.
-info  - Umi v4.0.71
-        ╔════════════════════════════════════════════════════╗
-        ║ App listening at:                                  ║
-        ║  >   Local: http://localhost:8001                  ║
-ready - ║  > Network: http://10.10.11.247:8001               ║
-        ║                                                    ║
-        ║ Now you can open browser with the above addresses↑ ║
-        ╚════════════════════════════════════════════════════╝
-event - [Webpack] Compiled in 5467 ms (1394 modules)
-```
-
-### build
-
-打包文档，用于部署线上文档。
-
-```bash
-$ esboot docs build
-
-info  - dumi v2.2.1
-warn  - Hash history is temporarily incompatible, it is recommended to use browser history for now.
-info  - Umi v4.0.71
-
-✔ Webpack
-  Compiled successfully in 4.60s
-
-info  - Memory Usage: 323.54 MB (RSS: 630.59 MB)
-
-info  - File sizes after gzip:
-
-  237.73 kB  dist/umi.78ec1200.js
-  39 kB      dist/927.1de87c66.chunk.css
-  27.52 kB   dist/927.7ccf385d.async.js
-  22.41 kB   dist/85.ca55c792.async.js
-  4.12 kB    dist/umi.6cab289a.css
-  1.19 kB    dist/docs/esboot__hello__index.md.778c6473.chunk.css
-  1.19 kB    dist/docs/esboot__index.md.778c6473.chunk.css
-  717 B      dist/dumi__theme__ContextWrapper.5c098201.async.js
-  404 B      dist/dumi__theme__ContextWrapper.92e58cdd.chunk.css
-  351 B      dist/docs/esboot__hello__index.md.8cb70dc6.async.js
-  339 B      dist/dumi__theme__layouts__DocLayout.00dacd40.async.js
-  319 B      dist/dumi__pages__404.ef2ba46c.async.js
-  276 B      dist/dumi__pages__404.8b85f2d9.chunk.css
-  266 B      dist/docs/docs/3.0/esboot__index.md.a521bf97.async.js
-  244 B      dist/dumi__pages__Demo.2b46b679.async.js
-  147 B      dist/957.2b2e8583.async.js
-  45 B       dist/dumi__pages__Demo.578aa5c0.chunk.css
-
-event - Build 404.html
-event - Build hello/index.html
-event - Build index.html
-event - Build ~demos/:id/index.html
-event - Build ~demos/docs/docs/3.0/esboot-hello-demo-0/index.html
-```
-
 ## postinstall
 
 用于执行`postinstall`钩子，内部执行两个命令。
@@ -181,10 +114,6 @@ Done!
 husky - Git hooks installed
 ```
 
-## exec
-
-用于执行esboot内部的命令，对外可以不使用。
-
 ## Mock Series
 
 生成一些应用的mock数据。
@@ -199,11 +128,3 @@ $ esboot mock:bridge
 /Users/My/esboot-react-mp/config/mobile/bridge/bridge-mock.js 加载成功
 正在监听 *:3002, admin控制台访问地址： http://localhost:3002?port=3002
 ```
-
-## Generate Series
-
-生成一些模版类的东西。
-
-### g-alias
-
-用于改了[alias](../guides/config#alias)之后从新生成`typescript`和`eslint`的配置。

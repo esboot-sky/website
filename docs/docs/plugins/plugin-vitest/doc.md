@@ -2,6 +2,8 @@
 sidebar_position: 0
 ---
 
+# Doc
+
 ## 使用插件
 
 ```ts

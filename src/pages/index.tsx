@@ -17,15 +17,18 @@ export default function Home(): JSX.Element {
           Frontend Infrastructure Toolkit
         </h1>
         <p className={styles.subtitle}>
-          <span className={styles.highlight}>Speed</span>,
-          <span className={styles.highlight}>niversality</span>,
-          <span className={styles.highlight}>support for webpack</span>,
-          <span className={styles.highlight}>vite</span>,
-          <span className={styles.highlight}>rspack</span>
+          <span className={styles.highlight}>Easy to use</span>,
+          <span className={styles.highlight}>Explore blazing fast</span>,
+          <span className={styles.highlight}>Support for Webpack</span>/
+          <span className={styles.highlight}>Vite</span>/
+          <span className={styles.highlight}>Rspack</span>
         </p>
 
         <div>
-          <Link to="/docs/3.0/docs/intro" className={styles.quoteButton}>
+          <Link
+            to="/docs/3.0/docs/intro"
+            className={`${styles.quoteButton} ${styles.glassButton}`}
+          >
             Explore Now
           </Link>
         </div>
