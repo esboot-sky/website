@@ -115,7 +115,7 @@ declare const define: string;
 
 ## copy
 
-**大部分情况可以不用，参考[static](../guides/static)**
+**大部分情况可以不用，参考[static](./guides/static-files)**
 
 - 类型：`Array<string | { from: string; to: string; }>`
 - 默认值：`[]`
@@ -311,7 +311,7 @@ const App = () => {
 
 `since v2.8.0`
 
-使用插件添加额外功能，接收一个[plugin](../plugins/dev)。
+使用插件添加额外功能，接收一个[plugin](./plugins/dev)。
 
 ## pxtorem
 

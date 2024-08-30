@@ -4,8 +4,37 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 import Link from '@docusaurus/Link';
 
+const tools = ['Webpack', 'Vite', 'Rspack'];
+
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
+  const [currentTool, setCurrentTool] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+
+  useEffect(() => {
+    const currentText = tools[currentTool];
+    let charIndex = -1;
+    const typeInterval = setInterval(() => {
+      setDisplayedText((prevText) => {
+        charIndex += 1;
+
+        if (charIndex === currentText.length) {
+          clearInterval(typeInterval);
+          setTimeout(() => {
+            setCurrentTool((prevTool) => (prevTool + 1) % tools.length);
+          }, 500);
+          return prevText;
+        }
+
+        return prevText + currentText[charIndex] || '';
+      });
+    }, 200);
+
+    return () => {
+      setDisplayedText('');
+    };
+  }, [currentTool]);
+
   return (
     <Layout
       title={`Welcome to ${siteConfig.title}`}
@@ -19,9 +48,10 @@ export default function Home(): JSX.Element {
         <p className={styles.subtitle}>
           <span className={styles.highlight}>Easy to use</span>,
           <span className={styles.highlight}>Explore blazing fast</span>,
-          <span className={styles.highlight}>Support for Webpack</span>/
-          <span className={styles.highlight}>Vite</span>/
-          <span className={styles.highlight}>Rspack</span>
+          <span className={styles.highlight}>Support for</span>
+          <p style={{ height: '25px', marginTop: '15px' }}>
+            <span className={styles.typewriter}>{displayedText}</span>
+          </p>
         </p>
 
         <div>
