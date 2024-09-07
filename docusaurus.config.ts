@@ -83,7 +83,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [],
-      copyright: `Copyright © ${new Date().getFullYear()} ESBoot, DZ Web Team.`,
+      copyright: `Copyright © ${new Date().getFullYear()} ESBoot, DZ Frentend Team.`,
     },
     prism: {
       theme: lightTheme,
