@@ -6,6 +6,34 @@ sidebar_position: 1
 
 `webpack` bundler webpack的特定配置。
 
+## Base Config Support
+
+| Name | Supported | Description |
+|--------------------|-----------|-------------|
+| Server.proxy | ✅ | -- |
+| Server.https | ✅ | -- |
+| Server.http2 | ✅ | -- |
+| Server.open | ✅ | -- |
+| Server.port | ✅ | -- |
+| outputPath | ✅ | -- |
+| useLangJsonPicker | ✅ | -- |
+| minimize | ✅ | -- |
+| jsMinifier | ✅ | -- |
+| jsMinifierOptions | ✅ | -- |
+| cssMinifier | ✅ | -- |
+| cssMinifierOptions | ✅ | -- |
+| analyze | ✅ | -- |
+| alias | ✅ | -- |
+| define | ✅ | -- |
+| sourceMap | ✅ | -- |
+| externals | ✅ | -- |
+| copy | ✅ | -- |
+| svgr | ✅ | -- |
+| svgrOptions | ✅ | -- |
+| pxtorem | ✅ | -- |
+| useTailwindcss | ✅ | -- |
+| tailwindcssOptions | ✅ | -- |
+
 ## mfsu
 
 - 类型：`boolean`

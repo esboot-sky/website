@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Static Files
 
-## 自定义静态文件
+## 静态文件
 
 静态文件不需要额外的配置，esboot会自动去根目录的`config`目录下去找。以`esboot.txt`文件来说，规则如下：
 
