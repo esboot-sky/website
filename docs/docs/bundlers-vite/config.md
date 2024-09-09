@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Config
 
-`rspack` bundler的特定配置。
+`vite` bundler的特定配置。
 
 ## Base Config Support
 
@@ -14,7 +14,7 @@ sidebar_position: 1
 | server.https | ❌ | -- |
 | server.http2 | ❌ | -- |
 | sever.open | ❌ | -- |
-| sever.port | ❌ | -- |
+| sever.port | ✅ | -- |
 | outputPath | ❌ | -- |
 | useLangJsonPicker | ❌ | -- |
 | minimize | ❌ | -- |

@@ -6,6 +6,32 @@ sidebar_position: 2
 
 ## 环境准备
 
+### Git
+
+`Git >= v2.39`。
+
+#### 换行符
+
+`ESBoot`默认使用`LF`换行符，如果你的Git环境不支持`LF`，先配置Git使用`LF`换行符。
+
+:::note 关于换行符
+UNIX/Linux 使用的是 0x0A（LF），早期的 Mac OS 使用的是 0x0D（CR），后来的 OS X 在更换内核后与 UNIX 保持一致了。但 DOS/Windows 一直使用 0x0D0A（CRLF） 作为换行符。
+:::
+
+跨平台协作开发是常有的，不统一的换行符会对跨平台的文件交换带来了麻烦。最大的问题是，在不同平台上，换行符发生改变时，Git 会认为整个文件被修改，这就造成没法 diff，不能正确反映本次的修改。
+
+还好 Git 在设计时就考虑了这一点，其提供了一个 autocrlf 的配置项，用于在提交和检出时自动转换换行符。
+
+```sh
+# 提交检出均不转换，统一使用LF
+git config --global core.autocrlf false
+
+# 拒绝提交包含混合换行符的文件
+git config --global core.safecrlf true
+```
+
+更多可以参考[Git 多平台换行符问题(LF or CRLF)](https://kuanghy.github.io/2017/03/19/git-lf-or-crlf)
+
 ### Node
 
 `Node >= v18`。

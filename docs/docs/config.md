@@ -34,13 +34,20 @@ export default defineConfig({
 
 - 类型：`BundlerOptions` 基于你选择的 bundler 的配置项，具体参考各个 bundler 的文档。
 
+## isSP
+
+- 类型：`boolean`
+- 默认值：`false`
+
+是否是单平台模式。
+
 ## plugins
 
 `since v2.8.0`
 
 使用插件添加额外功能，接收一个[plugin](./plugins/dev)。
 
-## Server
+## server
 
 ### proxy
 
@@ -409,5 +416,10 @@ const App = () => {
 参考[postcss-plugin-px2rem](https://www.npmjs.com/package/postcss-plugin-px2rem)。只不过内置的是基于postcss的插件。
 
 ## useTailwindcss
+
+- 类型：`boolean`
+- 默认值：`true`
+
+是否使用[tailwindcss](https://tailwindcss.com/)。
 
 ## tailwindcssOptions
