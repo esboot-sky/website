@@ -60,7 +60,7 @@ Built to make you extraordinarily productive, Cursor is the best way to code wit
 
 [Visual Studio Code](https://code.visualstudio.com/)
 
-## Visual Studio Code插件
+## Visual Studio Code必备插件
 
 因为ESBoot内置了eslint、stylelint规则。所以一定要安装以下插件
 
@@ -123,6 +123,42 @@ code --install-extension ./dz-web-vscode-css-peek-4.4.1.vsix
 ### Image preview
 
 预览`import`的图片。
+
+## Visual Studio Code推荐插件
+
+### Git History
+
+[Git History](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory)
+
+显示每一个文件/每一行的历史提交记录，方便查看历史提交。
+
+### ENV
+
+[ENV](https://marketplace.cursorapi.com/items?itemName=IronGeek.vscode-env)
+
+支持`.env`高亮。
+
+### Filesize
+
+[filesize](https://marketplace.cursorapi.com/items?itemName=mkxml.vscode-filesize)
+
+显示文件大小。
+
+### Import Cost
+
+[Import Cost](https://marketplace.cursorapi.com/items?itemName=wix.vscode-import-cost)
+
+Display inline in the editor the size of the imported package。
+
+### NPM intellisense
+
+[Npm intellisense](https://marketplace.cursorapi.com/items?itemName=christian-kohler.npm-intellisense)
+
+### SVG
+
+[SVG](https://marketplace.visualstudio.com/items?itemName=jock.svg)
+
+预览svg。
 
 ## Visual Studio Code配置
 
