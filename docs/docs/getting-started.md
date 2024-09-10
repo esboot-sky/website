@@ -30,7 +30,13 @@ git config --global core.autocrlf false
 git config --global core.safecrlf true
 ```
 
-更多可以参考[Git 多平台换行符问题(LF or CRLF)](https://kuanghy.github.io/2017/03/19/git-lf-or-crlf)
+更多可以参考[Git 多平台换行符问题(LF or CRLF)](https://kuanghy.github.io/2017/03/19/git-lf-or-crlf)。
+
+:::warning 注意
+
+上面的配置只对设置之后 clone的项目有效，现有的项目是无效的，最好手动重新clone。
+
+:::
 
 ### Node
 

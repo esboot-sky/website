@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Creating plugins
+# Create Plugins
 
 待补充
 

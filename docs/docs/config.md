@@ -423,3 +423,18 @@ const App = () => {
 是否使用[tailwindcss](https://tailwindcss.com/)。
 
 ## tailwindcssOptions
+
+- 类型：`(config: TailwindConfig) => TailwindConfig | TailwindConfig`
+- 默认：
+
+```ts
+const defaultTailwindCSSOpts: Config = {
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+参考[tailwindcss](https://tailwindcss.com/docs/configuration)。

@@ -23,7 +23,7 @@ sidebar_position: 1
 | cssMinifier | ❌ | -- |
 | cssMinifierOptions | ❌ | -- |
 | analyze | ❌ | -- |
-| alias | ❌ | -- |
+| alias | ✅ | -- |
 | define | ❌ | -- |
 | sourceMap | ❌ | -- |
 | externals | ❌ | -- |
@@ -33,3 +33,24 @@ sidebar_position: 1
 | pxtorem | ❌ | -- |
 | useTailwindcss | ❌ | -- |
 | tailwindcssOptions | ❌ | -- |
+
+## customConfig
+
+- 类型：`(config: WebpackConfig) => WebpackConfig`
+
+当以上所有的配置都无法满足的时候，`customConfig`可以让你完全自定义webpack配置。
+
+`e.g.`
+
+```ts
+export default defineConfig((runtimeCfg) => {
+  return {
+    customConfig: (cfg) => {
+      // do something
+      
+      // 一定要返回config
+      return cfg;
+    },
+  };
+});
+```
