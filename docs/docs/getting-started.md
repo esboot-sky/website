@@ -64,6 +64,22 @@ Built to make you extraordinarily productive, Cursor is the best way to code wit
 
 因为ESBoot内置了eslint、stylelint规则。所以一定要安装以下插件
 
+### ESBoot
+
+- [ESBoot](https://marketplace.visualstudio.com/items?itemName=moonlitusun.esboot)
+
+ESBoot配套插件，可以快速切环境变量。
+
+特别是可以方便看到当前环境有多少页面可以启动和快速指定页面启动。
+
+![alt text](images/image.png)
+
+![alt text](images/image-1.png)
+
+觉得命令不好搜的 可以自己绑定个快捷键 这样可以快速唤起 切页面。
+
+![alt text](images/image-2.png)
+
 ### Stylelint
 
 - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
