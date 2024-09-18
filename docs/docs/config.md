@@ -104,6 +104,10 @@ proxy: {
 
 ## useLangJsonPicker
 
+:::warning
+因为`useLangJsonPicker`实现方式的特殊性，`mfsu`的实现不支持`entry`是一个对象，导致和`mfsu`的`entry`冲突了，`dev`模式下会失效，但是不影响`prod`模式。
+:::
+
 - 类型： `boolean`
 - 默认值：`true`
 

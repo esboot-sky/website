@@ -14,18 +14,19 @@ $ esboot help
 Usage: esboot [options] [command]
 
 Options:
-  -V, --version          output the version number
-  -h, --help             display help for command
+  -V, --version             output the version number
+  -h, --help                display help for command
 
 Commands:
-  dev                    Start development project
-  build                  build project
-  preview [options]      Preview Projects
-  lint                   Lint files
-  docs                   docs
-  exec                   exec commands
-  mock:bridge [options]  Start bridge mock
-  help [command]         display help for command
+  dev                       Start to develop project
+  build                     Build project
+  prepare                   Prepare esboot project
+  lint                      Lint project files using ESLint and
+                            Stylelint
+  preview                   Preview the distribution content
+  mock:bridge [options]     Start bridge mock
+  exec_git_hooks [options]  Execute git hooks
+  help [command]            display help for command
 ```
 
 如何还想查看具体命令的配置，可以继续执行
@@ -97,20 +98,24 @@ $ esboot lint
 ...
 ```
 
-## postinstall
+## prepare
 
-用于执行`postinstall`钩子，内部执行两个命令。
+执行初始化操作，主要会做两件事情，
+
+- 生成eslint、stylelint配置文件
+- 初始化husky
 
 ```sh
-$ pnpm run postinstall
+$ esboot prepare
 
-# esboot exec husky install
-info  - Created File: /Users/rocsun/Code/dz-library/esboot/esboot-react-sp/node_modules/.cache/esboot/eslint/index.js.
-info  - Created File: /Users/rocsun/Code/dz-library/esboot/esboot-react-sp/node_modules/.cache/esboot/typescript/esboot.d.ts.
-info  - Created File: /Users/rocsun/Code/dz-library/esboot/esboot-react-sp/node_modules/.cache/esboot/typescript/tsconfig.json.
+info  - Created Typescript Config: ~/sp-base/node_modules/.cache/esboot/typescript/tsconfig.json.
+info  - Created Stylelint Config: ~/sp-base/node_modules/.cache/esboot/stylelint/index.js.
+info  - Created Prettier Config: ~/sp-base/node_modules/.cache/esboot/prettier/index.json.
+info  - Created ESLint Config: ~/sp-base/node_modules/.cache/esboot/eslint/index.js.
+info  - Created Commitlint Config: ~/sp-base/node_modules/.cache/esboot/commitlint/index.js.
+info  - Created Type File: ~/sp-base/node_modules/.cache/esboot/typescript/esboot.d.ts.
 Done!
 
-# esboot g-alias
 husky - Git hooks installed
 ```
 

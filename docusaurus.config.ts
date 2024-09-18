@@ -44,6 +44,9 @@ const config: Config = {
             },
           },
         },
+        blog: {
+          showReadingTime: true,
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -72,6 +75,7 @@ const config: Config = {
           sidebarId: 'apiSidebar',
           label: 'API',
         },
+        { to: '/blog', label: 'Blog', position: 'left' },
         {
           type: 'docsVersionDropdown',
           position: 'right',

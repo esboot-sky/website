@@ -11,6 +11,12 @@ env文件用于设置项目编译时的环境变量，目前支持：
 - `.env`: 默认提交Git，用于公用的环境变量。
 - `.env.local`: 默认不提交Git，用于自己本地开发时候的环境变量，`.env.local`中的变量会覆盖`.env`中的变量。
 
+:::tip
+
+推荐使用[ESBoot](../getting-started#esboot)插件，可以快速切换环境变量。
+
+:::
+
 ## 环境变量
 
 ### ESBOOT_PLATFORM
