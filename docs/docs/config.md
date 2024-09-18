@@ -235,6 +235,8 @@ export enum CSSMinifier {
 
 产物size分析，基于[webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer)。
 
+默认开启`8101`端口，可以使用`process.env.ANALYZE_PORT`来修改端口。
+
 ## alias
 
 - 类型：`Record<string, string>`

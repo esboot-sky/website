@@ -2,9 +2,9 @@
 sidebar_position: 5
 ---
 
-# Static Files
+# Static
 
-## 静态文件
+## Static Files
 
 静态文件不需要额外的配置，esboot会自动去根目录的`config`目录下去找。以`esboot.txt`文件来说，规则如下：
 
@@ -14,6 +14,6 @@ sidebar_position: 5
 
 上述的三条规则可以叠加，当同时存在的时候，指定更详细的会覆盖外面的，3 > 2 > 1。
 
-## config.js
+## Runtime Config
 
-`config.js`在`config`目录的每个平台下，比如`config/mobile/browser/config.js`，是用来做项目运行时配置使用的，所以会自动找到对应的平台下面的`config`生成到`dist/config.js`中。
+项目运行时配置一般是外挂一个`config.js`文件，`config.js`在`config`目录的每个平台下，比如`config/mobile/browser/config.js`，会自动生成到对应的平台下面的`config`生成到`dist/config.js`中。
