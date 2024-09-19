@@ -12,14 +12,15 @@ Release ESBoot 3 note!
 
 ## 更新了什么
 
-### 重构ESBoot
+### 重构代码
 
 - 更有扩展性的架构。
 - 优化代码。
 - 重构plugin机制。
-- 添加更多feature，移除部分过时feature。
+- 添加更多feature。
+- 根据v2经验移除部分过时feature。
 
-### Bundler
+### 支持多Bundler
 
 - webpack的存档。
 - vite占有率的提升。
@@ -29,7 +30,7 @@ Release ESBoot 3 note!
 
 一年一更新，锁死版本。
 
-## 更合理的源码结构
+## 更合理的代码结构
 
 ### packages
 
@@ -49,27 +50,50 @@ Release ESBoot 3 note!
 11 directories.
 ```
 
+### Bundlers
+
 - `bundler-common`: Bundler通用工具
 - `bundler-rspack`: Bundler Rspack
 - `bundler-vite`: Bundler Vite
 - `bundler-webpack`: Bundler Webpack
 
+### ESBoot
+
 - `common`: esboot通用工具
 - `esboot`: 入口，注册cli，调用bundler
+
+### Lint
+
 - `eslint-plugin-esboot`: eslint插件
 - `lint`: lint相关
+
+### Plugin
+
 - `plugin-vitest`: vitest插件
+
+### Other Tools
+
 - `vscode-extension-esboot`: vscode插件
 
 ## Bundler
 
+分析出一套常用的config，自定义配置使用`customConfig`。
+
 ### webpack
 
-- 实现了2的所有功能。
+`100%`
+
+- 实现v2的所有功能。
+- 重新实现`langjsonpick`。
+- 放弃`webpack-chain`。
 
 ### vite
 
-- 开发90%
+`80%`
+
+- 支持SPA
+- 支持`styleName`
+- 平滑支持webapck配置。
 
 ### rspack
 
@@ -112,33 +136,37 @@ This plugin is included in @babel/preset-env, in ES2020。
 
 最新是9，改成了`husky init`命令，但是发现升级也没有什么用处，就懒得升级了，还是用8.
 
-但是有个新的更新，`.husky`目录放到了`cacheDir`目录下，根目录又会少一个文件。
+但是有个新的更新，`.husky`目录放到了`config`目录下，根目录又会少一个文件。
 
 ## command
 
-### `postinstall + g-alias` => `prepare`
+### prepare
+
+`postinstall + g-alias` => `prepare`
 
 - `prepare`就是去生成一些lint规则、ts规则这些/husky安装。
 - `postinstall`有些语义不明。
 - `g-alias`是刚开始设计不全，只考虑了生成`alias`后面发现需要准备的东西越来越多。
 
-### `commitlint / lint-staged` => `exec_git_hooks`
+### exec_git_hooks
+
+`commitlint / lint-staged` => `exec_git_hooks`
 
 Git hooks的两个钩子命令更新。
 
 - 封装的更内敛，更语义化。
 
-### `preview`
+### preview
 
 - 使用`pnpx`启动，代替直接下载包。
 
-## 配置更新
+## Config
 
 ### 移除环境变量`ESBOOT_PROJECT_TYPE`，增加`isSP`配置
 
 之间用来区分是`SP`还是`MP`，现在在`.esbootrc`中添加`isSP`配置。
 
-原因：减少环境变量，没有类型声明，可读性也不好。
+原因：尽量减少环境变量，没有类型声明，可读性也不好。
 
 ### 更新jsminifier/cssminifier
 
@@ -148,10 +176,7 @@ Git hooks的两个钩子命令更新。
 
 ### 移除ForkTsCheckerWebpackPlugin
 
-#### `240806`
-
-- `ForkTsCheckerWebpackPlugin`因为激进的策略，所以几乎不会使用，所以实现后暂时移除。 || 想了下还是要加下，现在就是因为有太多忽略的行为，导致代码有很多未使用的变量，现在写esboot就是用的这个策略，一点问题就不能编译很烦但是对代码质量有绝对提高。
-- stylintconfig 地址修改，版本锁死
+- `ForkTsCheckerWebpackPlugin`因为激进的策略，所以几乎不会使用，所以实现后暂时移除。
 
 ### `customWebpack => customConfig`
 
@@ -174,6 +199,12 @@ server?: {
   proxy?: Proxy[];
 };
 ```
+
+## 配置文件
+
+### stylintconfig
+
+- stylintconfig 地址修改，版本锁死
 
 ## 插件
 
@@ -205,9 +236,32 @@ tailwindcss刚开始抽成插件是因为只是一个实验性的功能，经过
 
 - `build`优化，`CI`环境禁止使用缓存、也不使用`webpackbar`。
 
+## 待完成功能
+
+- [ ] ⭐️ 完成plugin
+- [ ] ⭐️ 支持RSPack
+- [ ] ⭐️ 支持changelogs
+- [ ] ⭐️ 优化项目文档
+
+### Feature
+
+- [ ] 支持mock
+- [ ] 支持多端同时开发
+- [ ] 扩展tailwind内置 cva和cn
+- [ ] svgo配置
+
+### Plugins
+
+#### Vitest
+
+- [ ] 测试覆盖率
+- [ ] 多平台同步测试
+
+### Bugs
+
+- [ ] bug: tree-shaking失败
+- [ ] bug: 物理缓存
+- [ ] bug: mfsu-引入第三方css问题(antd-mobile的日期选择组件)
+
 ## 从v2迁移到v3
 
-## 后续更新计划
-
-- 锁死依赖版本，半年更新一次。
-- 一年一个大版本。

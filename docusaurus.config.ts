@@ -11,7 +11,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   url: 'https://esboot.js.org',
-  baseUrl: process.env.BASE_URL || '/',
+  baseUrl: '/',
 
   organizationName: 'moonlitusun',
   projectName: 'esboot',
