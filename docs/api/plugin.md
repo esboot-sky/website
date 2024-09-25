@@ -37,9 +37,8 @@ export default defineConfig({
 
 ```ts
 [PluginHooks.modifyConfig]?: (
-  config: Configuration,
-  patch: (typeof cfg)['patch']
-) => void;
+    config: Configuration
+) => Partial<Configuration>;
 ```
 
 在读取完配置后执行，允许在配置被使用前进行修改。
@@ -47,11 +46,8 @@ export default defineConfig({
 ### 参数
 
 - `config`：当前的配置对象。
-- `patch`：用于修改配置的函数。
 
 :::info
-
-在 modifyConfig 中，我们使用 patch 函数来修改配置。patch 函数接收一个对象，该对象的属性将合并到现有的配置中。
 
 请不要直接修改 config 对象，这样是无效的。
 
@@ -68,12 +64,12 @@ export default defineConfig({
   plugins: [
     {
       key: 'plugin-key',
-      modifyConfig: (config, patch) => {
-        patch({
+      modifyConfig: (config) => {
+        return {
           output: {
             dir: 'dist-custom',
           },
-        });
+        };
       },
     },
   ],
@@ -97,13 +93,16 @@ export default defineConfig({
 - `Command[]`：命令数组。
 
 ```ts
-{
-  name: string; // 命令名称
-  description?: string; // 命令描述
-  options?: string[]; // 命令选项
-  action: (...args: any[]) => void; // 命令执行函数
+interface Command {
+  name: string;
+  description?: string;
+  allowUnknownOption?: boolean;
+  options?: string[];
+  action: (...args: any[]) => void;
 }
 ```
+
+更多参数含义可以看[commander](https://github.com/tj/commander.js/)。
 
 ### 示例
 
@@ -126,6 +125,193 @@ export default defineConfig({
             },
           },
         ];
+      },
+    },
+  ],
+});
+```
+
+## modifyTypescriptConfig
+
+```ts
+[PluginHooks.modifyTypescriptConfig]?: (
+  cfg: Configuration,
+  tsconfig: NormalConfig
+) => Partial<NormalConfig>;
+```
+
+`prepare` 阶段执行，用于修改生成的`tsconfig.json`内容。
+
+### 参数
+
+- `config`：当前的配置对象。
+- `tsconfig`：当前的 tsconfig 配置。
+
+### 示例
+
+假设我们有一个插件，它需要修改 tsconfig 的`baseUrl`。
+
+```ts
+import { defineConfig, type Configuration } from '@dz-web/esboot';
+
+export default defineConfig({
+  plugins: [
+    {
+      key: 'plugin-key',
+      modifyTypescriptConfig: (config, tsconfig) => {
+        return {
+          baseUrl: 'src',
+        };
+      },
+    },
+  ],
+});
+```
+
+## modifyPrettierConfig
+
+```ts
+[PluginHooks.modifyPrettierConfig]?: (
+  cfg: Configuration,
+  prettierConfig: NormalConfig
+) => Partial<NormalConfig>;
+```
+
+`prepare` 阶段执行，用于修改生成的`prettier`配置文件内容。
+
+### 参数
+
+- `config`：当前的配置对象。
+- `prettierConfig`：当前的 prettier 配置。
+
+### 示例
+
+假设我们有一个插件，它需要修改 prettier 的`tabWidth`。
+
+```ts
+import { defineConfig, type Configuration } from '@dz-web/esboot';
+
+export default defineConfig({
+  plugins: [
+    {
+      key: 'plugin-key',
+      modifyTypescriptConfig: (config, tsconfig) => {
+        return {
+          tabWidth: 2,
+        };
+      },
+    },
+  ],
+});
+```
+
+## modifyStylelintConfig
+
+```ts
+[PluginHooks.modifyStylelintConfig]?: (
+  cfg: Configuration,
+  stylelintConfig: NormalConfig
+) => Partial<NormalConfig>;
+```
+
+`prepare` 阶段执行，用于修改生成的`stylelint`配置文件内容。
+
+### 参数
+
+- `config`：当前的配置对象。
+- `stylelintConfig`：当前的 stylelint 配置。
+
+### 示例
+
+假设我们有一个插件，它需要修改 stylelint 的一个 rule(`max-nesting-depth`)。
+
+```ts
+import { defineConfig, type Configuration } from '@dz-web/esboot';
+
+export default defineConfig({
+  plugins: [
+    {
+      key: 'plugin-key',
+      modifyStylelintConfig: (config, stylelintConfig) => {
+        return {
+          rules: {
+            'max-nesting-depth': 3,
+          },
+        };
+      },
+    },
+  ],
+});
+```
+
+## modifyEslintConfig
+
+```ts
+[PluginHooks.modifyEslintConfig]?: (
+  cfg: Configuration,
+  eslintConfig: NormalConfig
+) => Partial<NormalConfig>;
+```
+
+`prepare` 阶段执行，用于修改生成的`eslint`配置文件内容。
+
+### 参数
+
+- `config`：当前的配置对象。
+- `eslintConfig`：当前的 eslint 配置。
+
+### 示例
+
+假设我们有一个插件，它需要修改 eslint 的一个 rule(`no-unused-vars`)。
+
+```ts
+import { defineConfig, type Configuration } from '@dz-web/esboot';
+
+export default defineConfig({
+  plugins: [
+    {
+      key: 'plugin-key',
+      modifyEslintConfig: (config, eslintConfig) => {
+        return {
+          rules: {
+            'no-unused-vars': 'off',
+          },
+        };
+      },
+    },
+  ],
+});
+```
+
+## modifyBundlerConfig
+
+```ts
+[PluginHooks.modifyBundlerConfig]?: (
+  cfg: Configuration,
+  bundlerConfig: NormalConfig
+) => void;
+```
+
+Bunder的`dev`/`build` 执行之前执行，用于修改当前bundler的配置文件。很类似于每个bundler的`customConfig`配置，但是`plugin`的好处是可以封装并且跨`bundler`。
+
+### 参数
+
+- `config`：当前的配置对象。
+- `bundlerConfig`：当前的 bundler 配置。
+
+### 示例
+
+假设我们有一个插件，它需要修改 eslint 的一个 rule(`no-unused-vars`)。
+
+```ts
+import { defineConfig, type Configuration } from '@dz-web/esboot';
+
+export default defineConfig({
+  plugins: [
+    {
+      key: 'plugin-key',
+      modifyBundlerConfig: (config, bundler) => {
+        
       },
     },
   ],
