@@ -8,7 +8,7 @@
     "dev": "docusaurus start --port 8080",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "dep:local": "yarn build && dz-ud /ld/esboot ./build http://esboot.dzfe.net",
+    "dep:local": "pnpm run build && dz-ud /ld/esboot ./build http://esboot.dzfe.net",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
