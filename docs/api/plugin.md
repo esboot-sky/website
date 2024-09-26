@@ -288,7 +288,8 @@ export default defineConfig({
 ```ts
 [PluginHooks.modifyBundlerConfig]?: (
   cfg: Configuration,
-  bundlerConfig: NormalConfig
+  bundlerConfig: NormalConfig,
+  bundlerName: string
 ) => void;
 ```
 
@@ -298,20 +299,54 @@ Bunder的`dev`/`build` 执行之前执行，用于修改当前bundler的配置�
 
 - `config`：当前的配置对象。
 - `bundlerConfig`：当前的 bundler 配置。
+- `bundlerName`：当前的 bundler 名称。
 
 ### 示例
 
-假设我们有一个插件，它需要修改 eslint 的一个 rule(`no-unused-vars`)。
+假设我们有一个插件，它需要修改 webpack 的`output.publicPath`。
 
 ```ts
-import { defineConfig, type Configuration } from '@dz-web/esboot';
+import { defineConfig, type Configuration, PluginHooks } from '@dz-web/esboot';
 
 export default defineConfig({
   plugins: [
     {
       key: 'plugin-key',
-      modifyBundlerConfig: (config, bundler) => {
-        
+      [PluginHooks.modifyBundlerConfig]: (cfg, bundlerConfig, bundlerName) => {
+        if (bundlerName === 'webpack') {
+          bundlerConfig.output.publicPath = '/module';
+        }
+      },
+    },
+  ],
+});
+```
+
+## afterCompile
+
+```ts
+[PluginHooks.afterCompile]?: (cfg: Configuration) => void;
+```
+
+`dev`/`build` 执行之后执行，用于在 bundler 编译之后做一些事情。
+
+### 参数
+
+- `config`：当前的配置对象。
+
+### 示例
+
+假设我们有一个插件，它需要在编译之后提示当前编译的页面列表。
+
+```ts
+import { defineConfig, type Configuration, PluginHooks } from '@dz-web/esboot';
+
+export default defineConfig({
+  plugins: [
+    {
+      key: 'plugin-key',
+      [PluginHooks.afterCompile]: (cfg) => {
+        console.log(cfg.entry);
       },
     },
   ],
