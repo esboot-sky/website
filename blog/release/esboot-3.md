@@ -42,12 +42,13 @@ Release ESBoot 3 note!
 ├── bundler-webpack
 ├── common
 ├── esboot
+├── esboot-browser
 ├── eslint-plugin-esboot
 ├── lint
 ├── plugin-vitest
 └── vscode-extension-esboot
 
-11 directories.
+12 directories.
 ```
 
 ### Bundlers
@@ -61,6 +62,7 @@ Release ESBoot 3 note!
 
 - `common`: esboot通用工具
 - `esboot`: 入口，注册cli，调用bundler
+- `esboot-browser`: 浏览器端工具
 
 ### Lint
 
@@ -99,7 +101,17 @@ Release ESBoot 3 note!
 
 - 开发10%
 
-## 文档更新
+## 项目文档
+
+- 基于v2 doc的使用设计为更简洁的doc设计。
+- 更好看的主题。
+- 添加changelog支持。
+
+## ESBoot Browser
+
+增加`esboot-browser`包，封装常用的浏览器端工具。
+
+## ESBoot 文档更新
 
 - 更合理的文档结构。
 - 补充更多文档。
@@ -208,9 +220,11 @@ server?: {
 
 ## 插件
 
-## 重构插件机制
+### 重构插件机制
 
-更合理的架构设计，优化性能。
+`240927`
+
+更合理的架构设计，更具扩展性的API。
 
 ### 内置支持tailwindcss
 
@@ -232,13 +246,39 @@ tailwindcss刚开始抽成插件是因为只是一个实验性的功能，经过
 
 已经提前在`esboot v2`上实现了。
 
-## 其他优化
+## 移除Hooks使用
+
+之前使用的`afterHooks`是一个没有经过深思熟虑的设计，在`v3`中移除。完全使用`plugin`机制替代。例如v2经常使用的
+
+```ts
+export const afterHooks = (cfg) => {
+  console.log(Object.entries(cfg._entry), '<-- cfg');
+};
+```
+
+在v3中，可以完全使用`plugin`机制替代。
+
+```ts
+import { defineConfig, type Configuration, PluginHooks } from '@dz-web/esboot';
+
+export default defineConfig({
+  plugins: [
+    {
+      key: 'plugin-log',
+      [PluginHooks.afterCompile]: (cfg) => {
+        console.log(cfg.entry);
+      },
+    },
+  ],
+});
+```
+
+## 其他功能
 
 - `build`优化，`CI`环境禁止使用缓存、也不使用`webpackbar`。
 
 ## 待完成功能
 
-- [ ] ⭐️ 完成plugin
 - [ ] ⭐️ 支持RSPack
 - [ ] ⭐️ 支持changelogs
 - [ ] ⭐️ 优化项目文档
@@ -247,7 +287,7 @@ tailwindcss刚开始抽成插件是因为只是一个实验性的功能，经过
 
 - [ ] 支持mock
 - [ ] 支持多端同时开发
-- [ ] 扩展tailwind内置 cva和cn
+- [x] 扩展tailwind内置 cva和cn
 - [ ] svgo配置
 
 ### Plugins
@@ -265,3 +305,4 @@ tailwindcss刚开始抽成插件是因为只是一个实验性的功能，经过
 
 ## 从v2迁移到v3
 
+参考[迁移到v3](../../docs/3.0/docs/migration/migration-v3)

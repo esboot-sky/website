@@ -33,6 +33,37 @@ export default defineConfig({
 });
 ```
 
+## prepare
+
+```ts
+prepare?: (cfg: Configuration) => void;
+```
+
+当执行[esboot prepare](../docs/guides/cli#prepare)的时候会被触发。
+
+通常会做一些初始化操作，比如安装依赖，生成文件等。
+
+### 参数
+
+- `cfg`：当前的配置对象。
+
+### 示例
+
+```ts
+import { defineConfig, type Configuration, PluginHooks } from '@dz-web/esboot';
+
+export default defineConfig({
+  [PluginHooks.prepare]: [
+    {
+      key: 'plugin-key',
+      prepare: (cfg) => {
+        console.log('My plugin is prepared', cfg);
+      },
+    },
+  ],
+});
+```
+
 ## modifyConfig
 
 ```ts

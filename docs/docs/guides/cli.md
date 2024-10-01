@@ -119,6 +119,45 @@ Done!
 husky - Git hooks installed
 ```
 
+## docs
+
+生成项目文档。
+
+### `docs dev`
+
+```sh
+$ esboot docs dev
+...
+```
+
+启动本地开发服务器，进行项目的开发与调试。
+
+### `docs build`
+
+```sh
+$ esboot docs build
+...
+```
+
+构建文档产物，适用于生产环境的部署。
+
+### `docs preview`
+
+```sh
+$ esboot docs preview
+...
+```
+
+在本地启动一个静态 Web 服务器，运行在 `http://127.0.0.1:4172`, 用于预览构建后产物。
+
+可以通过 `--port` 参数来配置服务的运行端口。
+
+```bash
+esboot docs preview --port 9527
+```
+
+现在 `preview` 命令会将服务器运行在 `http://127.0.0.1:9527`
+
 ## Mock Series
 
 生成一些应用的mock数据。
