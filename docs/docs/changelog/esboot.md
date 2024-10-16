@@ -11,6 +11,7 @@ sidebar_position: 2
 ### ESBoot
 
 - 🐞 fix: 修复`mock:bridge`命令，在windows下无法运行的问题。
+- 🐞 fix: 修复`esboot mock:bridge`命令地址生成问题。
 
 ### Bundler Webpack
 
