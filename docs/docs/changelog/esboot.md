@@ -4,6 +4,15 @@ sidebar_position: 2
 
 # ESBoot
 
+## v3.0.5
+
+`241024`
+
+### Bundler Vite
+
+- 🐞 fix: `plugin-vitest`使用`Bundler-vite`的时候找不到`styleName`的引入函数。
+- ⚡ perf: 优化解析`styleName`的性能。
+
 ## V 3.0.2 ~ 3.0.4
 
 `241016`
