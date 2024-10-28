@@ -6,7 +6,11 @@ sidebar_position: 2
 
 ## v3.0.5
 
-`241024`
+`~`
+
+### ESBoot
+
+- 🐞 fix: 添加`writeMultiPlatform`。
 
 ### Bundler Vite
 
