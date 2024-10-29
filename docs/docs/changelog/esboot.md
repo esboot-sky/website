@@ -4,9 +4,9 @@ sidebar_position: 2
 
 # ESBoot
 
-## v3.0.5
+## v3.0.5 ~ 3.0.6
 
-`~`
+`241029`
 
 ### ESBoot
 
