@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # ESBoot
 
-## v3.0.5 ~ 3.0.6
+## v3.0.5 ~ 3.0.7
 
 `241029`
 
@@ -16,6 +16,10 @@ sidebar_position: 2
 
 - 🐞 fix: `plugin-vitest`使用`Bundler-vite`的时候找不到`styleName`的引入函数。
 - ⚡ perf: 优化解析`styleName`的性能。
+
+### Bundler Webpack
+
+- 🐞 fix: Change `resolve.mainFields`, add `browser`。
 
 ## V 3.0.2 ~ 3.0.4
 
