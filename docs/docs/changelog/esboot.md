@@ -2,7 +2,22 @@
 sidebar_position: 2
 ---
 
+🎨
+
 # ESBoot
+
+# v3.0.8 ~ v3.0.10
+
+`241116`
+
+### ESBoot
+
+- ⚡ perf: 优化`prepare`命令速度，将所有同步写入改为异步写入。
+- 🚀 feat: `prepare`命令增加`updateVscodeSetting`步骤，更新`.vscode`的setting.json。以支持自动配置`tailwindcss intellisense`插件的`config file`。
+
+### Lint
+
+- 🔥 chore: `stylintrc` 更新`selector-max-id`规则。只支持一个且必须是`#root`。
 
 ## v3.0.5 ~ 3.0.7
 
