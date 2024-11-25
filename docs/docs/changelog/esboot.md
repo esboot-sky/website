@@ -6,6 +6,22 @@ sidebar_position: 2
 
 # ESBoot
 
+# v3.0.12
+
+`241125`
+
+- 🐞 修复windows上husky无法安装的问题。
+
+# v3.0.11
+
+`241125`
+
+- 🚀 add `legacy` config, for legacy project。
+- 🚀 for more type strict, tsconfig rules upgrade。
+  - `noImplicitAny` -> disable implicit any
+  - `strictNullChecks` -> enable strict null checks
+- 🐞 config.js not compressed
+
 # v3.0.8 ~ v3.0.10
 
 `241116`
