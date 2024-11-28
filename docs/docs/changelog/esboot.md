@@ -6,20 +6,14 @@ sidebar_position: 2
 
 # ESBoot
 
-# v3.0.15
+## v3.0.15
 
 `241128`
 
 - 🚀 add [`ESBOOT_CONTENT_IGNORE`](../guides/environment-variables#esboot_content_ignore) env, for ignore specific content。
 - 🔥 chore: replace `webpackbarPlugin` with custom process bar。
 
-# v3.0.12
-
-`241125`
-
-- 🐞 修复windows上husky无法安装的问题。
-
-# v3.0.11
+## v3.0.11 ~ v3.0.12
 
 `241125`
 
@@ -28,8 +22,9 @@ sidebar_position: 2
   - `noImplicitAny` -> disable implicit any
   - `strictNullChecks` -> enable strict null checks
 - 🐞 config.js not compressed
+- 🐞 修复windows上husky无法安装的问题。
 
-# v3.0.8 ~ v3.0.10
+## v3.0.8 ~ v3.0.10
 
 `241116`
 
@@ -59,7 +54,7 @@ sidebar_position: 2
 
 - 🐞 fix: Change `resolve.mainFields`, add `browser`。
 
-## V 3.0.2 ~ 3.0.4
+## v3.0.2 ~ 3.0.4
 
 `241016`
 
