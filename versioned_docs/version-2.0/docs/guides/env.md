@@ -58,7 +58,6 @@ ESBOOT_CONTENT_PATTERN=trade
 ```env
 ESBOOT_CONTENT_PATTERN=+(trade|trade-setting)
 ```
-
 ### BRIDGE_MOCK_HOST
 
 `可选host，如localhost`

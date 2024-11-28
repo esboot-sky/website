@@ -65,6 +65,24 @@ ESBOOT_CONTENT_PATTERN=trade
 ESBOOT_CONTENT_PATTERN=+(trade|trade-setting)
 ```
 
+### ESBOOT_CONTENT_IGNORE
+
+忽略某些页面。
+
+- 可选值：正则 多个用`,`隔开
+
+比如你想忽略`trade.html`和`trade-setting.html`
+
+```env
+ESBOOT_CONTENT_IGNORE=trade,trade-setting
+```
+
+也可以直接
+
+```env
+ESBOOT_CONTENT_IGNORE=trade*
+```
+
 ### BRIDGE_MOCK_HOST
 
 `可选host，如localhost`
