@@ -6,6 +6,12 @@ sidebar_position: 2
 
 # ESBoot
 
+## v3.0.16
+
+`241203`
+
+- ⚡ feat: improve prepare command when CI。
+
 ## v3.0.15
 
 `241128`
