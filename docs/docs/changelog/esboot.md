@@ -6,6 +6,14 @@ sidebar_position: 2
 
 # ESBoot
 
+## v3.0.17
+
+`241212`
+
+- 🚀 test: add some unit test
+- 🐞 fix: upgrade `prettier-plugin-classnames` to fix issues(not respecting maxLength)
+- 🚀 chore(bundler-webpack): add template params(isDev)
+
 ## v3.0.16
 
 `241203`
