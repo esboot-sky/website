@@ -95,6 +95,10 @@ const config: Config = {
       additionalLanguages: ['bash', 'diff', 'json'],
     },
   } satisfies Preset.ThemeConfig,
+
+  plugins: [
+    // '@aldridged/docusaurus-plugin-lunr',
+  ]
 };
 
 export default config;
