@@ -24,10 +24,10 @@ sidebar_position: 1
 | cssMinifierOptions | ❌ | -- |
 | analyze | ❌ | -- |
 | alias | ✅ | -- |
-| define | ❌ | -- |
+| define | ✅ | -- |
 | sourceMap | ❌ | -- |
 | externals | ❌ | -- |
-| copy | ❌ | -- |
+| copy | ✅ | -- |
 | svgr | ❌ | -- |
 | svgrOptions | ❌ | -- |
 | pxtorem | ❌ | -- |
