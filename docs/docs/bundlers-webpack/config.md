@@ -30,7 +30,7 @@ sidebar_position: 1
 | copy               | ✅         | --          |
 | svgr               | ✅         | --          |
 | svgrOptions        | ✅         | --          |
-| pxtorem            | ✅         | --          |
+| px2rem             | ✅         | --          |
 | useTailwindcss     | ✅         | --          |
 | tailwindcssOptions | ✅         | --          |
 

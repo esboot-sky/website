@@ -10,10 +10,10 @@ sidebar_position: 1
 
 | Name | Supported | Description |
 |--------------------|-----------|-------------|
-| server.proxy | ❌ | -- |
+| server.proxy | ✅ | -- |
 | server.https | ❌ | -- |
 | server.http2 | ❌ | -- |
-| sever.open | ❌ | -- |
+| sever.open | ✅ | -- |
 | sever.port | ✅ | -- |
 | outputPath | ❌ | -- |
 | useLangJsonPicker | ❌ | -- |
@@ -28,11 +28,11 @@ sidebar_position: 1
 | sourceMap | ❌ | -- |
 | externals | ❌ | -- |
 | copy | ✅ | -- |
-| svgr | ❌ | -- |
-| svgrOptions | ❌ | -- |
-| pxtorem | ❌ | -- |
-| useTailwindcss | ❌ | -- |
-| tailwindcssOptions | ❌ | -- |
+| svgr | ✅ | -- |
+| svgrOptions | ✅ | -- |
+| px2rem | ✅ | -- |
+| useTailwindcss | ✅ | -- |
+| tailwindcssOptions | ✅ | -- |
 
 ## customConfig
 

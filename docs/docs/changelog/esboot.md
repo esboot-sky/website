@@ -6,6 +6,32 @@ sidebar_position: 2
 
 # ESBoot
 
+## v3.0.19
+
+### VSCode Plugin
+
+- feat: enhance prepare command by adding IntelliSense support for common class utilities (`cn`, `cls`, `cva`, `clsx`, `classnames`) in the Tailwind CSS IntelliSense extension
+
+### Bundler-vite
+
+- feat: support `define`.
+- feat: support static file copy
+- feat: support `svgr`
+- feat: support `svgrOptions`
+- feat: support `useTailwindcss`
+- feat: support `tailwindcssOptions`
+- feat: support `server.proxy`
+- feat: support `server.open`
+- feat: support `px2rem`
+
+### Bundler-webpack
+
+- perf: extract `addPostcssPluginPx2rem`
+
+### Lint
+
+- chore: eslint include `.esbootrc.ts`
+
 ## v3.0.17
 
 `241212`
