@@ -6,6 +6,12 @@ sidebar_position: 2
 
 # ESBoot
 
+## v3.0.23
+
+### Bundler-vite
+
+- feat: 🚀 fully support `MPA`
+
 ## v3.0.21
 
 ### Bundler-vite

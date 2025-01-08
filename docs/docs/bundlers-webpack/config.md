@@ -16,6 +16,7 @@ sidebar_position: 1
 | sever.open         | ✅         | --          |
 | sever.port         | ✅         | --          |
 | outputPath         | ✅         | --          |
+| publicPath         | ✅         | --          |
 | useLangJsonPicker  | ✅         | --          |
 | minimize           | ✅         | --          |
 | jsMinifier         | ✅         | --          |
