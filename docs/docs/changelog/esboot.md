@@ -6,6 +6,13 @@ sidebar_position: 2
 
 # ESBoot
 
+## v3.0.21
+
+### Bundler-vite
+
+- fix: fix `static` not work in windows.
+- fix: server.proxy not work.
+
 ## v3.0.19
 
 ### VSCode Plugin
