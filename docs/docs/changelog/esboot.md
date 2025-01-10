@@ -6,11 +6,12 @@ sidebar_position: 2
 
 # ESBoot
 
-## v3.0.23
+## v3.0.22~v3.0.27
 
-### Bundler-vite
+### Bundler-Vite
 
-- feat: 🚀 fully support `MPA`
+- feat: support code-splitting
+- fix: 修复vite不能导入css文件
 
 ## v3.0.21
 

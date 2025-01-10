@@ -35,6 +35,11 @@ sidebar_position: 1
 | useTailwindcss     | ✅         | --          |
 | tailwindcssOptions | ✅         | --          |
 
+## Base Feature Support
+
+- ✅ Compatibility
+- ✅ Code splitting  
+
 ## mfsu
 
 - 类型：`boolean`
@@ -123,9 +128,9 @@ export default {
 `e.g.`
 
 ```ts
-export default defineConfig((runtimeCfg) => {
+export default defineConfig((compileConfig) => {
   const extraBabelPlugins: UserOpts['extraBabelPlugins'] = [];
-  if (!runtimeCfg.isMobile) {
+  if (!compileConfig.isMobile) {
     extraBabelPlugins.push(getImportPluginsOfRsuite([]));
   }
 
@@ -145,7 +150,7 @@ export default defineConfig((runtimeCfg) => {
 `e.g.`
 
 ```ts
-export default defineConfig((runtimeCfg) => {
+export default defineConfig((compileConfig) => {
   return {
     customConfig: (cfg) => {
       Object.assign(cfg?.devServer ?? {}, {
