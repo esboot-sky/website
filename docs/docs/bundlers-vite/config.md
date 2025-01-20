@@ -17,13 +17,13 @@ sidebar_position: 1
 | sever.port | ✅ | -- |
 | outputPath | ✅ | -- |
 | publicPath | ✅ | -- |
-| useLangJsonPicker | ❌ | -- |
+| useLangJsonPicker | ✅ | -- |
 | minimize | ✅ | -- |
 | jsMinifier | ✅ | -- |
 | jsMinifierOptions | ✅ | -- |
 | cssMinifier | ✅ | -- |
 | cssMinifierOptions | ✅ | -- |
-| analyze | ❌ | -- |
+| analyze | ✅ | -- |
 | alias | ✅ | -- |
 | define | ✅ | -- |
 | sourceMap | ✅ | -- |

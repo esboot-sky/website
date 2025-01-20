@@ -6,6 +6,22 @@ sidebar_position: 2
 
 # ESBoot
 
+## v3.0.28
+
+### ESBoot
+
+- feat: page metaData support `urlParams`。
+
+### Plugin-Vitest
+
+- fix: vitest cmd not work
+
+### Bundler-Vite
+
+- feat: support analyze。
+- feat: support langjsonpicker。
+- perf: `fs.readFile` instead of `fs.readFileSync`。
+
 ## v3.0.22~v3.0.27
 
 ### Bundler-Vite
