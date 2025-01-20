@@ -71,3 +71,11 @@ export default {
 参考[langJsonPicker](../config/#uselangjsonpicker)。
 
 页面标题，默认为文件名称 | ESboot APP。
+
+### urlParams
+
+页面url参数，默认是空。
+
+类型: `string`
+
+如果填了会自动在url中添加参数，例如`home.entry.tsx`中填了`urlParams: '?a=1&b=2'`，那么`cfg.entry[chunk].url`就是`http://localhost:8001/home.html?a=1&b=2`。
