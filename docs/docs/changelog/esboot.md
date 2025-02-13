@@ -6,6 +6,13 @@ sidebar_position: 2
 
 # ESBoot
 
+## v3.0.32
+
+### Bundler-Vite
+
+- feat: when config.js not exist, not copy and import
+- fix: WebSocket server error: Port is already in use
+
 ## v3.0.28
 
 ### ESBoot

@@ -153,6 +153,10 @@ export default {
 
 ## minimize
 
+- 类型: `boolean`
+
+一键关闭`js`和`css`的压缩功能。
+
 ## jsMinifier
 
 - 类型：`JsMinifier`。
