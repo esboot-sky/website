@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## 环境准备
 
-`Node >= v16`
+`Node >= v18.3`
 
 ESBoot集成了很多工程化工具，包括一些Rust和Go的包，比较大，所以包管理工具推荐使用[pnpm](https://pnpm.io/)，节省磁盘空间，退而求次之选用[yarn1](https://classic.yarnpkg.com/en/docs)。
 

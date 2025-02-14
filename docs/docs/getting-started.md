@@ -8,7 +8,9 @@ sidebar_position: 2
 
 ### Git
 
-`Git >= v2.39`。
+- `Git >= v2.39`。
+
+- `Node >= v18.3`
 
 #### 换行符
 
