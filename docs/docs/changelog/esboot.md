@@ -6,6 +6,12 @@ sidebar_position: 2
 
 # ESBoot
 
+## v3.0.36
+
+### Bundler-Vite
+
+- fix(bundle-vite): entry path compatible windows
+
 ## v3.0.32
 
 ### Bundler-Vite
