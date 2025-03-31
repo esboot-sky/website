@@ -6,6 +6,16 @@ sidebar_position: 2
 
 # ESBoot
 
+## v3.0.38
+
+### Bundler-webpack
+
+- fix: enable langjsonpick in dev mode
+
+### Bundler-vite
+
+- chore: remove entry log
+
 ## v3.0.36
 
 ### Bundler-Vite
