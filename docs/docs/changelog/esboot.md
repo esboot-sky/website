@@ -8,6 +8,10 @@ sidebar_position: 2
 
 ## v3.0.38
 
+### ESBoot
+
+- chore(esboot): eslint alias change to abs path
+
 ### Bundler-webpack
 
 - fix: enable langjsonpick in dev mode
