@@ -184,7 +184,79 @@ Display inline in the editor the size of the imported package。
 
 ## 创建项目
 
-### 方式一：从内置模版创建
+### 方式一：⭐️ 从上游创建项目(推荐)
+
+为了能够上游模版更新之后可以cherry-pick更改。
+
+#### 初始化
+
+```sh
+pnpm create esboot --upstream --url 你的项目git地址
+
+# 示例
+pnpm create esboot --upstream --url ssh://git@git.web.dz:10022/draft/esboot-react-mp-draft.git
+```
+
+上面的命令执行完成之后，你的本地会有两个`remote`:
+
+```sh
+$ git remote -v
+
+origin  <你的项目git地址> (fetch)
+origin  <你的项目git地址> (push)
+upstream  ssh://git@git.web.dz:10022/WebTeam/common-library/esboot/esboot-react-mp.git (fetch)
+upstream  ssh://git@git.web.dz:10022/WebTeam/common-library/esboot/esboot-react-mp.git (push)
+```
+
+3个分支
+
+```sh
+$ git branch -a
+
+* dev
+  main
+  upstream
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/dev
+  remotes/origin/main
+  remotes/origin/upstream
+  remotes/upstream/main
+```
+
+- `dev` 为你的开发分支
+- `main` 为上游的开发分支
+- `upstream` 为上游的main分支
+
+#### 合并上游更新
+
+当你需要合并上游更新的时候，只需要执行
+
+**拉取更新**
+
+```sh
+git fetch upstream main
+```
+
+**合并上游更新到upstream分支**
+
+```sh
+# 如果你有本地修改需要合并，使用这个命令(不推荐本地改上游分支内容)
+git merge upstream/main
+
+# 如果你没有本地修改，直接切换到上游最新
+git reset --hard upstream/main
+```
+
+**合并上游更新到dev分支**
+
+```sh
+git checkout dev
+
+# 如果需要合并所有更新使用rebase，如果只合并某几个更新使用cherry-pick
+git rebase upstream
+```
+
+### 方式二：从内置模版创建
 
 先找个地方建个空目录。
 
@@ -216,23 +288,14 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
-### 方式二：从自定义模版创建
+### 方式三：从自定义模版创建
+
+你可以创建自己的模版项目，只要名字叫`@dz-web/esboot-electron-template-<模版名称>`即可。
 
 ```bash
 # 从 @dz-web/esboot-electron-template 创建一个 electron 模板
 
 pnpm create esboot --template electron
-```
-
-### 方式三：⭐️ 从上游创建项目(推荐)
-
-为了能够上游模版更新之后可以cherry-pick更改。
-
-```sh
-pnpm create esboot --upstream --url 你的项目git地址
-
-# 示例
-pnpm create esboot --upstream --url ssh://git@git.web.dz:10022/draft/esboot-react-mp-draft.git
 ```
 
 #### 参数选项
