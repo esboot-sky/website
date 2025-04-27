@@ -3,6 +3,16 @@
  * and scoped locally.
  */
 
+@import 'lxgw-wenkai-screen-webfont/style.css';
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: "LXGW WenKai Screen R", sans-serif;
+}
+
+pre,code {
+  font-family: "LXGW WenKai Mono", sans-serif;
+}
+
+
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
