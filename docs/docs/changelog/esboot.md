@@ -6,6 +6,12 @@ sidebar_position: 2
 
 # ESBoot
 
+## v3.0.39
+
+### ESBoot
+
+- fix: support useLangJsonPicker when isSP
+
 ## v3.0.38
 
 ### ESBoot
