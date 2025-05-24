@@ -26,12 +26,6 @@ importers:
       lxgw-wenkai-screen-webfont:
         specifier: ^1.7.0
         version: 1.7.0
-      lxgw-wenkai-tc-webfont:
-        specifier: ^1.2.0
-        version: 1.2.0
-      lxgw-wenkai-webfont:
-        specifier: ^1.7.0
-        version: 1.7.0
       prism-react-renderer:
         specifier: ^2.3.1
         version: 2.3.1(react@18.3.1)
@@ -1273,24 +1267,28 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@node-rs/jieba-linux-arm64-musl@1.10.4':
     resolution: {integrity: sha512-Y/tiJ1+HeS5nnmLbZOE+66LbsPOHZ/PUckAYVeLlQfpygLEpLYdlh0aPpS5uiaWMjAXYZYdFkpZHhxDmSLpwpw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@node-rs/jieba-linux-x64-gnu@1.10.4':
     resolution: {integrity: sha512-WZO8ykRJpWGE9MHuZpy1lu3nJluPoeB+fIJJn5CWZ9YTVhNDWoCF4i/7nxz1ntulINYGQ8VVuCU9LD86Mek97g==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@node-rs/jieba-linux-x64-musl@1.10.4':
     resolution: {integrity: sha512-uBBD4S1rGKcgCyAk6VCKatEVQb6EDD5I40v/DxODi5CuZVCANi9m5oee/MQbAoaX7RydA2f0OSCE9/tcwXEwUg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@node-rs/jieba-wasm32-wasi@1.10.4':
     resolution: {integrity: sha512-Y2umiKHjuIJy0uulNDz9SDYHdfq5Hmy7jY5nORO99B4pySKkcrMjpeVrmWXJLIsEKLJwcCXHxz8tjwU5/uhz0A==}
@@ -3354,12 +3352,6 @@ packages:
 
   lxgw-wenkai-screen-webfont@1.7.0:
     resolution: {integrity: sha512-xvfF4V26Mb335xKg3uxljz+V2nq4F5ek0ku9pmyKgT0Dzo/d2rHi7WpnqgvM9mlXAcAKOrxrcDmUZiIs/ZQ9bQ==}
-
-  lxgw-wenkai-tc-webfont@1.2.0:
-    resolution: {integrity: sha512-e8bBix+1V/18FmZVMBlSqbOMKACisW9Xnyq1C+CNqd9L5VEwfW8JuG4/i5bsr9pFmrXnfjX8WZYu28lyjwh09A==}
-
-  lxgw-wenkai-webfont@1.7.0:
-    resolution: {integrity: sha512-kVJmT4xMAyOLhG6q0w63wJkVU7RP8UMQRGoAWj9tnpzL7sWFFYiEHBdUQyW9myqBQFa5SQfWfa2VLYF4IJBL5g==}
 
   magic-string@0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
@@ -9725,10 +9717,6 @@ snapshots:
   lunr@2.3.9: {}
 
   lxgw-wenkai-screen-webfont@1.7.0: {}
-
-  lxgw-wenkai-tc-webfont@1.2.0: {}
-
-  lxgw-wenkai-webfont@1.7.0: {}
 
   magic-string@0.25.9:
     dependencies:

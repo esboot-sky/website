@@ -20,8 +20,8 @@ const config: Config = {
   onBrokenMarkdownLinks: 'warn',
 
   customFields: {
-    latestVersion: '3.0.0',
-    versions: ['2.0.0'],
+    latestVersion: '4.0.0',
+    versions: ['3.0.0', '2.0.0'],
   },
 
   i18n: {
@@ -57,8 +57,8 @@ const config: Config = {
           lastVersion: 'current',
           versions: {
             current: {
-              label: '3.0 (Current)',
-              path: '3.0',
+              label: '4.0 (Current)',
+              path: '4.0',
             },
           },
         },
