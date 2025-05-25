@@ -1,12 +1,12 @@
 ---
-slug: esboot-3.1
-title: ESBoot 3.1
+slug: esboot-4
+title: ESBoot 4
 authors: [Roc]
 tags: [Release]
-date: 2024-09-18
+date: 2025-05-24
 ---
 
-Release ESBoot 3.1 note!
+Release ESBoot 4 note!
 
 <!-- truncate -->
 
@@ -46,3 +46,7 @@ Release ESBoot 3.1 note!
 - 移除了`@responsive`
 - 移除了`@screen`
 - 移除了`@variants`
+
+## Config
+
+- 移除了`tailwindcssOptions`

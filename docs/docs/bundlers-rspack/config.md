@@ -33,4 +33,3 @@ sidebar_position: 1
 | svgrOptions | ❌ | -- |
 | px2rem | ❌ | -- |
 | useTailwindcss | ❌ | -- |
-| tailwindcssOptions | ❌ | -- |
