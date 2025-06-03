@@ -8,7 +8,7 @@ sidebar_position: 999
 
 ### Bundler-webpack
 
-- feat: [`extraBabelIncludes`](../bundlers-webpack/config#extrababelincludes) support absolute path / npm package.
+- feat: [`extraBabelIncludes`](./bundlers-webpack/config#extrababelincludes) support absolute path / npm package.
 
 ## v3.0.40
 
