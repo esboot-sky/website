@@ -117,7 +117,7 @@ sidebar_position: 999
 
 `241128`
 
-- 🚀 add [`ESBOOT_CONTENT_IGNORE`](../guides/environment-variables#esboot_content_ignore) env, for ignore specific content。
+- 🚀 add [`ESBOOT_CONTENT_IGNORE`](./guides/environment-variables#esboot_content_ignore) env, for ignore specific content。
 - 🔥 chore: replace `webpackbarPlugin` with custom process bar。
 
 ## v3.0.11 ~ v3.0.12
