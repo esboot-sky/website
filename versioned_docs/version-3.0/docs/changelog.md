@@ -1,18 +1,16 @@
 ---
-sidebar_position: 2
+sidebar_position: 999
 ---
 
-🎨
+# Changelog
 
-# ESBoot
-
-## v3.0.40
+## v3.0.41
 
 ### Bundler-webpack
 
-- feat: `extraBabelIncludes` support absolute path / npm package.
+- feat: [`extraBabelIncludes`](../bundlers-webpack/config#extrababelincludes) support absolute path / npm package.
 
-## v3.0.39
+## v3.0.40
 
 ### ESBoot
 
