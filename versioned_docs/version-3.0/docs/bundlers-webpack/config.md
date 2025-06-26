@@ -40,6 +40,13 @@ sidebar_position: 1
 - ✅ Compatibility
 - ✅ Code splitting  
 
+## buildCache
+
+- 类型：`boolean`
+- 默认值：`false`
+
+是否开启构建缓存。
+
 ## mfsu
 
 - 类型：`boolean`
