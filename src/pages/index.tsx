@@ -1,65 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 import Link from '@docusaurus/Link';
+import Typewriter from '../components/Typewriter';
 
-const tools = ['Webpack', 'Vite', 'Rspack'];
+const tools = ['Vite', 'Webpack', 'Rspack', 'Others you want...'];
 
-export default function Home(): JSX.Element {
+export default function Home() {
   const { siteConfig } = useDocusaurusContext();
-  const [currentTool, setCurrentTool] = useState(0);
-  const [displayedText, setDisplayedText] = useState('');
-
-  useEffect(() => {
-    const currentText = tools[currentTool];
-    let charIndex = -1;
-    const typeInterval = setInterval(() => {
-      setDisplayedText((prevText) => {
-        charIndex += 1;
-
-        if (charIndex === currentText.length) {
-          clearInterval(typeInterval);
-          setTimeout(() => {
-            setCurrentTool((prevTool) => (prevTool + 1) % tools.length);
-          }, 500);
-          return prevText;
-        }
-
-        return prevText + currentText[charIndex] || '';
-      });
-    }, 200);
-
-    return () => {
-      setDisplayedText('');
-    };
-  }, [currentTool]);
 
   return (
     <Layout
       title={`Welcome to ${siteConfig.title}`}
-      description="Discover and share inspiring quotes from around the world"
+      description="Frontend Infrastructure Toolkit - Easy to use, blazing fast, and extensible"
     >
-      <main className={`${styles.main} ${styles.frostedBackground}`}>
-        <h1 className={`${styles.title} ${styles.gradientText}`}>ESBoot</h1>
-        <h1 className={`${styles.title} ${styles.gradientText}`}>
-          Frontend Infrastructure Toolkit
-        </h1>
-        <p className={styles.subtitle}>
+      <main className={styles.main}>
+        <div className={styles.starsContainer}>
+          <div className={styles.starsLeft}></div>
+          <div className={styles.starsRight}></div>
+        </div>
+        <div className={styles.titleContainer}>
+          <h1 className={styles.title}>ESBoot</h1>
+          <span className={styles.productTag}>Frontend Infrastructure Toolkit</span>
+        </div>
+        <div className={styles.subtitle}>
           <span className={styles.highlight}>Easy to use</span>,
-          <span className={styles.highlight}>Explore blazing fast</span>,
-          <span className={styles.highlight}>Support for</span>
-          <p style={{ height: '25px', marginTop: '15px' }}>
-            <span className={styles.typewriter}>{displayedText}</span>
-          </p>
-        </p>
+          <span className={styles.highlight}>blazing fast</span>,
+          <span>support for</span>
+          <span className={styles.highlight}>
+            <Typewriter words={tools} />
+          </span>
+        </div>
 
-        <div>
+        <div className={styles.ctaContainer}>
           <Link
-            to="/docs/3.0/docs/intro"
-            className={`${styles.quoteButton} ${styles.glassButton}`}
+            to="/docs/4.0/docs/intro"
+            className={styles.ctaButton}
           >
-            Explore Now
+            <span className={styles.ctaText}>
+              <span>Get Started</span>
+              <span className={styles.versionBadge}>v4.0</span>
+            </span>
+            <span className={styles.ctaArrow}>→</span>
           </Link>
         </div>
       </main>

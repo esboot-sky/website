@@ -105,7 +105,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [],
-      copyright: `Copyright © ${new Date().getFullYear()} ESBoot, DZ Frentend Team.`,
+      copyright: `Copyright © ${new Date().getFullYear()} ESBoot, DZ Front-end Team.`,
     },
     prism: {
       theme: lightTheme,

@@ -1,0 +1,70 @@
+.wordSwitcher {
+  display: inline-block;
+  position: relative;
+  min-width: 120px;
+  text-align: left;
+  vertical-align: baseline;
+  overflow: hidden;
+  height: 1.5em;
+}
+
+.word {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 50%, var(--gradient-accent) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  filter: brightness(1.1);
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+
+.word.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: word-fade-in-up 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards,
+             word-gradient-shift 4s ease-in-out infinite 0.6s;
+}
+
+.word.hidden {
+  opacity: 0;
+  transform: translateY(-8px);
+  animation: word-fade-out-down 0.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+}
+
+@keyframes word-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes word-fade-out-down {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes word-gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+

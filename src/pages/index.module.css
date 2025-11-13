@@ -1,36 +1,7 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * Built at Lightspeed inspired homepage styles
+ * Modern, elegant, with subtle gradients
  */
-
-@import 'lxgw-wenkai-screen-webfont/style.css';
-body, h1, h2, h3, h4, h5, h6 {
-  font-family: "LXGW WenKai Screen R", sans-serif;
-}
-
-pre,code {
-  font-family: "LXGW WenKai Mono", sans-serif;
-}
-
-
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
-}
-
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .main {
   flex: 1;
@@ -38,120 +9,961 @@ pre,code {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #6e45e2, #88d3ce);
-  color: #ffffff;
+  min-height: calc(100vh - var(--ifm-navbar-height));
+  padding: 6rem 2rem;
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 255, 0.98) 100%),
+    var(--hero-gradient-subtle);
+  background-attachment: fixed;
+  position: relative;
   text-align: center;
-  padding: 2rem;
+  overflow: hidden;
+}
+
+.main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 50% 20%, rgba(236, 72, 153, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.main::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.03) 2px,
+      rgba(255, 255, 255, 0.03) 4px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.main > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Stars container - full page coverage */
+.starsContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Full page stars - left side */
+.starsLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-image: 
+    radial-gradient(2px 2px at 10% 15%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 20% 30%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 30% 8%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 40% 45%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 15% 60%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 25% 75%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 35% 25%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 45% 55%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 5% 40%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 50% 20%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 8% 80%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 18% 50%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 28% 12%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 38% 65%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 48% 35%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 12% 90%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 22% 5%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 32% 70%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 42% 28%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 2% 50%, var(--gradient-end), transparent);
+  background-repeat: repeat;
+  background-size: 300px 400px;
+  opacity: 0.3;
+  filter: blur(0.3px);
+  animation: base-stars-twinkle 3s ease-in-out infinite;
+}
+
+/* Full page stars - right side */
+.starsRight {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-image: 
+    radial-gradient(2px 2px at 90% 15%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 80% 30%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 70% 8%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 60% 45%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 85% 60%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 75% 75%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 65% 25%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 55% 55%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 95% 40%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 50% 20%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 92% 80%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 82% 50%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 72% 12%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 62% 65%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 52% 35%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 88% 90%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 78% 5%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 68% 70%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 58% 28%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 98% 50%, var(--gradient-accent), transparent);
+  background-repeat: repeat;
+  background-size: 300px 400px;
+  opacity: 0.3;
+  filter: blur(0.3px);
+  animation: base-stars-twinkle 3s ease-in-out infinite 1.5s;
+}
+
+/* Create multiple layers for independent twinkling - Layer 1 */
+.starsLeft::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 10% 15%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 30% 8%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 15% 60%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 35% 25%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 5% 40%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 8% 80%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 28% 12%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 12% 90%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 32% 70%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 2% 50%, var(--gradient-end), transparent);
+  background-repeat: repeat;
+  background-size: 300px 400px;
+  opacity: 0;
+  animation: star-twinkle-1 2s ease-in-out infinite;
+}
+
+/* Layer 2 - different stars */
+.starsLeft::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 40% 45%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 25% 75%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 45% 55%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 50% 20%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 18% 50%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 38% 65%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 48% 35%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 22% 5%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 42% 28%, var(--gradient-start), transparent);
+  background-repeat: repeat;
+  background-size: 300px 400px;
+  opacity: 1;
+  animation: star-twinkle-2 2s ease-in-out infinite;
+}
+
+/* Right side layers */
+.starsRight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 90% 15%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 70% 8%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 85% 60%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 65% 25%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 95% 40%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 92% 80%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 72% 12%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 88% 90%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 68% 70%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 98% 50%, var(--gradient-accent), transparent);
+  background-repeat: repeat;
+  background-size: 300px 400px;
+  opacity: 1;
+  animation: star-twinkle-2 2s ease-in-out infinite;
+}
+
+.starsRight::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 80% 30%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 60% 45%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 75% 75%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 55% 55%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 50% 20%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 82% 50%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 62% 65%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 52% 35%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 78% 5%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 58% 28%, var(--gradient-end), transparent);
+  background-repeat: repeat;
+  background-size: 300px 400px;
+  opacity: 0;
+  animation: star-twinkle-1 2s ease-in-out infinite;
+}
+
+/* Base stars subtle twinkling */
+@keyframes base-stars-twinkle {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Individual star twinkling animations - alternating opacity */
+@keyframes star-twinkle-1 {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes star-twinkle-2 {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .main {
+    padding: 3rem 1.5rem;
+  }
+  
+  .starsLeft,
+  .starsRight {
+    width: 50%;
+    background-size: 200px 300px;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media screen and (max-width: 996px) {
+  .ctaButton {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .versionBadge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+  
+  .ctaArrow {
+    font-size: 1.1rem;
+  }
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
 }
 
 .title {
-  font-size: 4rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.subtitle {
-  font-size: 1.5rem;
-  max-width: 600px;
-  margin-bottom: 120px;
-}
-
-.quoteButton {
-  padding: 12px 24px;
-  border-radius: 30px;
-  color: #ffffff;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.quoteButton:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.2),
-    rgba(255, 255, 255, 0.4)
-  );
-  transform: translateY(-2px);
-  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.45);
-}
-
-.gradientText {
-  background: linear-gradient(45deg, #ffffff, #f0e6fa, #e6c2f7, #d183ff);
-  background-size: 300% 300%;
-  color: transparent;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(135deg, var(--gradient-bright-start) 0%, var(--gradient-start) 25%, var(--gradient-end) 50%, var(--gradient-accent) 75%, var(--gradient-bright-accent) 100%);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
-  animation: gradientAnimation 6s ease infinite;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  animation: gradient-shift 8s ease infinite;
+  filter: brightness(1.1) saturate(1.1);
 }
 
-@keyframes gradientAnimation {
-  0% {
+@keyframes gradient-shift {
+  0%, 100% {
     background-position: 0% 50%;
   }
   50% {
     background-position: 100% 50%;
   }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
-.gradientBackground {
-  background: linear-gradient(135deg, #6e45e2 0%, #b39ddb 100%);
-  color: white;
-  padding: 4rem 0;
-}
-
-.frostedBackground {
+.productTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.25rem;
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #6b7280;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 50%, rgba(236, 72, 153, 0.08) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 50px;
   backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0.85;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.colorfulBackground {
-  background: linear-gradient(
-    45deg,
-    rgba(255, 105, 180, 0.6),
-    rgba(100, 149, 237, 0.6)
-  );
-  backdrop-filter: blur(5px);
+.productTag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.productTag:hover {
+  opacity: 1;
+  color: #4b5563;
+  border-color: rgba(99, 102, 241, 0.25);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.12) 50%, rgba(236, 72, 153, 0.12) 100%);
+  transform: translateY(-1px);
+}
+
+.productTag:hover::before {
+  left: 100%;
+}
+
+[data-theme='dark'] .productTag {
+  color: #9ca3af;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 50%, rgba(236, 72, 153, 0.15) 100%);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+[data-theme='dark'] .productTag:hover {
+  color: #d1d5db;
+  border-color: rgba(99, 102, 241, 0.35);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 50%, rgba(236, 72, 153, 0.2) 100%);
+}
+
+.subtitle {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  max-width: 800px;
+  margin: 2.5rem auto 4rem;
+  color: #4a4a4a;
+  line-height: 1.7;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  animation: subtitle-fade-in 1s ease-out 0.3s both;
+  position: relative;
+}
+
+.subtitle > span {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.subtitle > span:nth-child(1) {
+  animation: word-fade-in 0.8s ease-out 0.5s both;
+}
+
+.subtitle > span:nth-child(2) {
+  animation: word-fade-in 0.8s ease-out 0.7s both;
+}
+
+.subtitle > span:nth-child(3) {
+  animation: word-fade-in 0.8s ease-out 0.9s both;
+}
+
+.subtitle > span:nth-child(4) {
+  animation: word-fade-in 0.8s ease-out 1.1s both;
+}
+
+.highlight {
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 50%, var(--gradient-accent) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: brightness(1.1);
+  position: relative;
+  animation: highlight-gradient-shift 4s ease-in-out infinite, highlight-glow 2s ease-in-out infinite;
   transition: all 0.3s ease;
 }
 
-.colorfulBackground:hover {
-  background: linear-gradient(
-    45deg,
-    rgba(255, 105, 180, 0.8),
-    rgba(100, 149, 237, 0.8)
-  );
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 50%, var(--gradient-accent) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: blur(8px) brightness(1.5);
+  opacity: 0.5;
+  z-index: -1;
+  animation: highlight-gradient-shift 4s ease-in-out infinite;
 }
 
-.glassButton {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.3)
-  );
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end), var(--gradient-accent));
+  border-radius: 2px;
+  transition: width 0.5s ease;
 }
 
-.typewriter {
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 3px solid; /* 模拟光标 */
-  animation: blink-caret 0.75s step-end infinite;
+.highlight:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.3);
 }
 
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
+.highlight:hover::after {
+  width: 100%;
+}
+
+.subtitle > span:not(.highlight) {
+  color: #6b7280;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.subtitle > span:not(.highlight):hover {
+  color: #4b5563;
+}
+
+/* Style commas with subtle animation */
+.subtitle::before,
+.subtitle::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  border-radius: 50%;
+  opacity: 0;
+  animation: subtitle-dot-pulse 3s ease-in-out infinite;
+}
+
+.subtitle::before {
+  left: calc(50% - 120px);
+  top: 50%;
+  animation-delay: 0.5s;
+}
+
+.subtitle::after {
+  right: calc(50% - 120px);
+  top: 50%;
+  animation-delay: 1s;
+}
+
+@keyframes subtitle-dot-pulse {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
   }
   50% {
-    border-color: white;
+    opacity: 0.6;
+    transform: scale(1);
   }
+}
+
+@keyframes subtitle-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes word-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes highlight-gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes highlight-glow {
+  0%, 100% {
+    filter: brightness(1.1);
+    text-shadow: 0 0 0 rgba(99, 102, 241, 0);
+  }
+  50% {
+    filter: brightness(1.3);
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+}
+
+.ctaContainer {
+  margin-top: 2rem;
+  animation: fadeInDown 0.8s ease-out 0.2s both;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 50%, var(--gradient-accent) 100%);
+  background-size: 200% 200%;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 32px rgba(99, 102, 241, 0.25),
+    0 4px 6px -1px rgba(99, 102, 241, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: release-gradient-flow 4s ease-in-out infinite, release-pulse-subtle 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: release-shimmer 4s ease-in-out infinite;
+  border-radius: 50px;
+  z-index: 0;
+}
+
+.ctaButton::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  animation: release-ripple 3s ease-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ctaText {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+.versionBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  animation: release-badge-glow 2s ease-in-out infinite, release-badge-pulse 1.5s ease-in-out infinite;
+}
+
+.versionBadge::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end), var(--gradient-accent), var(--gradient-start));
+  background-size: 300% 300%;
+  z-index: -1;
+  opacity: 0;
+  animation: release-badge-border 2s ease-in-out infinite;
+  filter: blur(4px);
+}
+
+@keyframes release-gradient-flow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes release-pulse-subtle {
+  0%, 100% {
+    box-shadow: 
+      0 8px 32px rgba(99, 102, 241, 0.25),
+      0 4px 6px -1px rgba(99, 102, 241, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 
+      0 10px 36px rgba(99, 102, 241, 0.3),
+      0 5px 8px -1px rgba(99, 102, 241, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+      0 0 25px rgba(99, 102, 241, 0.2);
+    transform: scale(1.005);
+  }
+}
+
+@keyframes release-shimmer {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes release-ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.8;
+  }
+  50% {
+    width: 200px;
+    height: 200px;
+    opacity: 0.4;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+@keyframes release-badge-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 25px rgba(99, 102, 241, 0.4);
+  }
+}
+
+@keyframes release-badge-pulse {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes release-badge-border {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+    background-position: 100% 0%;
+  }
+}
+
+.ctaArrow {
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  color: inherit;
+  text-shadow: inherit;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px) scale(1.02);
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 
+    0 12px 40px rgba(99, 102, 241, 0.35),
+    0 6px 12px -2px rgba(139, 92, 246, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 0 30px rgba(99, 102, 241, 0.3);
+  animation: release-gradient-flow 2s ease-in-out infinite, release-pulse-hover-subtle 2s ease-in-out infinite;
+}
+
+.ctaButton:hover::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  animation: release-shimmer 3s ease-in-out infinite;
+}
+
+.ctaButton:hover::after {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: release-ripple 2.5s ease-out infinite;
+}
+
+.ctaButton:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+.ctaButton:hover .versionBadge {
+  animation: release-badge-glow 1s ease-in-out infinite, release-badge-pulse 1s ease-in-out infinite;
+}
+
+@keyframes release-pulse-hover-subtle {
+  0%, 100% {
+    box-shadow: 
+      0 12px 40px rgba(99, 102, 241, 0.35),
+      0 6px 12px -2px rgba(139, 92, 246, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+      0 0 30px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 14px 44px rgba(99, 102, 241, 0.4),
+      0 7px 14px -2px rgba(139, 92, 246, 0.35),
+      0 0 0 1px rgba(255, 255, 255, 0.18) inset,
+      0 0 35px rgba(99, 102, 241, 0.35);
+  }
+}
+
+.ctaButton:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 
+    0 8px 32px rgba(99, 102, 241, 0.3),
+    0 4px 6px -1px rgba(99, 102, 241, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .main {
+  background: 
+    linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(5, 5, 5, 0.98) 25%, rgba(10, 10, 10, 0.98) 50%, rgba(5, 5, 5, 0.98) 75%, rgba(0, 0, 0, 0.98) 100%),
+    var(--hero-gradient-subtle);
+}
+
+[data-theme='dark'] .main::before {
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(129, 140, 248, 0.18) 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(167, 139, 250, 0.18) 0%, transparent 60%),
+    radial-gradient(circle at 50% 20%, rgba(244, 114, 182, 0.12) 0%, transparent 50%);
+}
+
+[data-theme='dark'] .main::after {
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.02) 2px,
+      rgba(255, 255, 255, 0.02) 4px
+    );
+}
+
+[data-theme='dark'] .title {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 50%, var(--gradient-accent) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+[data-theme='dark'] .subtitle {
+  color: #c0c0c0;
+}
+
+[data-theme='dark'] .subtitle > span:not(.highlight) {
+  color: #9ca3af;
+}
+
+[data-theme='dark'] .subtitle > span:not(.highlight):hover {
+  color: #d1d5db;
+}
+
+[data-theme='dark'] .highlight {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 50%, var(--gradient-accent) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: brightness(1.3);
+}
+
+[data-theme='dark'] .highlight::before {
+  filter: blur(8px) brightness(1.8);
+  opacity: 0.6;
+}
+
+[data-theme='dark'] .highlight:hover {
+  filter: brightness(1.5);
+}
+
+/* Dark mode stars - brighter and more visible */
+[data-theme='dark'] .starsLeft,
+[data-theme='dark'] .starsRight {
+  opacity: 0.95;
+  filter: blur(0.2px);
+}
+
+[data-theme='dark'] .starsLeft {
+  background-image: 
+    radial-gradient(3px 3px at 10% 15%, var(--gradient-start), transparent),
+    radial-gradient(4px 4px at 20% 30%, var(--gradient-end), transparent),
+    radial-gradient(3px 3px at 30% 8%, var(--gradient-accent), transparent),
+    radial-gradient(3px 3px at 40% 45%, var(--gradient-start), transparent),
+    radial-gradient(4px 4px at 15% 60%, var(--gradient-end), transparent),
+    radial-gradient(3px 3px at 25% 75%, var(--gradient-accent), transparent),
+    radial-gradient(3px 3px at 35% 25%, var(--gradient-start), transparent),
+    radial-gradient(4px 4px at 45% 55%, var(--gradient-end), transparent),
+    radial-gradient(3px 3px at 5% 40%, var(--gradient-accent), transparent),
+    radial-gradient(3px 3px at 50% 20%, var(--gradient-start), transparent),
+    radial-gradient(4px 4px at 8% 80%, var(--gradient-end), transparent),
+    radial-gradient(3px 3px at 18% 50%, var(--gradient-accent), transparent),
+    radial-gradient(3px 3px at 28% 12%, var(--gradient-start), transparent),
+    radial-gradient(4px 4px at 38% 65%, var(--gradient-end), transparent),
+    radial-gradient(3px 3px at 48% 35%, var(--gradient-accent), transparent),
+    radial-gradient(3px 3px at 12% 90%, var(--gradient-start), transparent),
+    radial-gradient(4px 4px at 22% 5%, var(--gradient-end), transparent),
+    radial-gradient(3px 3px at 32% 70%, var(--gradient-accent), transparent),
+    radial-gradient(3px 3px at 42% 28%, var(--gradient-start), transparent),
+    radial-gradient(4px 4px at 2% 50%, var(--gradient-end), transparent);
+}
+
+[data-theme='dark'] .starsRight {
+  background-image: 
+    radial-gradient(3px 3px at 90% 15%, var(--gradient-end), transparent),
+    radial-gradient(4px 4px at 80% 30%, var(--gradient-accent), transparent),
+    radial-gradient(3px 3px at 70% 8%, var(--gradient-start), transparent),
+    radial-gradient(3px 3px at 60% 45%, var(--gradient-end), transparent),
+    radial-gradient(4px 4px at 85% 60%, var(--gradient-accent), transparent),
+    radial-gradient(3px 3px at 75% 75%, var(--gradient-start), transparent),
+    radial-gradient(3px 3px at 65% 25%, var(--gradient-end), transparent),
+    radial-gradient(4px 4px at 55% 55%, var(--gradient-accent), transparent),
+    radial-gradient(3px 3px at 95% 40%, var(--gradient-start), transparent),
+    radial-gradient(3px 3px at 50% 20%, var(--gradient-end), transparent),
+    radial-gradient(4px 4px at 92% 80%, var(--gradient-accent), transparent),
+    radial-gradient(3px 3px at 82% 50%, var(--gradient-start), transparent),
+    radial-gradient(3px 3px at 72% 12%, var(--gradient-end), transparent),
+    radial-gradient(4px 4px at 62% 65%, var(--gradient-accent), transparent),
+    radial-gradient(3px 3px at 52% 35%, var(--gradient-start), transparent),
+    radial-gradient(3px 3px at 88% 90%, var(--gradient-end), transparent),
+    radial-gradient(4px 4px at 78% 5%, var(--gradient-accent), transparent),
+    radial-gradient(3px 3px at 68% 70%, var(--gradient-start), transparent),
+    radial-gradient(3px 3px at 58% 28%, var(--gradient-end), transparent),
+    radial-gradient(4px 4px at 98% 50%, var(--gradient-accent), transparent);
+}
+
+/* Dark mode version badge */
+[data-theme='dark'] .ctaButton {
+  box-shadow: 
+    0 8px 32px rgba(99, 102, 241, 0.4),
+    0 4px 6px -1px rgba(99, 102, 241, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+[data-theme='dark'] .ctaButton:hover {
+  box-shadow: 
+    0 12px 40px rgba(99, 102, 241, 0.5),
+    0 4px 6px -2px rgba(99, 102, 241, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 0 40px rgba(99, 102, 241, 0.4);
+}
+
+[data-theme='dark'] .versionBadge {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
 }
