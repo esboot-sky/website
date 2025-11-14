@@ -103,7 +103,7 @@
   background-size: 300px 400px;
   opacity: 0.3;
   filter: blur(0.3px);
-  animation: base-stars-twinkle 3s ease-in-out infinite;
+  animation: stars-sequential-left 6s ease-in-out infinite;
 }
 
 /* Full page stars - right side */
@@ -138,115 +138,315 @@
   background-size: 300px 400px;
   opacity: 0.3;
   filter: blur(0.3px);
-  animation: base-stars-twinkle 3s ease-in-out infinite 1.5s;
+  animation: stars-sequential-right 6s ease-in-out infinite;
 }
 
-/* Create multiple layers for independent twinkling - Layer 1 */
-.starsLeft::before {
-  content: '';
+/* Full page stars - center layer */
+.starsCenter {
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-image: 
+    radial-gradient(2px 2px at 30% 20%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 50% 40%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 70% 15%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 40% 60%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 60% 80%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 35% 35%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 65% 25%, var(--gradient-start), transparent),
+    radial-gradient(2px 2px at 45% 70%, var(--gradient-end), transparent),
+    radial-gradient(2px 2px at 55% 10%, var(--gradient-accent), transparent),
+    radial-gradient(2px 2px at 25% 50%, var(--gradient-start), transparent);
+  background-repeat: repeat;
+  background-size: 300px 400px;
+  opacity: 0.3;
+  filter: blur(0.3px);
+  animation: stars-sequential-center 6s ease-in-out infinite;
+}
+
+/* Particles container */
+.particlesContainer {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    radial-gradient(2px 2px at 10% 15%, var(--gradient-start), transparent),
-    radial-gradient(2px 2px at 30% 8%, var(--gradient-accent), transparent),
-    radial-gradient(2px 2px at 15% 60%, var(--gradient-end), transparent),
-    radial-gradient(2px 2px at 35% 25%, var(--gradient-start), transparent),
-    radial-gradient(2px 2px at 5% 40%, var(--gradient-accent), transparent),
-    radial-gradient(2px 2px at 8% 80%, var(--gradient-end), transparent),
-    radial-gradient(2px 2px at 28% 12%, var(--gradient-start), transparent),
-    radial-gradient(2px 2px at 12% 90%, var(--gradient-start), transparent),
-    radial-gradient(2px 2px at 32% 70%, var(--gradient-accent), transparent),
-    radial-gradient(2px 2px at 2% 50%, var(--gradient-end), transparent);
-  background-repeat: repeat;
-  background-size: 300px 400px;
-  opacity: 0;
-  animation: star-twinkle-1 2s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
 }
 
-/* Layer 2 - different stars */
-.starsLeft::after {
-  content: '';
+/* Particle dots */
+.particle {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(2px 2px at 20% 30%, var(--gradient-end), transparent),
-    radial-gradient(2px 2px at 40% 45%, var(--gradient-start), transparent),
-    radial-gradient(2px 2px at 25% 75%, var(--gradient-accent), transparent),
-    radial-gradient(2px 2px at 45% 55%, var(--gradient-end), transparent),
-    radial-gradient(2px 2px at 50% 20%, var(--gradient-start), transparent),
-    radial-gradient(2px 2px at 18% 50%, var(--gradient-accent), transparent),
-    radial-gradient(2px 2px at 38% 65%, var(--gradient-end), transparent),
-    radial-gradient(2px 2px at 48% 35%, var(--gradient-accent), transparent),
-    radial-gradient(2px 2px at 22% 5%, var(--gradient-end), transparent),
-    radial-gradient(2px 2px at 42% 28%, var(--gradient-start), transparent);
-  background-repeat: repeat;
-  background-size: 300px 400px;
-  opacity: 1;
-  animation: star-twinkle-2 2s ease-in-out infinite;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--gradient-start), transparent);
+  opacity: 0.4;
+  filter: blur(0.5px);
+  animation: particle-float 20s ease-in-out infinite;
 }
 
-/* Right side layers */
-.starsRight::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(2px 2px at 90% 15%, var(--gradient-end), transparent),
-    radial-gradient(2px 2px at 70% 8%, var(--gradient-start), transparent),
-    radial-gradient(2px 2px at 85% 60%, var(--gradient-accent), transparent),
-    radial-gradient(2px 2px at 65% 25%, var(--gradient-end), transparent),
-    radial-gradient(2px 2px at 95% 40%, var(--gradient-start), transparent),
-    radial-gradient(2px 2px at 92% 80%, var(--gradient-accent), transparent),
-    radial-gradient(2px 2px at 72% 12%, var(--gradient-end), transparent),
-    radial-gradient(2px 2px at 88% 90%, var(--gradient-end), transparent),
-    radial-gradient(2px 2px at 68% 70%, var(--gradient-start), transparent),
-    radial-gradient(2px 2px at 98% 50%, var(--gradient-accent), transparent);
-  background-repeat: repeat;
-  background-size: 300px 400px;
-  opacity: 1;
-  animation: star-twinkle-2 2s ease-in-out infinite;
+.particle:nth-child(1) {
+  left: 10%;
+  top: 20%;
+  animation-delay: 0s;
+  animation-duration: 18s;
+  background: radial-gradient(circle, var(--gradient-start), transparent);
 }
 
-.starsRight::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(2px 2px at 80% 30%, var(--gradient-accent), transparent),
-    radial-gradient(2px 2px at 60% 45%, var(--gradient-end), transparent),
-    radial-gradient(2px 2px at 75% 75%, var(--gradient-start), transparent),
-    radial-gradient(2px 2px at 55% 55%, var(--gradient-accent), transparent),
-    radial-gradient(2px 2px at 50% 20%, var(--gradient-end), transparent),
-    radial-gradient(2px 2px at 82% 50%, var(--gradient-start), transparent),
-    radial-gradient(2px 2px at 62% 65%, var(--gradient-accent), transparent),
-    radial-gradient(2px 2px at 52% 35%, var(--gradient-start), transparent),
-    radial-gradient(2px 2px at 78% 5%, var(--gradient-accent), transparent),
-    radial-gradient(2px 2px at 58% 28%, var(--gradient-end), transparent);
-  background-repeat: repeat;
-  background-size: 300px 400px;
-  opacity: 0;
-  animation: star-twinkle-1 2s ease-in-out infinite;
+.particle:nth-child(2) {
+  left: 25%;
+  top: 60%;
+  animation-delay: 2s;
+  animation-duration: 22s;
+  background: radial-gradient(circle, var(--gradient-end), transparent);
 }
 
-/* Base stars subtle twinkling */
-@keyframes base-stars-twinkle {
+.particle:nth-child(3) {
+  left: 45%;
+  top: 30%;
+  animation-delay: 4s;
+  animation-duration: 20s;
+  background: radial-gradient(circle, var(--gradient-accent), transparent);
+}
+
+.particle:nth-child(4) {
+  left: 65%;
+  top: 70%;
+  animation-delay: 1s;
+  animation-duration: 19s;
+  background: radial-gradient(circle, var(--gradient-start), transparent);
+}
+
+.particle:nth-child(5) {
+  left: 80%;
+  top: 15%;
+  animation-delay: 3s;
+  animation-duration: 21s;
+  background: radial-gradient(circle, var(--gradient-end), transparent);
+}
+
+.particle:nth-child(6) {
+  left: 15%;
+  top: 80%;
+  animation-delay: 5s;
+  animation-duration: 23s;
+  background: radial-gradient(circle, var(--gradient-accent), transparent);
+}
+
+.particle:nth-child(7) {
+  left: 35%;
+  top: 10%;
+  animation-delay: 1.5s;
+  animation-duration: 17s;
+  background: radial-gradient(circle, var(--gradient-start), transparent);
+}
+
+.particle:nth-child(8) {
+  left: 55%;
+  top: 50%;
+  animation-delay: 3.5s;
+  animation-duration: 24s;
+  background: radial-gradient(circle, var(--gradient-end), transparent);
+}
+
+.particle:nth-child(9) {
+  left: 75%;
+  top: 40%;
+  animation-delay: 2.5s;
+  animation-duration: 18s;
+  background: radial-gradient(circle, var(--gradient-accent), transparent);
+}
+
+.particle:nth-child(10) {
+  left: 20%;
+  top: 45%;
+  animation-delay: 4.5s;
+  animation-duration: 20s;
+  background: radial-gradient(circle, var(--gradient-start), transparent);
+}
+
+.particle:nth-child(11) {
+  left: 50%;
+  top: 75%;
+  animation-delay: 0.5s;
+  animation-duration: 22s;
+  background: radial-gradient(circle, var(--gradient-end), transparent);
+}
+
+.particle:nth-child(12) {
+  left: 90%;
+  top: 55%;
+  animation-delay: 3s;
+  animation-duration: 19s;
+  background: radial-gradient(circle, var(--gradient-accent), transparent);
+}
+
+.particle:nth-child(13) {
+  left: 5%;
+  top: 35%;
+  animation-delay: 6s;
+  animation-duration: 21s;
+  background: radial-gradient(circle, var(--gradient-start), transparent);
+}
+
+.particle:nth-child(14) {
+  left: 30%;
+  top: 5%;
+  animation-delay: 1.2s;
+  animation-duration: 18s;
+  background: radial-gradient(circle, var(--gradient-end), transparent);
+}
+
+.particle:nth-child(15) {
+  left: 40%;
+  top: 65%;
+  animation-delay: 4.2s;
+  animation-duration: 22s;
+  background: radial-gradient(circle, var(--gradient-accent), transparent);
+}
+
+.particle:nth-child(16) {
+  left: 60%;
+  top: 25%;
+  animation-delay: 2.8s;
+  animation-duration: 19s;
+  background: radial-gradient(circle, var(--gradient-start), transparent);
+}
+
+.particle:nth-child(17) {
+  left: 70%;
+  top: 85%;
+  animation-delay: 5.5s;
+  animation-duration: 20s;
+  background: radial-gradient(circle, var(--gradient-end), transparent);
+}
+
+.particle:nth-child(18) {
+  left: 85%;
+  top: 35%;
+  animation-delay: 0.8s;
+  animation-duration: 23s;
+  background: radial-gradient(circle, var(--gradient-accent), transparent);
+}
+
+.particle:nth-child(19) {
+  left: 12%;
+  top: 55%;
+  animation-delay: 3.8s;
+  animation-duration: 17s;
+  background: radial-gradient(circle, var(--gradient-start), transparent);
+}
+
+.particle:nth-child(20) {
+  left: 28%;
+  top: 25%;
+  animation-delay: 6.2s;
+  animation-duration: 21s;
+  background: radial-gradient(circle, var(--gradient-end), transparent);
+}
+
+.particle:nth-child(21) {
+  left: 48%;
+  top: 85%;
+  animation-delay: 2.2s;
+  animation-duration: 18s;
+  background: radial-gradient(circle, var(--gradient-accent), transparent);
+}
+
+.particle:nth-child(22) {
+  left: 62%;
+  top: 5%;
+  animation-delay: 4.8s;
+  animation-duration: 24s;
+  background: radial-gradient(circle, var(--gradient-start), transparent);
+}
+
+.particle:nth-child(23) {
+  left: 78%;
+  top: 65%;
+  animation-delay: 1.8s;
+  animation-duration: 20s;
+  background: radial-gradient(circle, var(--gradient-end), transparent);
+}
+
+.particle:nth-child(24) {
+  left: 95%;
+  top: 25%;
+  animation-delay: 5.8s;
+  animation-duration: 19s;
+  background: radial-gradient(circle, var(--gradient-accent), transparent);
+}
+
+@keyframes particle-float {
   0%, 100% {
+    transform: translate(0, 0) scale(1);
     opacity: 0.3;
   }
-  50% {
+  25% {
+    transform: translate(30px, -40px) scale(1.2);
     opacity: 0.5;
+  }
+  50% {
+    transform: translate(-20px, 30px) scale(0.9);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate(40px, 20px) scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+/* Sequential stars twinkling - left layer */
+@keyframes stars-sequential-left {
+  0%, 33.33% {
+    opacity: 0.3;
+    filter: blur(0.3px) brightness(0.8);
+  }
+  16.66% {
+    opacity: 0.8;
+    filter: blur(0.3px) brightness(1.5);
+  }
+  33.34%, 100% {
+    opacity: 0.3;
+    filter: blur(0.3px) brightness(0.8);
+  }
+}
+
+/* Sequential stars twinkling - center layer */
+@keyframes stars-sequential-center {
+  0%, 33.33% {
+    opacity: 0.3;
+    filter: blur(0.3px) brightness(0.8);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(0.3px) brightness(1.5);
+  }
+  66.66%, 100% {
+    opacity: 0.3;
+    filter: blur(0.3px) brightness(0.8);
+  }
+}
+
+/* Sequential stars twinkling - right layer */
+@keyframes stars-sequential-right {
+  0%, 66.66% {
+    opacity: 0.3;
+    filter: blur(0.3px) brightness(0.8);
+  }
+  83.33% {
+    opacity: 0.8;
+    filter: blur(0.3px) brightness(1.5);
+  }
+  100% {
+    opacity: 0.3;
+    filter: blur(0.3px) brightness(0.8);
   }
 }
 
@@ -254,18 +454,22 @@
 @keyframes star-twinkle-1 {
   0%, 100% {
     opacity: 0;
+    filter: brightness(0.5);
   }
   50% {
     opacity: 1;
+    filter: brightness(1.5);
   }
 }
 
 @keyframes star-twinkle-2 {
   0%, 100% {
     opacity: 1;
+    filter: brightness(1.5);
   }
   50% {
     opacity: 0;
+    filter: brightness(0.5);
   }
 }
 
@@ -277,6 +481,13 @@
   .starsLeft,
   .starsRight {
     width: 50%;
+    background-size: 200px 300px;
+  }
+  
+  .starsCenter {
+    left: 20%;
+    right: 20%;
+    width: 60%;
     background-size: 200px 300px;
   }
 }

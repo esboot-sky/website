@@ -19,6 +19,33 @@ export default function Home() {
         <div className={styles.starsContainer}>
           <div className={styles.starsLeft}></div>
           <div className={styles.starsRight}></div>
+          <div className={styles.starsCenter}></div>
+          <div className={styles.particlesContainer}>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+            <div className={styles.particle}></div>
+          </div>
         </div>
         <div className={styles.titleContainer}>
           <h1 className={styles.title}>ESBoot</h1>

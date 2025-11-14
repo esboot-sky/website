@@ -1,11 +1,12 @@
 .wordSwitcher {
   display: inline-block;
   position: relative;
-  min-width: 120px;
+  width: 200px;
   text-align: left;
-  vertical-align: baseline;
-  overflow: hidden;
+  vertical-align: middle;
   height: 1.5em;
+  overflow: visible;
+  line-height: 1.5em;
 }
 
 .word {
@@ -17,11 +18,11 @@
   -webkit-text-fill-color: transparent;
   font-weight: 600;
   filter: brightness(1.1);
-  position: absolute;
-  left: 0;
-  top: 0;
+  position: relative;
   white-space: nowrap;
   will-change: transform, opacity;
+  line-height: inherit;
+  vertical-align: top;
 }
 
 .word.visible {
