@@ -8,7 +8,7 @@ sidebar_position: 3
 
 ### 匹配规则
 
-`esboot`的规则是匹配指定`platform` + `pageType`目录下的`*.entry.tsx`。
+`ESBoot`的规则是匹配指定`platform` + `pageType`目录下的`*.entry.tsx`。
 
 例如你的`env`文件如下：
 
@@ -38,7 +38,7 @@ export default {
 
 #### title
 
-页面标题，默认为`文件名称 | ESboot APP`。
+页面标题，默认为`文件名称 | ESBoot APP`。
 
 #### template
 

@@ -4,11 +4,11 @@ sidebar_position: 3
 
 # 配置
 
-对于`esboot`中能使用的自定义配置，你可以使用项目根目录的`.esbootrc.ts`。
+对于`ESBoot`中能使用的自定义配置，你可以使用项目根目录的`.esbootrc.ts`。
 
-`esboot`的配置文件是一个正常的 node 模块，它在执行`esboot`命令行的时候使用，并且不包含在浏览器端构建中。
+`ESBoot`的配置文件是一个正常的 node 模块，它在执行`ESBoot`命令行的时候使用，并且不包含在浏览器端构建中。
 
-这里有一个最简单的`esboot`配置文件的范例：
+这里有一个最简单的`ESBoot`配置文件的范例：
 
 ```ts
 import { defineConfig } from 'esboot';
@@ -54,7 +54,7 @@ import { FONT_SIZE } from '@/constants/config';
 
 配置的key，如`@`，不要写成`@/`，value如`src`，不要写成`src/`，因为解析的时候会自动加上。
 
-因为`alias`在项目中其实需要配置4个地方(`eslint`/`typescript`/`webpack`/`babel`)，4个地方的写法都有些不同，所以`esboot`内部会去兼容格式问题。
+因为`alias`在项目中其实需要配置4个地方(`eslint`/`typescript`/`webpack`/`babel`)，4个地方的写法都有些不同，所以`ESBoot`内部会去兼容格式问题。
 
 其中`webpack`和`babel`的改了`alias`会立即生效。
 

@@ -14,7 +14,7 @@ sidebar_position: 1
 | server.https | ❌ | -- |
 | server.http2 | ❌ | -- |
 | sever.open | ✅ | -- |
-| sever.port | ✅ | 注意：`esboot`会同时使用`port`和`port + 1`，比如设置了`8080`，那么会同时使用`8080`和`8081`，所以如果多个项目记得至少隔2。 |
+| sever.port | ✅ | 注意：`ESBoot`会同时使用`port`和`port + 1`，比如设置了`8080`，那么会同时使用`8080`和`8081`，所以如果多个项目记得至少隔2。 |
 | outputPath | ✅ | -- |
 | publicPath | ✅ | -- |
 | useLangJsonPicker | ✅ | -- |

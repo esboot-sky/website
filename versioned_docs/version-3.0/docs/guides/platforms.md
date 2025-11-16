@@ -96,7 +96,7 @@ src/platforms/
 
 比如一个页面失去焦点的生命周期，在浏览器端需要监听`visibilitychange`，而在`native`端需要监听原生客户端提供生命周期。
 
-但是我们的业务代码可能只有一份，所以ESboot提供了一个`multi-platforms.ts`，来让你在`MP`模式下，编写平台差异的代码。
+但是我们的业务代码可能只有一份，所以ESBoot提供了一个`multi-platforms.ts`，来让你在`MP`模式下，编写平台差异的代码。
 
 举例有一个`sayHello`的方法，在`browser`端和`native`端的实现是不一样的，我们就可以在`multi-platforms.ts`中编写：
 

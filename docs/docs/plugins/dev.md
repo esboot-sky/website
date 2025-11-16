@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Plugins
+# Introduction
 
 ESBoot 插件系统允许用户在构建过程中添加自定义行为。插件可以用于扩展 ESBoot 的功能，例如添加新的命令行选项、修改构建过程、生成额外的文件等。
 
@@ -27,7 +27,7 @@ export default defineConfig({
 
 ## 第三方插件
 
-你也可以使用已经封装好的插件，比如[vitest](./plugin-vitest/doc.md)。
+你也可以使用已经封装好的插件，比如 [vitest](./plugin-vitest)。
 
 ## 插件开发
 

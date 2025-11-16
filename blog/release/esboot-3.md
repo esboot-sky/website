@@ -61,7 +61,7 @@ Release ESBoot 3 note!
 ### ESBoot
 
 - `common`: esboot通用工具
-- `esboot`: 入口，注册cli，调用bundler
+- `ESBoot`: 入口，注册cli，调用bundler
 - `esboot-browser`: 浏览器端工具
 
 ### Lint

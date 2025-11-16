@@ -12,7 +12,19 @@ Release ESBoot 4 note!
 
 ## 更新了什么
 
-- [Tailwindcss 4.0](#tailwindcss-40)
+- All In ESM。
+- Tailwindcss 4。
+- 适配pnpm 10+。
+- 适配eslint 扁平配置，更新eslint配置。
+- 更新stylelint配置，增加`esboot-stylelint-config`包。
+- 增强`esboot-browser`，支持更多浏览器端工具。
+- 添加`esboot-browser-react`，用与浏览器端react项目的支持。
+- 使用插件支持`vue`。
+- 拥抱`React Compiler`。
+- 修复一些bug。
+- 基于过去一年的开发，优化template代码。
+- 优化website UI。
+- 更新所有依赖。
 
 ## Tailwindcss 4.0
 
@@ -20,21 +32,8 @@ Release ESBoot 4 note!
 
 ### Breaking Changes
 
-#### 修改入口
-
-根据[Simplified installation](https://tailwindcss.com/blog/tailwindcss-v4#simplified-installation)
-
-```css
-/* 旧 */ 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
-```css
-/* 新 */
-@import "tailwindcss";
-```
+- 配置文件修改
+- 入口文件修改
 
 #### changes from v3
 
@@ -46,6 +45,8 @@ Release ESBoot 4 note!
 - 移除了`@responsive`
 - 移除了`@screen`
 - 移除了`@variants`
+
+## ESLint
 
 ## Config
 

@@ -1,5 +1,7 @@
 ---
-sidebar_position: 0
+sidebar_position: 3
+title: Vue-SP
+description: Boilerplate for Vue single-platform project.
 ---
 
 # 说明

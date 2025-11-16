@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## Matching Rule
 
-`esboot`的规则是匹配平台根目录下的`*.entry.tsx`。
+`ESBoot`的规则是匹配平台根目录下的`*.entry.tsx`。
 
 在`SP`模式下，平台根目录是`src`。
 
@@ -40,7 +40,7 @@ export default {
 
 ### title
 
-页面标题，默认为`文件名称 | ESboot APP`。
+页面标题，默认为`文件名称 | ESBoot APP`。
 
 ### template
 
@@ -70,7 +70,7 @@ export default {
 
 参考[langJsonPicker](../config/#uselangjsonpicker)。
 
-页面标题，默认为文件名称 | ESboot APP。
+页面标题，默认为文件名称 | ESBoot APP。
 
 ### urlParams
 
