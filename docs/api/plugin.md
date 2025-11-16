@@ -1,8 +1,7 @@
 ---
 sidebar_position: 2
+title: Plugin
 ---
-
-# Plugin API
 
 ## onActivated
 
