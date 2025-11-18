@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: React-SP
+title: 02. React-SP
 description: Boilerplate for React single-platform project.
 ---
 

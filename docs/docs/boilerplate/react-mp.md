@@ -1,6 +1,6 @@
 ---
-sidebar_position: 0
-title: React-MP
+sidebar_position: 1
+title: 01. React-MP
 description: Boilerplate for React multi-platform project.
 ---
 
@@ -43,55 +43,9 @@ pnpm create-page
 
 参考esboot在.env中打包出不同端的页面即可, 为避免隐藏bug过多，要严格区分原生端、浏览器端，不可共用同一个包部署。
 
-## redux状态管理
+## 状态管理
 
 每个页面，都带有一个如下图的标准化userConfig，pc端、手机端不一样，但手机端在app内或浏览器上都是标准的一套，pc端同理。userInfo不是标准的，根据项目不同，需要自己在相应端的customize.ts文件中修改IRawAppUserConfig的类型定义。oldStyle2Standard函数中转换化标准的userConfig。这就是对接新的交互需要做的大部分工作(msg中还需要修改原生getUserConfig的交互名称)。
-
-![标准redux app配置](./images/standard-redux-app-slice.png)
-
-### 为什么仍然继续使用啰嗦的redux
-
-redux toolkit并不算啰嗦，使用简单，人人都会, 而且redux的调试工具依然是最方便的，稍微麻烦一点，后续维护、查bug都能节约自己、他人的大量开发时间。有了react query之后，除了app设置、用户信息、交易设置，绝大多数业务场景都用不到redux, 所以推荐大家使用react query。
-
-### 标准store基本结构
-
-移动端
-
-```ts
-export interface IStandardAppUserConfig {
-  theme: ThemeValues;
-  language: Language;
-  raise: RaiseMode;
-  /**
-   * 跟随系统颜色模式
-   */
-  followSystemPrefersColorSchemeWhenInBrowser: boolean;
-  deviceNo: string;
-  raw: IRawAppUserConfig;
-}
-```
-
-pc端
-
-```ts
-export interface IStandardAppUserConfig {
-  theme: ThemeValues;
-  language: Language;
-  raise: RaiseMode;
-  /**
-   * 跟随系统颜色模式
-   */
-  followSystemPrefersColorSchemeWhenInBrowser: boolean;
-  deviceNo: string;
-  appFontSize: number;
-  appFontWeight: 'normal' | 'bold';
-  raw: IRawAppUserConfig;
-}
-```
-
-### 创建自己页面的状态
-
-自己页面目录下，有自己的model，创建页面时会附带一个hello模块redux toolkit slice的例子，可以参考hello模块的写法修改一下即可。redux中的数据并不会被释放，永远在内存中，所以不要存放大量数据，只存放一些配置信息，或者一些需要跨页面共享的数据。能用react query就用react query，不要过渡使用redux。
 
 ## 网络请求
 
@@ -104,7 +58,6 @@ export interface IStandardAppUserConfig {
 * **globalBlocker** 用于等待获取到app中的登录token再发送网络请求。
 * **createBasicPatternMiddleware** 封装了常见的业务场景，能满足基本的业务场景，如有特殊需求，可以参考文档示例自己创建一个中间件即可。
 * **createEncryptedGatewayMiddleware** 用于交易网关的加解密请求，如果不需要加解密，可以不使用。
-
 
 @dz-web/axios-middlewares中提供了一些常用的中间件，可以直接使用，也可以参考自己写一些中间件。
 

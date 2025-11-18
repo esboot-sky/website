@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-title: Vue-SP
+title: 03. Vue-SP
 description: Boilerplate for Vue single-platform project.
 ---
 

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-title: React-DEMO
+title: 04. React-DEMO
 description: Boilerplate for React demo project.
 ---
 
