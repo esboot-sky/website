@@ -25,6 +25,6 @@ description: Boilerplate for React single-platform project.
 
 ## 创建
 
-参考[创建项目](../../getting-started#方式一从内置模版创建)。
+参考[创建项目](../getting-started#方式二从内置模版创建)。
 
 选择模版`React-DEMO-APP`。

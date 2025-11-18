@@ -345,14 +345,13 @@ import { FONT_SIZE } from '@/constants/config';
 
 **默认值**：
 
-```js
-{
-  'process.env.VERSION': JSON.stringify(version),
-  'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-}
-```
+- `process.env.VERSION`：项目版本
+- `process.env.NODE_ENV`：环境变量
+- `process.env.isMobile`：是否是移动端
+- `process.env.isBrowser`：是否是浏览器
+- `process.env.publicPath`
 
-基于 [define-plugin](https://webpack.js.org/plugins/define-plugin/) 插件设置代码中的可用变量。
+`webpack`中基于 [define-plugin](https://webpack.js.org/plugins/define-plugin/) 插件设置代码中的可用变量。
 
 :::caution 注意事项
 

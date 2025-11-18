@@ -25,6 +25,7 @@ Release ESBoot 4 note!
 - 基于过去一年的开发，优化template代码。
 - 优化website UI。
 - 更新所有依赖。
+- 支持[Template](../../docs/4.0/docs/guides/template)。
 
 ## Tailwindcss 4.0
 
