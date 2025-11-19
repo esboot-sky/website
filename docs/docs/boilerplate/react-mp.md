@@ -254,23 +254,6 @@ export const tradeAxiosInst = createDZAxiosInstance(() => axios.create({
 * /src/platforms/pc/_browser 只属于pc浏览器端的资源。
 * /src/platforms/pc/_native  只属于pc原生app内嵌页面的资源
 
-#### 常见目录名称约定 
-
-名字相同，可根据平台，先择存放在不同的平台目录、或页面自己的目录下, 在某一层下面，说明只允许在某一层级下的内容使用, 如只属于某一组件，或某一页面的资源，不需要放到共享里。
-
-| 目录 | 作用 | 备注 |
-|------|-----|--------|
-| constants | 常量 | |
-| hoc | react hoc组件 | |
-| components | 页面组件 | |
-| utils | 幂等的函数 | 纯函数，每次输入保证有相同输出的函数 |
-| helpers | 非幂等的函数 | 非函数，每次输入不保证相同输出的函数或产生了某种副作用的函数 |
-| hooks | hooks | |
-| images | 图片资源 | |
-| styles | css | |
-| locales | 国际化语言文件 | |
-| modules | 页面模块 | 通常一个页面为一个模块 |
-
 ### 文件目录概览
 
 ```
