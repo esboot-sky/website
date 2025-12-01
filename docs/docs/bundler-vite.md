@@ -31,6 +31,7 @@ sidebar_position: 5
 | copy               | ✅         | 配置要复制到输出目录的文件或文件夹 |
 | svgr               | ✅         | 是否开启 [svgr](https://react-svgr.com/) |
 | svgrOptions        | ✅         | [svgrOptions](https://react-svgr.com/docs/options/) 配置 |
+| assetsInlineLimit  | ✅         | 配置 asset 内联限制 |
 | px2rem             | ✅         | px 转 rem 配置，参考 [postcss-plugin-px2rem](https://www.npmjs.com/package/postcss-plugin-px2rem) |
 | useTailwindcss     | ✅         | 是否使用 [tailwindcss](https://tailwindcss.com/) |
 

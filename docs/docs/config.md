@@ -487,6 +487,20 @@ const App = () => {
 
 参考 [svgrOptions](https://react-svgr.com/docs/docs/3.0/options/)。
 
+## assetsInlineLimit
+
+**类型**：`number`
+
+**默认值**：`4096 (4 KiB)`
+
+配置 asset 内联限制。
+
+:::tip 使用场景
+
+当 asset 大小小于这个值时，会内联到代码中，否则会生成一个文件。
+
+:::
+
 ## pxtorem
 
 **类型**：`PxtoremOptions`

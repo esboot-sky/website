@@ -6,6 +6,10 @@ sidebar_position: 999
 
 ## v4.0.0
 
+### Bundler
+
+- `px2rem` exclude `node_modules` by default.
+
 ### Bundler-vite
 
 - fix: Handle import * as variableName syntax

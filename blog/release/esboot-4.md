@@ -27,6 +27,14 @@ Release ESBoot 4 note!
 - 更新所有依赖。
 - 支持[Template](../../docs/4.0/docs/guides/template)。
 
+## Bundler-webpack
+
+- 支持[assetsInlineLimit](../../docs/4.0/docs/config#assetsinlinelimit)配置。
+
+## Bundler-vite
+
+- 支持[assetsInlineLimit](../../docs/4.0/docs/config#assetsinlinelimit)配置。
+
 ## Tailwindcss 4.0
 
 内容的Tailwindcss升级到了[4.1](https://tailwindcss.com/blog/tailwindcss-v4)

@@ -33,6 +33,7 @@ Rspack 是一个基于 Rust 的高性能构建工具，由 字节团队开发，
 | copy               | ❌         | 暂不支持                                                                     |
 | svgr               | ❌         | 暂不支持                                                                     |
 | svgrOptions        | ❌         | 暂不支持                                                                     |
+| assetsInlineLimit  | ❌         | 暂不支持                                                                     |
 | px2rem             | ❌         | 暂不支持                                                                     |
 | useTailwindcss     | ❌         | 暂不支持                                                                     |
 
