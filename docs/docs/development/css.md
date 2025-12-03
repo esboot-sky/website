@@ -1,5 +1,5 @@
 ---
-sidebar_position: 0
+sidebar_position: 3
 title: CSS
 description: CSS development for ESBoot.
 ---
