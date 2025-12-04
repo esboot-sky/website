@@ -29,3 +29,60 @@ sidebar_position: 2
 模板变量会自动替换为对应的值，但是要注意不要有空格，模板目前也只支持单行变量替换，所以不要写逻辑。
 
 :::
+
+## HTML Loading
+
+有时候在弱网环境下，页面加载时间过长，用户可能会长时间看到白屏，所以需要一个 loading 来提升用户体验。
+
+并且来分辨是页面加载慢还是页面报错导致的白屏。
+
+### 实现方式
+
+在 HTML 模板中添加 loading 样式和结构：
+
+`template/index.html`
+
+```html
+<head>
+  <style>
+    .global_loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 30px;
+      background: transparent;
+    }
+
+    .global_img {
+      width: 30px;
+      height: 30px;
+      animation: global_loading_rotate-img 1.5s linear infinite reverse;
+    }
+
+    @keyframes global_loading_rotate-img {
+      from {
+        transform: rotate(360deg);
+      }
+
+      to {
+        transform: rotate(0deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <div class="global_loading">
+      <img class="global_img" src="./static/loading.svg" alt="" />
+    </div>
+  </div>
+</body>
+```

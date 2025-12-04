@@ -217,7 +217,7 @@ config/
 
 #### template
 
-这是页面的模板目录，会根据这个目录下的文件生成页面。参考 [template 配置](./entry-files#template)。
+这是页面的模板目录，会根据这个目录下的文件生成页面。参考 [template 配置](../development/entry-files#template)。
 
 ## SP（Single Platform）
 
