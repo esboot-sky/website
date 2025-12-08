@@ -148,7 +148,7 @@ proxy: {
 
 是否开启 pick 语言 json 文件字段。
 
-如果开启，配合 [langJsonPicker](./guides/entry-files#langjsonpicker) 字段使用，减少多语言文件体积。
+如果开启，配合 [langJsonPicker](./development/entry-files#langjsonpicker) 字段使用，减少多语言文件体积。
 
 :::warning 注意事项
 
@@ -401,7 +401,7 @@ declare const define: string;
 
 :::tip 推荐做法
 
-大部分情况可以不用，参考[静态文件](./guides/static-files)配置方式。
+大部分情况可以不用，参考[静态文件](./development/static-files)配置方式。
 
 :::
 
