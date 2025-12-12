@@ -9,10 +9,6 @@ description: Roadmap for ESBoot.
 - [ ] Support SSG(Static Site Generation)
 - [ ] Support MCP
 
-### Lint
-
-- [ ] ESBoot ESLint support extends
-
 ## Planned Features
 
 - [ ] Support simultaneous multi-platform development
