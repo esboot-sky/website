@@ -16,6 +16,8 @@ import { createConfig } from '@dz-web/esboot/eslint';
 export default createConfig();
 ```
 
+与此同时可以移除`package.json`中的`eslintConfig`字段。
+
 ## 更新css文件入口
 
 在v3的时候，css的入口是`styles/main.scss`。v4的时候要把`main.scss`改成`index.scss`。
@@ -30,7 +32,7 @@ export default createConfig();
 @tailwind utilities;
 ```
 
-去掉这个标记，换位`@dz-web/esboot-browser`入口导入。
+去掉这个标记，换成`@dz-web/esboot-browser`入口导入。
 
 ```css
 @use '@dz-web/esboot-browser';

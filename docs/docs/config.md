@@ -539,3 +539,42 @@ const App = () => {
 **默认值**：`true`
 
 是否使用 [tailwindcss](https://tailwindcss.com/)。
+
+## experimental
+
+**类型**：`ExperimentalOptions`
+
+**默认值**：`{}`
+
+实验性配置。
+
+### reactCompiler
+
+**类型**：`ReactCompiler`
+
+#### enable
+
+**类型**：`boolean`
+
+**默认值**：`false`
+
+是否开启 React Compiler。
+
+#### target
+
+**类型**：`string`
+
+**默认值**：`19`
+
+React Compiler 目标版本。
+
+React 18 requires `react-compiler-runtime` package, you can install it by running `pnpm add react-compiler-runtime.
+
+**示例**：
+
+```ts
+reactCompiler: {
+  enable: true,
+  target: '19',
+}
+```
