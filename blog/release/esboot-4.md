@@ -12,7 +12,7 @@ ESBoot 4 is released!
 
 ## What's new
 
-- All In [ES Mobule](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+- All In [ES Module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
 - [Tailwindcss 4](https://tailwindcss.com/blog/tailwindcss-v4)
 - `Pnpm 10`
 - `vite 7`
@@ -37,11 +37,12 @@ Can't wait to try it? Go to [Migrate Guide](../../docs/4.0/docs/migration/migrat
 - Replace biome to eslint(antfu/eslint-config).
 - Upgrade node engine to 20.19.0.
 - `vite@5` => `vite@7`.
-- Upgrade `Bridge@2`
+- Upgrade `Bridge Mock@2`
 
 ## Bundler
 
 - `px2rem` exclude `node_modules` by default
+- Support [assetsInlineLimit](../../docs/4.0/docs/config#assetsinlinelimit) configuration.
 
 ## Bundler-webpack
 
@@ -53,12 +54,11 @@ Can't wait to try it? Go to [Migrate Guide](../../docs/4.0/docs/migration/migrat
 - chore: Change cjs to esm
 - chore: remove `postcss-normalize`
 - chore: remove `postcss-flexbugs-fixes`
-- Support [assetsInlineLimit](../../docs/4.0/docs/config#assetsinlinelimit) configuration.
 
 ## Bundler-vite
 
 - fix: Handle import * as variableName syntax
-- fix: StyleName has a whitespace
+- fix: `styleName` has a whitespace
 - fix: Scss file does not provide an export named `default`
 
 - feat: Warning when not found styleName like webpack.
@@ -66,7 +66,6 @@ Can't wait to try it? Go to [Migrate Guide](../../docs/4.0/docs/migration/migrat
 - chore: Upgrade `vite-plugin-static-copy@2` to `@3`
 - chore: Upgrade `vite@5` to `@7`
 - chore: Upgrade `express@4` to `@5`
-- Support [assetsInlineLimit](../../docs/4.0/docs/config#assetsinlinelimit) configuration.
 
 ## Tailwindcss 4.0
 
@@ -100,8 +99,8 @@ See [changes from v3](https://tailwindcss.com/docs/upgrade-guide#changes-from-v3
 ## ESLint
 
 - Refactor config
-- Restrict key in lang json
-- 8 => 9 / flat config
+- [Restrict key in lang json](../../docs/4.0/docs/development/i18n#key命名规范)
+- `8 => 9` / [flat config](https://eslint.org/docs/latest/use/configure/configuration-files#flat-config)
 
 ## Stylelint
 
@@ -109,11 +108,11 @@ See [changes from v3](https://tailwindcss.com/docs/upgrade-guide#changes-from-v3
 
 ## Plugin-vue
 
-- Support vue project, see [Plugin-vue](./plugins/plugin-vue.md)
+- Support vue project, see [Plugin-vue](../../docs/4.0/docs/plugins/plugin-vue)
 
 ## Template
 
-- React 18 => 19
+- React `18.3` => [React 19.2](https://react.dev/blog/2025/10/01/react-19-2)
 - `@reduxjs/toolkit` to `Zustand`
 - Upgrade to `bridge@3`
 - Dynamic import lang

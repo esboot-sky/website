@@ -8,8 +8,8 @@ description: Roadmap for ESBoot.
 
 - [ ] Support SSG(Static Site Generation)
 - [ ] Support MCP
-- [ ] Complete RSPack.
-- [ ] Support Static Transform.
+- [ ] Complete RSPack
+- [ ] Support Static File Transform
 
 ## Planned Features
 
@@ -29,4 +29,4 @@ description: Roadmap for ESBoot.
 ### Bundler-vite
 
 - [ ] Bundler vite langjsonpicker
-- [ ] ⚠️ Bug: hot module replacement freezes
+- [ ] ⚠️ Bug: hot module replacement is stucked

@@ -96,14 +96,26 @@ const FRAMEWORK_BUNDLES = [
 
 配置额外需要做 Babel 编译的 NPM 包或目录。常用于处理第三方库的兼容性。
 
-**示例**：
+```ts
+export default {
+  extraBabelIncludes: [
+    // 支持绝对路径
+    join(__dirname, '../../common'),
+    // 支持 npm 包
+    'react-monaco-editor',
+    // 转译全部路径含有 @scope 的包
+    /@scope/
+  ],
+};
+```
+
+`e.g.`
 
 ```ts
 export default {
   extraBabelIncludes: [
     /filter-obj/i,
     /immer/i,
-    /zustand/i,
     /query-string/i,
     /react-intl/i,
     /common/i,
@@ -114,6 +126,7 @@ export default {
     /radash/i,
     /tailwind-merge/i,
     /@radix-ui/i,
+    'zustand'
   ],
 }
 ```
@@ -173,4 +186,3 @@ export default defineConfig((compileConfig) => {
   };
 });
 ```
-
