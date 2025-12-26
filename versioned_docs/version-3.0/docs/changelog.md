@@ -4,6 +4,14 @@ sidebar_position: 999
 
 # Changelog
 
+## v3.0.49
+
+`251226`
+
+### Bundler-webpack
+
+- fix: the moduleID is not number.
+
 ## v3.0.41
 
 ### Bundler-webpack
