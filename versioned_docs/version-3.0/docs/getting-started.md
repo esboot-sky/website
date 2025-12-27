@@ -273,17 +273,17 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="pnpm" label="pnpm">
     ```sh
-    pnpm dlx create-esboot@latest
+    pnpm dlx create-esboot@3
     ```
   </TabItem>
   <TabItem value="bun" label="bun" default>
     ```sh
-    bunx create-esboot
+    bunx create-esboot@3
     ```
   </TabItem>
   <TabItem value="npm" label="npm">
     ```sh
-    npx create-esboot@latest
+    npx create-esboot@3
     ```
   </TabItem>
 </Tabs>

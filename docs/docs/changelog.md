@@ -4,6 +4,12 @@ sidebar_position: 999
 
 # Changelog
 
+## v4.0.6
+
+`251227`
+
+- fix: compatibility with windows.
+
 ## v4.0.2
 
 `251212`
