@@ -191,10 +191,10 @@ Display inline in the editor the size of the imported package。
 #### 初始化
 
 ```sh
-pnpm create esboot --upstream --url 你的项目git地址
+pnpm create esboot@3 --upstream --url 你的项目git地址
 
 # 示例
-pnpm create esboot --upstream --url ssh://git@git.web.dz:10022/draft/esboot-react-mp-draft.git
+pnpm create esboot@3 --upstream --url ssh://git@git.web.dz:10022/draft/esboot-react-mp-draft.git
 ```
 
 上面的命令执行完成之后，你的本地会有两个`remote`:
@@ -204,8 +204,8 @@ $ git remote -v
 
 origin  <你的项目git地址> (fetch)
 origin  <你的项目git地址> (push)
-upstream  ssh://git@git.web.dz:10022/WebTeam/common-library/esboot/esboot-react-mp.git (fetch)
-upstream  ssh://git@git.web.dz:10022/WebTeam/common-library/esboot/esboot-react-mp.git (push)
+upstream  [esboot-template-upstream-url] (fetch)
+upstream  [esboot-template-upstream-url] (push)
 ```
 
 3个分支
@@ -218,14 +218,13 @@ $ git branch -a
   upstream
   remotes/origin/HEAD -> origin/main
   remotes/origin/dev
-  remotes/origin/main
+  remotes/origin/v3
   remotes/origin/upstream
-  remotes/upstream/main
+  remotes/upstream/v3
 ```
 
 - `dev` 为你的开发分支
-- `main` 为上游的开发分支
-- `upstream` 为上游的main分支
+- `upstream` 为上游的v3分支
 
 #### 合并上游更新
 
@@ -234,17 +233,17 @@ $ git branch -a
 **拉取更新**
 
 ```sh
-git fetch upstream main
+git fetch upstream v3
 ```
 
 **合并上游更新到upstream分支**
 
 ```sh
 # 如果你有本地修改需要合并，使用这个命令(不推荐本地改上游分支内容)
-git merge upstream/main
+git merge upstream/v3
 
 # 如果你没有本地修改，直接切换到上游最新
-git reset --hard upstream/main
+git reset --hard upstream/v3
 ```
 
 **合并上游更新到dev分支**
@@ -253,7 +252,7 @@ git reset --hard upstream/main
 git checkout dev
 
 # 如果需要合并所有更新使用rebase，如果只合并某几个更新使用cherry-pick
-git rebase upstream
+git rebase upstream/v3
 ```
 
 ### 方式二：从内置模版创建
@@ -295,7 +294,7 @@ import TabItem from '@theme/TabItem';
 ```bash
 # 从 @dz-web/esboot-electron-template 创建一个 electron 模板
 
-pnpm create esboot --template electron
+pnpm create esboot@3 --template electron
 ```
 
 #### 参数选项
@@ -306,8 +305,8 @@ pnpm create esboot --template electron
 | ------------ | --------------------------------------------------------------------------------------------- |
 | `--url`      | 必填，指定你的git仓库地址                                                                     |
 | `--name`     | 可选，指定目录名称，如果不填，默认用项目名称                                                  |
-| `--upstream` | 可选，上游的地址，默认`<http://git.web.dz/WebTeam/common-library/esboot/esboot-react-mp.git>` |
-| `--branch`   | 可选，上游的分支，默认`main`                                                                  |
+| `--upstream` | 可选，上游的地址，默认`<https://git.dztec.net/teams/web-team/dz-web/esboot/esboot-react-mp.git>` |
+| `--branch`   | 可选，上游的分支，默认`v3`                                                                  |
 
 ### 参数选项
 

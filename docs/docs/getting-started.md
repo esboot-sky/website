@@ -196,7 +196,7 @@ code --install-extension ./dz-web-vscode-css-peek-4.4.1.vsix
 pnpm create esboot --upstream --url 你的项目git地址
 
 # 示例
-pnpm create esboot --upstream --url ssh://git@git.web.dz:10022/draft/esboot-react-mp-draft.git
+pnpm create esboot --upstream --url https://git.dztec.net/teams/web-team/dz-web/esboot/esboot-react-mp.git
 ```
 
 上面的命令执行完成之后，你的本地会有两个 `remote`：
@@ -206,8 +206,8 @@ $ git remote -v
 
 origin  <你的项目git地址> (fetch)
 origin  <你的项目git地址> (push)
-upstream  ssh://git@git.web.dz:10022/WebTeam/common-library/esboot/esboot-react-mp.git (fetch)
-upstream  ssh://git@git.web.dz:10022/WebTeam/common-library/esboot/esboot-react-mp.git (push)
+upstream  [esboot-template-upstream-url] (fetch)
+upstream  [esboot-template-upstream-url] (push)
 ```
 
 三个分支：
@@ -216,17 +216,10 @@ upstream  ssh://git@git.web.dz:10022/WebTeam/common-library/esboot/esboot-react-
 $ git branch -a
 
 * dev
-  main
   upstream
-  remotes/origin/HEAD -> origin/main
-  remotes/origin/dev
-  remotes/origin/main
-  remotes/origin/upstream
-  remotes/upstream/main
 ```
 
 - `dev` - 你的开发分支
-- `main` - 上游的开发分支
 - `upstream` - 上游的 main 分支
 
 #### 合并上游更新
@@ -311,7 +304,7 @@ pnpm create esboot --template electron
 | ------------ | --------------------------------------------------------------------------------------------- |
 | `--url`      | 必填，指定你的 git 仓库地址                                                                     |
 | `--name`     | 可选，指定目录名称，如果不填，默认用项目名称                                                  |
-| `--upstream` | 可选，上游的地址，默认 `<http://git.web.dz/WebTeam/common-library/esboot/esboot-react-mp.git>` |
+| `--upstream` | 可选，上游的地址，默认 `<https://git.dztec.net/teams/web-team/dz-web/esboot/esboot-react-mp.git>` |
 | `--branch`   | 可选，上游的分支，默认 `main`                                                                  |
 
 #### 通用参数
