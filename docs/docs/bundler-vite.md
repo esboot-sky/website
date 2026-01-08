@@ -80,3 +80,20 @@ export default defineConfig((compileConfig) => {
 });
 ```
 
+## legacy
+
+是否启用[@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy)。
+
+**类型**：`{ enable: boolean }`
+
+**默认值**：`{ enable: false }`
+
+**示例**：
+
+```ts
+export default defineConfig({
+  legacy: {
+    enable: false,
+  },
+});
+```

@@ -4,6 +4,12 @@ sidebar_position: 999
 
 # Changelog
 
+## v4.0.7
+
+`260108`
+
+- feat: support [legacy](./bundler-vite#legacy) config in vite bundler.
+
 ## v4.0.6
 
 `251227`

@@ -4,6 +4,14 @@ sidebar_position: 999
 
 # Changelog
 
+## v3.0.50
+
+`251230`
+
+### Bundler-Vite
+
+- feat: upgrade to `vite@6.4.1`
+
 ## v3.0.49
 
 `251226`
