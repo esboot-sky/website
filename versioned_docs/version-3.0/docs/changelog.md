@@ -4,6 +4,13 @@ sidebar_position: 999
 
 # Changelog
 
+## v3.0.53
+
+`260120`
+
+- fix(bundler-vite): change global style rule
+- perf(bundler-webpack): not throw error when miss styleName in production mode
+
 ## v3.0.50
 
 `251230`
