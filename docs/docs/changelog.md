@@ -4,6 +4,12 @@ sidebar_position: 999
 
 # Changelog
 
+## v4.1.0
+
+`260128`
+
+- feat: support [css options](./config#css).
+
 ## v4.0.7
 
 `260108`

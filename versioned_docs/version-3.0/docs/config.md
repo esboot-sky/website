@@ -197,6 +197,40 @@ enum JsMinifier {
 - [terser](https://terser.org/docs/docs/3.0/api-reference/#minify-options)
 - [swc](https://swc.rs/docs/docs/3.0/configuration/minification#configuration)
 
+## css
+
+`since 3.1.0`
+
+用于配置css相关的选项。
+
+Configure CSS modules behavior. The options are passed on to postcss-modules.
+
+```ts
+export type LocalsConvention =
+  | 'camelCase' // 驼峰
+  | 'camelCaseOnly' // 仅驼峰
+  | 'asIs' // 原样
+  | 'dashes' // 中划线
+  | 'dashesOnly' // 仅中划线
+  | ((name: string) => string);
+
+export interface CSSOptions {
+  modules?: {
+    localsConvention?: LocalsConvention;
+  };
+}
+```
+
+默认值为：
+
+```js
+{
+  modules: {
+    localsConvention: 'asIs',
+  },
+}
+```
+
 ## cssMinifier
 
 - 类型：`CSSMinifier`
