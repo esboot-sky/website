@@ -4,6 +4,12 @@ sidebar_position: 999
 
 # Changelog
 
+## v3.1.2
+
+`260128`
+
+- fix: Vite Debugger Location Mismatch Issue。
+
 ## v3.1.0
 
 `260127`

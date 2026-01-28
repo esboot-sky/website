@@ -9,6 +9,7 @@ sidebar_position: 999
 `260128`
 
 - feat: support [css options](./config#css).
+- fix: Vite Debugger Location Mismatch Issue。
 
 ## v4.0.7
 
