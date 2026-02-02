@@ -4,6 +4,12 @@ sidebar_position: 999
 
 # Changelog
 
+## v4.1.1
+
+`260202`
+
+- feat: support [rspack bundler](./bundler-rspack).
+
 ## v4.1.0
 
 `260128`

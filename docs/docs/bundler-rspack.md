@@ -12,41 +12,56 @@ Rspack 是一个基于 Rust 的高性能构建工具，由 字节团队开发，
 
 | Name               | Supported | Description                                                                 |
 | ------------------ | --------- | --------------------------------------------------------------------------- |
-| server.proxy       | ❌         | 暂不支持                                                                     |
-| server.https       | ❌         | 暂不支持                                                                     |
-| server.http2       | ❌         | 暂不支持                                                                     |
-| server.open        | ❌         | 暂不支持                                                                     |
-| server.port        | ❌         | 暂不支持                                                                     |
-| outputPath         | ❌         | 暂不支持                                                                     |
-| publicPath         | ❌         | 暂不支持                                                                     |
-| useLangJsonPicker  | ❌         | 暂不支持                                                                     |
-| minimize           | ❌         | 暂不支持                                                                     |
-| jsMinifier         | ❌         | 暂不支持                                                                     |
-| jsMinifierOptions  | ❌         | 暂不支持                                                                     |
-| cssMinifier        | ❌         | 暂不支持                                                                     |
-| cssMinifierOptions | ❌         | 暂不支持                                                                     |
-| analyze            | ❌         | 暂不支持                                                                     |
-| alias              | ❌         | 暂不支持                                                                     |
-| define             | ❌         | 暂不支持                                                                     |
-| sourceMap          | ❌         | 暂不支持                                                                     |
-| externals          | ❌         | 暂不支持                                                                     |
-| copy               | ❌         | 暂不支持                                                                     |
-| svgr               | ❌         | 暂不支持                                                                     |
-| svgrOptions        | ❌         | 暂不支持                                                                     |
-| assetsInlineLimit  | ❌         | 暂不支持                                                                     |
-| px2rem             | ❌         | 暂不支持                                                                     |
-| useTailwindcss     | ❌         | 暂不支持                                                                     |
+| server.proxy       | ✅         |                                                                             |
+| server.https       | ✅         |                                                                             |
+| server.http2       | ✅         |                                                                             |
+| server.open        | ✅         |                                                                             |
+| server.port        | ✅         |                                                                             |
+| outputPath         | ✅         |                                                                             |
+| publicPath         | ✅         |                                                                             |
+| useLangJsonPicker  | ✅         |                                                                             |
+| minimize           | ✅         | Uses `SwcJsMinimizerRspackPlugin` & `LightningCssMinimizerRspackPlugin`     |
+| jsMinifier         | ✅         | Defaults to `swc`. Set to `'none'` to disable.              |
+| jsMinifierOptions  | ✅         |                                                                             |
+| cssMinifier        | ✅         | Defaults to `lightningcss`. Set to `'none'` to disable.     |
+| cssMinifierOptions | ✅         |                                                                             |
+| analyze            | ✅         |                                                                             |
+| alias              | ✅         |                                                                             |
+| define             | ✅         |                                                                             |
+| sourceMap          | ✅         |                                                                             |
+| externals          | ✅         |                                                                             |
+| copy               | ✅         |                                                                             |
+| svgr               | ✅         | Supports SVG as React components                                            |
+| svgrOptions        | ✅         |                                                                             |
+| assetsInlineLimit  | ✅         |                                                                             |
+| px2rem             | ✅         |                                                                             |
+| useTailwindcss     | ✅         |                                                                             |
 
-:::warning 开发中
-
-Rspack bundler 目前正在开发中，大部分配置项暂未支持。如需使用完整功能，建议使用 Webpack 或 Vite bundler。
-
+:::info Note
+Using `swc_core` v55.0.0 and `browserslist` for target configuration.
 :::
 
 ## Base Feature Support
 
-- ❌ Compatibility
-- ❌ Code splitting
+- ✅ Compatibility (ES2020+)
+- ✅ Code splitting
+
+## CSS Modules & styleName Support
+
+esboot-bundler-rspack now includes a custom **WASM Plugin** (`rspack-plugin-stylename`) to support `styleName` attributes in JSX/TSX files, providing fully scoped CSS modules similar to existing `babel-plugin-react-css-modules`.
+
+### Features
+
+- **High Performance**: Written in Rust, compiled to WASM, running inside SWC loader.
+- **Runtime Mapping**: Unlike build-time hashing, the plugin transforms `styleName="my-class"` into `styles['my-class']` lookup at runtime. This ensures 100% consistency with the bundler's generated class names.
+- **CamelCase Fallback**: Automatically handles `css-loader` transforming kebab-case classes to camelCase property keys.
+    - Example: `styleName="text2-cls"` is transformed to `(styles["text2-cls"] || styles["text2Cls"])`.
+- **Dynamic preservation**: Preserves `className` expressions (e.g. `<div className={styles.foo} styleName="bar">`) by concatenating them.
+
+### Configuration
+
+The plugin is enabled automatically when using `bundler-rspack`.
+Cache files for the WASM plugin are stored in `node_modules/.cache/esboot/.swc` to keep your project clean.
 
 ## customConfig
 
@@ -68,4 +83,3 @@ export default defineConfig((compileConfig) => {
   };
 });
 ```
-
