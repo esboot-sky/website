@@ -4,6 +4,14 @@ sidebar_position: 999
 
 # Changelog
 
+## v3.1.3
+
+`260312`
+
+### Bundler Webpack
+
+- fix: Unexpected token in bundler asset.
+
 ## v3.1.2
 
 `260128`
