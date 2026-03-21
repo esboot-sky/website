@@ -4,6 +4,14 @@ sidebar_position: 999
 
 # Changelog
 
+## v4.1.3
+
+`260321`
+
+### Lint
+
+- feat: upgrade ESLint@10 and Stylelint@17
+
 ## v4.1.1
 
 `260202`
