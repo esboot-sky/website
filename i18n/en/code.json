@@ -1,0 +1,47 @@
+{
+  "themeConfig.navbar.docsLabel": {
+    "message": "Docs"
+  },
+  "themeConfig.navbar.blogLabel": {
+    "message": "Blog"
+  },
+  "themeConfig.navbar.allVersionsLabel": {
+    "message": "All versions"
+  },
+  "homepage.tools.more": {
+    "message": "anything else you need..."
+  },
+  "homepage.meta.title": {
+    "message": "Welcome to {siteTitle}"
+  },
+  "homepage.meta.description": {
+    "message": "Frontend Infrastructure Toolkit: easy to use, blazing fast, and extensible."
+  },
+  "homepage.hero.tag": {
+    "message": "Frontend Infrastructure Toolkit"
+  },
+  "homepage.hero.easy": {
+    "message": "Easy to use"
+  },
+  "homepage.hero.fast": {
+    "message": "Blazing fast"
+  },
+  "homepage.hero.support": {
+    "message": "Built for"
+  },
+  "homepage.cta.getStarted": {
+    "message": "Get Started"
+  },
+  "versions.meta.title": {
+    "message": "Versions"
+  },
+  "versions.meta.description": {
+    "message": "Browse all ESBoot documentation versions."
+  },
+  "versions.heading": {
+    "message": "ESBoot Documentation Versions"
+  },
+  "versions.latest.label": {
+    "message": "Current stable version:"
+  }
+}

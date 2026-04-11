@@ -17,7 +17,13 @@ const config: Config = {
   projectName: 'esboot',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenAnchors: 'warn',
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   customFields: {
     latestVersion: '4.0.0',
@@ -25,8 +31,18 @@ const config: Config = {
   },
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh',
+    locales: ['zh', 'en'],
+    localeConfigs: {
+      zh: {
+        label: '简体中文',
+        htmlLang: 'zh',
+      },
+      en: {
+        label: 'English',
+        htmlLang: 'en',
+      },
+    },
   },
 
   themes: [
@@ -93,12 +109,25 @@ const config: Config = {
           sidebarId: 'apiSidebar',
           label: 'API',
         },
-        { to: '/blog', label: 'Blog', position: 'left' },
+        {
+          to: '/blog',
+          label: 'Blog',
+          position: 'left',
+        },
         {
           type: 'docsVersionDropdown',
           position: 'right',
-          dropdownItemsAfter: [{ to: '/versions', label: 'All versions' }],
+          dropdownItemsAfter: [
+            {
+              to: '/versions',
+              label: 'All versions',
+            },
+          ],
           dropdownActiveClassDisabled: true,
+        },
+        {
+          type: 'localeDropdown',
+          position: 'right',
         },
       ],
     },

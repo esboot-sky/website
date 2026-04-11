@@ -1,41 +1,41 @@
 # Website
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This website is built with Docusaurus.
 
-### Installation
+## Installation
 
-```
-$ yarn
-```
-
-### Local Development
-
-```
-$ yarn start
+```bash
+pnpm install
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+## Local Development
 
-### Build
-
-```
-$ yarn build
+```bash
+pnpm dev
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+This starts the default Chinese locale locally at `http://localhost:8080` with hot reload.
 
-### Deployment
+To develop the English locale, run:
 
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
+```bash
+pnpm dev:en
 ```
 
-Not using SSH:
+Docusaurus development mode only serves one locale per process. If you need to verify the real language switcher locally, use the production-like preview below.
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
+## Local I18n Preview
+
+```bash
+pnpm preview:i18n
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+This builds the bilingual site and serves the generated output locally, so `/` and `/en` can be switched exactly like production.
+
+## Build
+
+```bash
+pnpm build
+```
+
+This generates the static site into the `build` directory.

@@ -305,4 +305,4 @@ export default defineConfig({
 
 ## 从v2迁移到v3
 
-参考[迁移到v3](../../docs/3.0/docs/migration/migration-v3)
+参考[迁移到v3](/docs/3.0/docs/migration/migration-v3)

@@ -26,10 +26,10 @@ ESBoot 4 is released!
 - Fix bugs
 - Based on the development of the past year, optimize the `template` code
 - Optimize Website UI
-- Support [Template](../../docs/4.0/docs/development/template) variable
+- Support [Template](/docs/4.0/docs/development/template) variable
 
 :::info
-Can't wait to try it? Go to [Migrate Guide](../../docs/4.0/docs/migration/migration-v4), and start your new journey with ESBoot 4!
+Can't wait to try it? Go to [Migrate Guide](/docs/4.0/docs/migration/migration-v4), and start your new journey with ESBoot 4!
 :::
 
 ## ESBoot
@@ -42,7 +42,7 @@ Can't wait to try it? Go to [Migrate Guide](../../docs/4.0/docs/migration/migrat
 ## Bundler
 
 - `px2rem` exclude `node_modules` by default
-- Support [assetsInlineLimit](../../docs/4.0/docs/config#assetsinlinelimit) configuration.
+- Support [assetsInlineLimit](/docs/4.0/docs/config#assetsinlinelimit) configuration.
 
 ## Bundler-webpack
 
@@ -99,7 +99,7 @@ See [changes from v3](https://tailwindcss.com/docs/upgrade-guide#changes-from-v3
 ## ESLint
 
 - Refactor config
-- [Restrict key in lang json](../../docs/4.0/docs/development/i18n#key命名规范)
+- [Restrict key in lang json](/docs/4.0/docs/development/i18n#key命名规范)
 - `8 => 9` / [flat config](https://eslint.org/docs/latest/use/configure/configuration-files#flat-config)
 
 ## Stylelint
@@ -108,7 +108,7 @@ See [changes from v3](https://tailwindcss.com/docs/upgrade-guide#changes-from-v3
 
 ## Plugin-vue
 
-- Support vue project, see [Plugin-vue](../../docs/4.0/docs/plugins/plugin-vue)
+- Support vue project, see [Plugin-vue](/docs/4.0/docs/plugins/plugin-vue)
 
 ## Template
 
@@ -126,7 +126,7 @@ See [changes from v3](https://tailwindcss.com/docs/upgrade-guide#changes-from-v3
 ## Config
 
 - Remove `tailwindcssOptions`
-- Add [assetsInlineLimit](../../docs/4.0/docs/config#assetsinlinelimit).
+- Add [assetsInlineLimit](/docs/4.0/docs/config#assetsinlinelimit).
 - React Compiler support
 
 ### React Compiler Experimental Support
@@ -148,4 +148,4 @@ experimental: {
 
 ## Next Step
 
-Go to [Roadmap](../../docs/4.0/docs/roadmap) for more details.
+Go to [Roadmap](/docs/4.0/docs/roadmap) for more details.
