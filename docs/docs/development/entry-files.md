@@ -173,3 +173,7 @@ export default {
 ```
 
 那么 `cfg.entry[chunk].url` 就是 `http://localhost:8001/home.html?a=1&b=2`。
+
+## More
+
+如果你想了解基于入口文件的页面渲染能力，例如 `SSG` 和后续 `SSR` 的扩展方式，可以继续阅读 [Rendering](./rendering)。
