@@ -253,6 +253,35 @@ enum JsMinifier {
 
 Configure CSS modules behavior. The options are passed on to [postcss-modules](https://github.com/madyankin/postcss-modules).
 
+### tailwind
+
+**类型**：`object`
+
+Tailwind 相关配置。
+
+```ts
+css: {
+  tailwind: {
+    enable: true,
+    version: 'next',
+    separateImports: false,
+  },
+}
+```
+
+支持的字段：
+
+- `enable`：是否启用 Tailwind，默认 `true`
+- `version`：Tailwind 版本，可选 `3` 或 `next`，默认 `next`
+- `separateImports`：仅对 `version: 'next'` 生效。默认 `false`，表示直接使用 `tailwindcss/index.css`。设为 `true` 时，ESBoot 会拆分引入 `theme.css`、`preflight.css` 和 `utilities.css`
+
+### tailwind 使用建议
+
+- 如果你没有明确的分拆需求，保持 `separateImports: false` 即可
+- 如果你希望显式贴近 Tailwind Next 的官方拆分结构，可以开启 `separateImports: true`
+- 如果你要接入 Tailwind 3，则设置 `version: '3'`，`separateImports` 会被忽略
+- 如果你的项目更看重兼容性，或者想把 Tailwind 3 的依赖和 VSCode 配置都收进插件里，可以直接使用 [plugin-tailwind3](./plugins/plugin-tailwind3)
+
 ### modules
 
 **类型**：`CSSOptions`

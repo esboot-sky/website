@@ -27,7 +27,7 @@ export default defineConfig({
 
 ## 第三方插件
 
-你也可以使用已经封装好的插件，比如 [vitest](./plugin-vitest)。
+你也可以使用已经封装好的插件，比如 [vitest](./plugin-vitest) 和 [tailwind3](./plugin-tailwind3)。
 
 ## 插件开发
 

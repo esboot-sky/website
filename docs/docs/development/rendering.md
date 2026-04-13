@@ -139,6 +139,8 @@ export default definePage({
 - `render()` 中尽量不要直接依赖 `document`、`window` 之类的浏览器对象
 - 如果页面需要 hydrate，客户端挂载结构要和 `render()` 的输出保持一致
 - 推荐把页面主体抽成独立组件，在入口里同时复用给 `render()` 和客户端挂载
+- 如果你使用 Tailwind 相关样式，`render()` 输出和客户端 hydration 期间应该保持同一套样式配置，尤其是 `css.tailwind.version` 和 `css.tailwind.separateImports`
+- `separateImports` 只对 `css.tailwind.version: 'next'` 有意义，Tailwind 3 会忽略它
 
 :::tip 当前支持情况
 

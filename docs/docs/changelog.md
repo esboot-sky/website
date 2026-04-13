@@ -29,16 +29,21 @@ sidebar_position: 999
 ### Common
 
 - fix: isolate config default state between `ESBootCfg` instances to avoid cross-run mutation leaks
+- feat: move Tailwind settings under `css.tailwind`, add Tailwind 3 plugin support that ships its own `tailwindcss` dependency, and remove the root `tailwindcss` fallback
+- feat: add `plugin-tailwind3` as the opt-in escape hatch for Tailwind 3 compatibility while keeping the default Tailwind Next path on the modern Vite plugin
 
 ### Test
 
 - test: add broad characterization coverage for config loading, entry generation, bundler helpers, plugin hooks, prepare generators, browser helpers, lint/plugin packages, and styleName transforms
+- test: add example coverage for the `plugin-vitest` shared Vitest config flow without a local `vitest.config.ts`
 - test: add Playwright coverage for `examples/sp-base` Vite flow, including `styleName` CSS Modules rendering and route navigation
 - test: add webpack coverage for dev cache behavior, javascript loader cache behavior, thread-loader dev policy, and performance timing plugin
 
 ### Docs
 
 - docs: split rendering into a dedicated development guide, documenting `SSG` now and the planned `SSR` capabilities
+- docs: document `css.tailwind` usage, including Tailwind 3 and `separateImports` for Tailwind Next
+- docs: add a dedicated `plugin-tailwind3` guide explaining the compatibility use case and generated IntelliSense config
 
 ## v4.1.3
 

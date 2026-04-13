@@ -28,7 +28,12 @@ ESBoot支持两种CSS处理方式：
 
 ## Tailwindcss
 
-`Tailwindcss`是一个功能强大的CSS框架，支持快速构建现代化的UI。ESBoot支持`Tailwindcss`的4.x版本。**推荐使用`Tailwindcss`来构建样式**，因为：
+`Tailwindcss`是一个功能强大的CSS框架，支持快速构建现代化的UI。ESBoot 目前支持两种版本：
+
+- `next`：对应 Tailwind 最新分支，默认值
+- `3`：项目显式安装 Tailwind 3 后可用
+
+**推荐使用 `Tailwindcss` 来构建样式**，因为：
 
 - 原子化css代码体积更小。
 - 不用去想所谓的类名，避免起名困扰。
@@ -45,6 +50,29 @@ ESBoot支持两种CSS处理方式：
 ```
 
 就可以放心使用`Tailwindcss`的类名了。
+
+### Tailwind 配置
+
+Tailwind 相关配置统一放在 `css.tailwind` 里：
+
+```ts
+export default defineConfig({
+  css: {
+    tailwind: {
+      enable: true,
+      version: 'next',
+      separateImports: false,
+    },
+  },
+});
+```
+
+其中 `separateImports` 只对 `version: 'next'` 生效：
+
+- `false`：默认值，ESBoot 直接注入 `tailwindcss/index.css`
+- `true`：ESBoot 拆分注入 `tailwindcss/theme.css`、`tailwindcss/preflight.css`、`tailwindcss/utilities.css`
+
+如果你使用 Tailwind 3，只要把 `version` 设为 `3` 即可，`separateImports` 会被忽略。
 
 ### 如何使用
 
