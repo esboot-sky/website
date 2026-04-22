@@ -14,7 +14,16 @@ sidebar_position: 999
 - feat: unify IP4 source for dev server logs
 - feat: add resolve series tools
 
-## 4.2.3
+## 4.3.0
+
+### Plugin
+
+- feat: rework the plugin system around named plugins with `name`, `enforce`, `apply`, and shared runtime context
+- feat: keep legacy `key`-based plugins working during the migration period
+- test: add coverage for plugin ordering, activation conditions, and hook context propagation
+- docs: refresh the plugin API guide to match the new model and migration path
+
+### ESBoot
 
 - fix: merge vitest plugin include entries without dropping `.esbootrc.ts`
 
