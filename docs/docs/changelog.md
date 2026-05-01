@@ -4,6 +4,15 @@ sidebar_position: 999
 
 # Changelog
 
+## 4.3.1
+
+`Next`
+
+- fix: normalize global style paths on Windows
+- chore(create-esboot): upgrade react-admin/add react-admin-main boilerplate
+- feat: unify IP4 source for dev server logs
+- feat: add resolve series tools
+
 ## 4.2.0
 
 ### Bunder-vite
@@ -45,7 +54,7 @@ sidebar_position: 999
 - docs: document `css.tailwind` usage, including Tailwind 3 and `separateImports` for Tailwind Next
 - docs: add a dedicated `plugin-tailwind3` guide explaining the compatibility use case and generated IntelliSense config
 
-## v4.1.3
+## 4.1.3
 
 `260321`
 
@@ -53,39 +62,39 @@ sidebar_position: 999
 
 - feat: upgrade ESLint@10 and Stylelint@17
 
-## v4.1.1
+## 4.1.1
 
 `260202`
 
 - feat: support [rspack bundler](./bundler-rspack).
 
-## v4.1.0
+## 4.1.0
 
 `260128`
 
 - feat: support [css options](./config#css).
 - fix: Vite Debugger Location Mismatch Issue。
 
-## v4.0.7
+## 4.0.7
 
 `260108`
 
 - feat: support [legacy](./bundler-vite#legacy) config in vite bundler.
 
-## v4.0.6
+## 4.0.6
 
 `251227`
 
 - fix: compatibility with windows.
 
-## v4.0.2
+## 4.0.2
 
 `251212`
 
 - feat: change tsup to tsdown.
 - chore: remove unused console.log.
 
-## v4.0.0
+## 4.0.0
 
 `251211`
 
