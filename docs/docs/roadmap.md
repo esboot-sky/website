@@ -7,6 +7,9 @@ description: Roadmap for ESBoot.
 ## Next Version
 
 - [x] Support SSG(Static Site Generation)
+
+vite
+
 - [ ] Support MCP
 - [x] Complete RSPack
 - [ ] Support Static File Transform

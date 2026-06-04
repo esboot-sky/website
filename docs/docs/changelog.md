@@ -4,14 +4,19 @@ sidebar_position: 999
 
 # Changelog
 
-## 4.3.1
+## 4.3.2
 
-`Next`
+`260604`
 
+- fix: auto jump to editor when exec husky install
 - fix: normalize global style paths on Windows
 - chore(create-esboot): upgrade react-admin/add react-admin-main boilerplate
 - feat: unify IP4 source for dev server logs
 - feat: add resolve series tools
+
+## 4.2.3
+
+- fix: merge vitest plugin include entries without dropping `.esbootrc.ts`
 
 ## 4.2.0
 
