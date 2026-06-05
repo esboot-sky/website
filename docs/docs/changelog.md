@@ -4,6 +4,12 @@ sidebar_position: 999
 
 # Changelog
 
+## 4.3.3
+
+`260605`
+
+- fix(lint): exit with non-zero code on pre-commit check failure
+
 ## 4.3.2
 
 `260604`
