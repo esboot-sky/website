@@ -4,6 +4,24 @@ sidebar_position: 999
 
 # Changelog
 
+## 4.3.4
+
+`next`
+
+### Plugin / Test
+
+- fix(plugin-vitest): decouple shared Vitest config generation from the Vite bundler config path so webpack/rspack projects no longer execute Vite-only `bundlerOptions.customConfig`
+- fix(plugin-vitest): split published runtime helpers into dedicated `dist/alias.js` and `dist/options.js` entries and disable bundle splitting to avoid dynamic require failures during config loading
+- fix(plugin-vitest): polyfill `window.matchMedia` in the shared Vitest setup for jsdom-based example and app tests
+- fix(plugin-vitest): shorten `esboot vitest` failure output so command wrapper errors no longer dump large bundled stacks after Vitest already printed the real failure
+- test(examples): add SP and MP example `esbootrc` contract coverage for bundler wiring and plugin-vitest registration
+
+### Bundler
+
+- refactor(bundler-common): move the Vite `react-style-name` transform into `bundler-common` so Vite bundler config and standalone Vitest config can share one implementation
+- refactor(bundler-vite): remove the old private `react-style-name` implementation directory and keep only the published runtime helper entry
+
+
 ## 4.3.3
 
 `260605`
