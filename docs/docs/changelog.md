@@ -15,6 +15,7 @@ sidebar_position: 999
 ### Plugin
 
 - refactor(plugin-vue): isolate Vue-only Vite integration inside `@dz-web/esboot-plugin-vue`, keep core bundler paths free of Vue dependencies by default, and document that the plugin currently supports Vite only
+- fix(plugin-vitest): fall back to the standalone Vitest Vite config when reusing the Vite bundler config fails on duplicate entry `chunkName` values, so multi-platform projects can keep same-named entries across environments
 
 ## 4.3.4
 
