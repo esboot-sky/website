@@ -11,6 +11,9 @@ sidebar_position: 999
 ### Lint
 
 - feat: disable `node/prefer-global/process` rule for files under any `src` directory to allow global `process.env` usage in client-side code
+- chore(lint): upgrade `eslint-plugin-better-tailwindcss` to `4.6.0-esboot4`
+- fix(lint): restore Windows compatibility for `eslint-plugin-better-tailwindcss` path normalization so git hook ESLint runs no longer crash on Tailwind module resolution
+- feat(lint): enable the Tailwind 4 `enforce-canonical-classes`, `enforce-consistent-variant-order`, and `enforce-logical-properties` rules in the default ESBoot lint preset while keeping legacy and new unknown-class rule aliases disabled
 
 ### Plugin
 
