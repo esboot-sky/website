@@ -5,11 +5,19 @@ title: Plugin Vue
 
 # Plugin Vue
 
-Vue 插件为 ESBoot 项目提供了完整的 Vue 3 开发支持。该插件集成了 Vue 3 核心插件、Vue JSX 支持以及 Vue DevTools，让你可以轻松地在 ESBoot 项目中使用 Vue 进行开发。
+Vue 插件为 ESBoot 项目提供 Vue 3 开发支持。当前版本仅支持 `Vite`，并且 Vue 相关依赖与行为都收敛在 `@dz-web/esboot-plugin-vue` 内部；如果项目没有使用这个插件，ESBoot 主框架不会默认带入 Vue 相关打包插件。
+
+## 支持范围
+
+- 当前仅支持 `Vite`
+- 暂不支持 `Webpack`
+- 暂不支持 `Rspack`
+
+如果你使用 `Webpack` 或 `Rspack`，`plugin-vue` 目前不能工作。
 
 ## 安装
 
-插件已内置以下依赖，无需手动安装：
+安装 `@dz-web/esboot-plugin-vue` 后，插件会自带以下 Vue 相关依赖，无需再单独安装：
 
 - [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue) - Vue 3 单文件组件支持
 - [@vitejs/plugin-vue-jsx](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx) - Vue 3 JSX 支持
@@ -24,6 +32,7 @@ import { defineConfig } from '@dz-web/esboot';
 import vuePlugin from '@dz-web/esboot-plugin-vue';
 
 export default defineConfig({
+  bundler: 'vite',
   plugins: [vuePlugin()],
 });
 ```
@@ -153,7 +162,7 @@ export default defineComponent({
 
 ### 仅支持 Vite
 
-Vue 插件目前仅支持 Vite 打包器。如果你使用 Webpack 或 Rspack，插件会抛出错误。请确保在配置中设置使用 Vite：
+`plugin-vue` 目前只对 `Vite` 生效，请确保项目使用的是 Vite bundler：
 
 ```ts
 import { defineConfig } from '@dz-web/esboot';
@@ -165,9 +174,7 @@ export default defineConfig({
 });
 ```
 
-### React 插件过滤
-
-插件会自动过滤掉名称中包含 "react" 的插件，以避免与 Vue 插件冲突。这是正常行为，无需额外配置。
+Vue 相关的 Vite 插件列表、framework chunk 处理以及 React `styleName` 的关闭行为，都会由 `plugin-vue` 自己接管，不需要手动再做额外过滤配置。
 
 ## 使用示例
 

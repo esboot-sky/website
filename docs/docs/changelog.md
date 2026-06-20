@@ -4,9 +4,21 @@ sidebar_position: 999
 
 # Changelog
 
-## 4.3.4
+## 4.3.5
 
 `next`
+
+### Lint
+
+- feat: disable `node/prefer-global/process` rule for files under any `src` directory to allow global `process.env` usage in client-side code
+
+### Plugin
+
+- refactor(plugin-vue): isolate Vue-only Vite integration inside `@dz-web/esboot-plugin-vue`, keep core bundler paths free of Vue dependencies by default, and document that the plugin currently supports Vite only
+
+## 4.3.4
+
+`260610`
 
 ### Plugin / Test
 
