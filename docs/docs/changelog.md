@@ -32,6 +32,10 @@ sidebar_position: 999
 - feat(bundler-vite): support entry-specific language bundling for Vite by generating dynamic import maps for langJsonPicker chunks without duplicating shared module paths
 - fix(bundler-vite): prevent MISSING_TRANSLATION warnings during page language transition by introducing a transition state in HOC wrapI18n
 
+### Bundler / Webpack / Rspack
+
+- fix(bundler-webpack/rspack): align `langJsonPicker` entry-specific language bundling with the Vite implementation by removing Webpack layers completely, resolving the long-standing Fast Refresh (hot reload) bugs and using a unified dynamic import mapping with `window.__ESBOOT_ENTRY_NAME__`
+
 ## 4.3.4
 
 `260610`
