@@ -8,6 +8,13 @@ sidebar_position: 999
 
 `next`
 
+### Common / CLI
+
+- feat(common): validate known user config fields from `.esbootrc.ts` at load time while still allowing bundler-specific extension fields to pass through
+- fix(cli): replace config-load stack dumps with a short colored error summary that highlights the invalid field and prints the clickable `.esbootrc.ts` file path
+- refactor(prepare): reorganize `esboot prepare` around an explicit task pipeline with extracted task/stage resolvers while preserving the existing execution order and CI-only base-task behavior
+- feat(prepare): add an opt-in `ESBOOT_PREPARE_DEBUG=1` trace so task execution can be inspected without changing the default prepare output
+
 ### Lint
 
 - feat: disable `node/prefer-global/process` rule for files under any `src` directory to allow global `process.env` usage in client-side code
