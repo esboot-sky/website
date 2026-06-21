@@ -27,6 +27,11 @@ sidebar_position: 999
 - refactor(plugin-vue): isolate Vue-only Vite integration inside `@dz-web/esboot-plugin-vue`, keep core bundler paths free of Vue dependencies by default, and document that the plugin currently supports Vite only
 - fix(plugin-vitest): fall back to the standalone Vitest Vite config when reusing the Vite bundler config fails on duplicate entry `chunkName` values, so multi-platform projects can keep same-named entries across environments
 
+### Bundler / Vite
+
+- feat(bundler-vite): support entry-specific language bundling for Vite by generating dynamic import maps for langJsonPicker chunks without duplicating shared module paths
+- fix(bundler-vite): prevent MISSING_TRANSLATION warnings during page language transition by introducing a transition state in HOC wrapI18n
+
 ## 4.3.4
 
 `260610`
