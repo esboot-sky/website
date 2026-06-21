@@ -35,6 +35,9 @@ sidebar_position: 999
 ### Bundler / Webpack / Rspack
 
 - fix(bundler-webpack/rspack): align `langJsonPicker` entry-specific language bundling with the Vite implementation by removing Webpack layers completely, resolving the long-standing Fast Refresh (hot reload) bugs and using a unified dynamic import mapping with `window.__ESBOOT_ENTRY_NAME__`
+- refactor(bundler-webpack/rspack): extract duplicate loaders (`lang-json-picker` and `import-locales-loader`) into `@dz-web/esboot-bundler-common` to maximize code reuse
+- feat(bundler-rspack): upgrade Rspack dependencies to latest stable v2 (`@rspack/core: ^2.0.8`) and resolve compatibility issues with the named export `ReactRefreshRspackPlugin`
+- perf(bundler-rspack): enable compilation caching in development mode (`cache: isDev`), resolving a performance bottleneck and improving dev startup time by ~83%
 
 ## 4.3.4
 
