@@ -4,6 +4,18 @@ sidebar_position: 999
 
 # Changelog
 
+## 4.3.9
+
+`260624`
+
+### Bundler / Vite
+
+- fix(vite): respect `publicPath` when resolving dev HTML routes and always treat `/static` as a reserved mounted asset prefix, so `/public/*.html` pages still render while `/public/static/**` and `/static/**` requests no longer fall through to the Vite page 404
+
+### Bundler / Rspack
+
+- fix(rspack): align `styleName` behavior completely with Vite by reusing the shared transform path, preserving expression-based `styleName`, merging existing `className` expressions correctly, and supporting lookups across multiple SCSS module imports
+
 ## 4.3.7
 
 `260624`
