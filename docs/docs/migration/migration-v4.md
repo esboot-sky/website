@@ -4,7 +4,25 @@ sidebar_position: 1
 
 # To ESBoot V4
 
-## 添加`eslint.config.mjs`
+## 自动升级 (推荐)
+
+`ESBoot`提供了 `@dz-web/esboot-codemod` 自动化升级工具，可以快速将项目从 v3 迁移至 v4。
+
+在项目根目录下运行以下命令即可：
+
+```bash
+pnpx @dz-web/esboot-codemod upgrade-v4
+# 或者使用 pnpm dlx
+pnpm dlx @dz-web/esboot-codemod upgrade-v4
+```
+
+该工具会自动更新 `package.json` 中的相关依赖、转换 CSS 入口、升级 TailwindCSS 配置、适配 Flat Config 等。
+
+---
+
+## 手动升级
+
+### 添加`eslint.config.mjs`
 
 因为`eslint`的升级，现在配置文件必须是单独的文件，所以要在项目根目录添加`eslint.config.mjs`文件。
 

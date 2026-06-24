@@ -4,9 +4,39 @@ sidebar_position: 999
 
 # Changelog
 
-## 4.3.5
+## 4.3.7
 
-`next`
+`260624`
+
+### Bundler / Vite
+
+- fix(vite): optimize i18n virtual module cache invalidation precision — changing `zh-CN.json` now only invalidates modules for that language and leaves other languages cached; also resolves a `404` for `helpers/import-locales.ts` during HMR
+
+### Lint
+
+- chore(lint): separate ESLint and Stylelint pre-commit checks — each linter now prints its own `Start ESLint check...` / `Start Stylelint check...` prompt and only runs when the relevant file types are staged
+- chore(lint): upgrade `eslint-plugin-better-tailwindcss` to `4.6.0-esboot5` — adds a plugin-relative `require.resolve` fallback so Tailwind CSS rules activate correctly even when `tailwindcss` is only a transitive dependency (e.g. installed via `esboot-plugin-tailwind3`)
+
+## 4.3.6
+
+`260623`
+
+### Bundler / Rspack
+
+- feat: complete Rspack adapter to full feature parity — aligns entry discovery, `langJsonPicker`, global styles, `styleName`, px2rem, SVGR, Tailwind, code splitting, and minification with the Vite and Webpack implementations
+
+### Bundler / Common
+
+- feat: support `RegExp` in `px2rem.exclude` option so individual rules or file patterns can opt out of px-to-rem conversion
+
+### Tools / Codemod
+
+- feat(codemod): add pre-flight version validation check before applying migrations
+- fix(codemod): resolve correct root configuration object for `reactCompiler` option and optimize verification installer
+
+
+
+`260622`
 
 ### Common / CLI
 
