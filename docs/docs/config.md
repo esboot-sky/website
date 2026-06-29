@@ -311,6 +311,12 @@ export interface CSSOptions {
   modules?: {
     localsConvention?: LocalsConvention;
   };
+  tailwind?: {
+    enable?: boolean;
+    version?: '3' | 'next';
+    separateImports?: boolean;
+  };
+  fontZoom?: FontZoomOptions;
 }
 ```
 
@@ -323,6 +329,34 @@ export interface CSSOptions {
   },
 }
 ```
+
+### fontZoom
+
+`since v4.3.11`
+
+**类型**：`FontZoomOptions`
+
+运行时高性能字体/行高动态缩放配置。开启后，ESBoot 会在编译 CSS 时将所有的绝对字号（及行高）自动改写为基于 CSS 变量的加法公式（如 `calc(14px + var(--font-offset, 0px))`），从而允许你在运行时动态放大缩小全局字体而不破坏页面布局与宽高，且无任何性能开销。
+
+```ts
+css: {
+  fontZoom: {
+    enable: false,
+    offsetVar: '--font-offset',
+    zoomLineHeight: false,
+    minPixelValue: 0,
+    exclude: undefined,
+  },
+}
+```
+
+支持的字段：
+
+- `enable`：是否启用运行时字体动态缩放，默认 `false`。
+- `offsetVar`：编译改写的 CSS 变量名称。当你在 JS 中通过 `document.documentElement.style.setProperty(offsetVar, '2px')` 修改该变量时，页面字体会动态缩放。默认值：`'--font-offset'`。
+- `zoomLineHeight`：是否同步缩放行高。开启后，PostCSS 会对绝对单位的行高进行同样的转换，自动跳过无单位相对行高。默认值：`false`。
+- `minPixelValue`：最小转换阈值（单位 `px`）。当原字号（及估算的 rem 对应 px 值）大于或等于该设定的像素值时，才进行变量计算包装。默认值：`0`（全量转换）。
+- `exclude`：排除过滤。用于排除特定的外部组件库（如 `/node_modules/`）或文件路径。支持字符串、正则表达式或其数组。默认值：`undefined`。
 
 ## cssMinifier
 

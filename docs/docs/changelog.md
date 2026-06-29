@@ -4,6 +4,14 @@ sidebar_position: 999
 
 # Changelog
 
+## 4.4.0
+
+`260629`
+
+### Bundler / Common
+
+- feat(common): add `css.fontZoom` config option to support dynamic font and line-height scaling in development and production. It converts static values to browser-native `calc() + CSS variables` at compile time, and supports `zoomLineHeight`, `minPixelValue` threshold filter, and `exclude` paths for Vite, Webpack, and Rspack.
+
 ## 4.3.9
 
 `260624`
