@@ -227,6 +227,21 @@ enum JsMinifier {
 
 `jsMinifier` 的配置项。默认情况下压缩代码会移除代码中的注释，可以通过对应的 `jsMinifier` 选项来保留注释。
 
+:::tip Rspack 支持
+从 `v4.4.0` (或 `v4.3.11`) 开始，Rspack 打包器已对齐 Webpack / Vite 行为，支持通过 `jsMinifierOptions` 合并自定义 SWC 的压缩配置。例如，如果你希望关闭默认的移出 console.log 行为：
+
+```ts
+{
+  jsMinifierOptions: {
+    compress: {
+      drop_console: false,
+      pure_funcs: [], // 覆盖清空默认的 ['console.log']
+    },
+  }
+}
+```
+:::
+
 **示例**：
 
 ```ts
@@ -244,6 +259,7 @@ enum JsMinifier {
 
 - [terser](https://terser.org/docs/docs/3.0/api-reference/#minify-options)
 - [swc](https://swc.rs/docs/docs/3.0/configuration/minification#configuration)
+
 
 ## css
 

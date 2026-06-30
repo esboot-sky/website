@@ -12,6 +12,10 @@ sidebar_position: 999
 
 - feat(common): add `css.fontZoom` config option to support dynamic font and line-height scaling in development and production. It converts static values to browser-native `calc() + CSS variables` at compile time, and supports `zoomLineHeight`, `minPixelValue` threshold filter, and `exclude` paths for Vite, Webpack, and Rspack.
 
+### Bundler / Rspack
+
+- feat(rspack): support `jsMinifierOptions` to merge custom SWC compression options, allowing users to disable the default `drop_console` and `pure_funcs` rules in production builds.
+
 ## 4.3.9
 
 `260624`
