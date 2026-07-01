@@ -13,7 +13,6 @@ sidebar_position: 999
 - refactor: extract common `svgrOptions` merging logic to `@dz-web/esboot-bundler-common` to maximize code reuse across Vite, Webpack, and Rspack bundlers.
 - fix(bundler): change the default value of the SVGR `icon` option from `true` to `false` for all bundlers, preserving original SVG dimensions/viewbox by default to prevent large illustrations and banners from shrinking to `1em`.
 
-
 ## 4.4.0
 
 `260629`
