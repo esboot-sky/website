@@ -4,6 +4,14 @@ sidebar_position: 999
 
 # Changelog
 
+## 4.3.14
+
+`260702`
+
+### Plugins
+
+- feat: add built-in `entryLogPlugin` to print styled console logs of compile/build entries (including URL, path, template, title) after compile completes, supporting Platform/PageType display in multi-platform (MP) mode. See [Built-in Plugins](./plugins/builtin.md) for details.
+
 ## 4.3.13
 
 `260702`
