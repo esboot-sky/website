@@ -13,6 +13,8 @@ sidebar_position: 999
 - refactor: extract common `svgrOptions` merging logic to `@dz-web/esboot-bundler-common` to maximize code reuse across Vite, Webpack, and Rspack bundlers.
 - fix(bundler): change the default value of the SVGR `icon` option from `true` to `false` for all bundlers, preserving original SVG dimensions/viewbox by default to prevent large illustrations and banners from shrinking to `1em`.
 - fix(common): recursively scan JSX attributes inside curly-brace expressions (such as `content` or `title` props) for `styleName` transformation, resolving the issue where nested `styleName` attributes inside props were skipped by the custom parser.
+- fix(common): prevent non-tag `<` characters (such as in regular expression literals or generic type annotations) from aborting the custom parser scanning, resolving the issue where subsequent valid `styleName` transformations in the file were skipped.
+
 
 
 ## 4.3.12
