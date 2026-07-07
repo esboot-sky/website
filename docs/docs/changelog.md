@@ -4,7 +4,17 @@ sidebar_position: 999
 
 # Changelog
 
-## 4.3.14
+## 4.4.0
+
+`260707`
+
+### Bundler / Vite
+
+- feat(vite): upgrade `vite` version to `8.1.3-esboot4` and `@vitejs/plugin-legacy` to `8.1.0`, upgrading the core build pipeline to Vite 8.
+- refactor(vite): rewrite the `manualChunks` code splitting configuration from object form to function form to ensure compatibility with Rolldown (Vite 8's new default rust-based bundler).
+- fix(test): exclude project template files and fixtures (`**/templates/**`, `**/fixtures/**`) from Vitest runs to prevent compilation failures when no local tsconfig is found.
+
+## 4.3.15
 
 `260702`
 
