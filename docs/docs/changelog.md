@@ -4,7 +4,7 @@ sidebar_position: 999
 
 # Changelog
 
-## 4.4.1
+## 4.4.3
 
 `next`
 
@@ -19,6 +19,18 @@ sidebar_position: 999
 ### Docs
 
 - docs: refresh Vite, Webpack, and Rspack bundler configuration support tables so documented support matches the current adapter implementations.
+
+## 4.4.2
+
+`260709`
+
+### Lint
+
+- chore(lint): upgrade `eslint-plugin-better-tailwindcss` to `4.6.1-esboot4` — resolves an issue where Tailwind CSS rules failed to detect Tailwind v3 when it was a transitive dependency (e.g. under `esboot-plugin-tailwind3` in a pnpm monorepo) by checking project dependencies dynamically for `esboot-plugin-tailwind`.
+
+## 4.4.1
+
+`260708`
 
 ## 4.4.0
 
