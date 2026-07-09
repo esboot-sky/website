@@ -24,14 +24,19 @@ sidebar_position: 999
 
 `260709`
 
-### Lint
+### Configuration
 
-- chore(lint): upgrade `eslint-plugin-better-tailwindcss` to `4.6.1-esboot4` — resolves an issue where Tailwind CSS rules failed to detect Tailwind v3 when it was a transitive dependency (e.g. under `esboot-plugin-tailwind3` in a pnpm monorepo) by checking project dependencies dynamically for `esboot-plugin-tailwind`.
-- fix(lint): disable `style/max-len` rule for JSON, JSONC, and JSON5 files to prevent line length limit errors on translation or configuration files.
+- fix(config): configure `rolldown` and `esbuild` as `nativeModules` in Jiti loader options to prevent `TypeError: Class extends value undefined is not a constructor or null` on Windows during config parsing (`esboot prepare`).
+
 
 ## 4.4.1
 
 `260708`
+
+### Lint
+
+- chore(lint): upgrade `eslint-plugin-better-tailwindcss` to `4.6.1-esboot4` — resolves an issue where Tailwind CSS rules failed to detect Tailwind v3 when it was a transitive dependency (e.g. under `esboot-plugin-tailwind3` in a pnpm monorepo) by checking project dependencies dynamically for `esboot-plugin-tailwind`.
+- fix(lint): disable `style/max-len` rule for JSON, JSONC, and JSON5 files to prevent line length limit errors on translation or configuration files.
 
 ## 4.4.0
 
