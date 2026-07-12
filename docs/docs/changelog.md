@@ -4,6 +4,22 @@ sidebar_position: 999
 
 # Changelog
 
+## 4.4.1
+
+`next`
+
+### Bundler / Rspack
+
+- feat(rspack): upgrade `@rspack/core` to `^2.1.3` and enable Rspack's native Rust React Compiler through the existing `experimental.reactCompiler` option.
+- feat(rspack): support `jsMinifier: "none"` and `cssMinifier: "none"` while keeping the fixed high-performance SWC and Lightning CSS minimizers by default.
+- feat(rspack): pass `cssMinifierOptions` to the Lightning CSS minimizer and map `css.modules.localsConvention` to `css-loader`'s `modules.exportLocalsConvention`.
+- test(rspack): cover React Compiler SWC options for React 19, React 18, and disabled configurations.
+- test(rspack): add optimization and style-rule coverage for minifier toggles, CSS minimizer options, and CSS Modules locals convention.
+
+### Docs
+
+- docs: refresh Vite, Webpack, and Rspack bundler configuration support tables so documented support matches the current adapter implementations.
+
 ## 4.4.0
 
 `260707`
