@@ -4,6 +4,38 @@ sidebar_position: 999
 
 # Changelog
 
+## v3.1.7
+
+`260713`
+
+### Bundler-Vite
+
+- fix: Resolve issue where regular JSON imports are incorrectly picked and emptied.
+
+## v3.1.6
+
+`260427`
+
+### ESBoot
+
+- feat: Preferred 172/192 ipv4 address.
+
+## v3.1.5
+
+`260427`
+
+### ESBoot
+
+- feat: Preferred 172/198 ipv4 address.
+
+## v3.1.4
+
+`260427`
+
+### ESBoot
+
+- feat: Preferred 172/198 ipv4 address.
+
 ## v3.1.3
 
 `260312`
