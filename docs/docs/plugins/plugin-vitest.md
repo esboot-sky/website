@@ -38,7 +38,7 @@ export default defineConfig({
 pnpm run esboot vitest
 ```
 
-`vitest` 命令转发了 [Vitest CLI](https://vitest.dev/guide/cli.html)，内置了 `-r/-c/--dir` 参数，其他 Vitest 支持的参数可以正常使用，例如：
+`vitest` 命令完全透传转发了 [Vitest CLI](https://vitest.dev/guide/cli.html)，内置了 `-r/-c` 参数来指向项目根目录与内置的 Vitest 配置。所有参数与选项（包括 `-h/--help`、`--watch`、`--ui`、具体测试文件路径等）都将无感转发至底层的 `vitest` 执行，例如：
 
 ```sh
 # 打开 UI 界面
