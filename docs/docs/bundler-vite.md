@@ -54,6 +54,12 @@ sidebar_position: 5
 
 配置风格参考 [codesplitting](https://umijs.org/docs/docs/3.0/api/config#codesplitting)，以下是 Vite adapter 当前支持的策略。
 
+:::tip 配置位置
+
+该配置可以直接写在最外层（推荐，各 bundler 共享配置），也可以在 `bundlerOptions.codeSplitting` 内单独进行定制或覆盖。
+
+:::
+
 该配置仅影响生产构建。
 
 Vite 支持以下 `jsStrategy`：
@@ -67,6 +73,11 @@ Vite 支持以下 `jsStrategy`：
 interface JsStrategyOptions {
   // 加入此数组中的库，才会被打包到公共的依赖中。
   frameworkBundles: string[];
+  // 自定义拆包分组，支持数组（混合字符串/正则）、正则或函数映射
+  customGroups?: Record<
+    string,
+    (string | RegExp)[] | RegExp | ((id: string) => boolean) | CustomGroupConfig
+  >;
 }
 
 // frameworkBundles 的默认值为
