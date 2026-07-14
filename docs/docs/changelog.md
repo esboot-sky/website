@@ -13,6 +13,15 @@ sidebar_position: 999
 - perf(bundler-vite): optimize `vite-plugin-lang-json-picker` resolution speed by fast-filtering non-localization JSON imports, avoiding costly `this.resolve` calls for unrelated files.
 - perf(bundler-common): optimize `react-styleName` transformation speed by introducing a fast-path check for `styleName` usage, skipping character-by-character scan on files without styleName.
 
+### Plugins / Tailwind
+
+- fix(plugin-tailwind3): support passing custom `tailwindcssOptions` options to `pluginTailwind3` and correctly load the generated tailwindcss configuration during PostCSS compilation.
+- fix(bundler-common): support resolving the symlinked `@dz-web/esboot-plugin-tailwind3` package correctly in `pnpm` monorepos.
+
+### Tools / Codemod
+
+- feat(codemod): automatically detect and migrate the deprecated top-level `tailwindcssOptions` into `pluginTailwind3({ tailwindcssOptions })` configuration parameters when upgrading a project to v4.
+
 ### Examples
 
 - fix(mp-base): remove static language imports in `import-locales` helper to prevent `[INEFFECTIVE_DYNAMIC_IMPORT]` warning during production build.

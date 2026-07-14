@@ -55,3 +55,52 @@ export default createConfig();
 ```css
 @use '@dz-web/esboot-browser';
 ```
+
+### tailwindcss 配置迁移
+
+在 v3 中，Tailwind 3 的自定义配置是通过顶层 `tailwindcssOptions` 进行声明的。
+
+在 v4 中，此配置已被移入插件参数中。升级时需要做如下调整：
+
+**v3 配置：**
+
+```ts
+export default defineConfig({
+  tailwindcssOptions: (config) => {
+    return {
+      ...config,
+      theme: {
+        extend: {
+          colors: { primary: '#2E79F8' },
+        },
+      },
+    };
+  },
+});
+```
+
+**v4 配置：**
+
+```ts
+import pluginTailwind3 from '@dz-web/esboot-plugin-tailwind3';
+
+export default defineConfig({
+  plugins: [
+    pluginTailwind3({
+      tailwindcssOptions: (config) => {
+        return {
+          ...config,
+          theme: {
+            extend: {
+              colors: { primary: '#2E79F8' },
+            },
+          },
+        };
+      },
+    }),
+  ],
+});
+```
+
+> [!NOTE]
+> 使用自动升级工具 (`@dz-web/esboot-codemod`) 时，此配置会自动完成提取和迁移，无需手动修改。

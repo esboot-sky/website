@@ -65,3 +65,68 @@ css: {
 如果你使用 `pluginTailwind3()`，不需要再额外配置 `separateImports`，也不需要在项目里手动声明 `tailwindcss`。
 
 如果项目里同时还在用 Tailwind Next，保持默认 `css.tailwind.version: 'next'` 就行。`pluginTailwind3()` 只会影响装了它的项目，不会改动 ESBoot 其他项目的正常 Tailwind Next 路径。
+
+## 自定义配置
+
+从 `4.4.4` 起，`pluginTailwind3` 支持传入 `tailwindcssOptions` 来自定义 Tailwind 3 配置（例如自定义 `theme`、`content` 或 `plugins` 等）。
+
+参数类型支持对象形式或函数形式：
+
+### 1. 函数形式（推荐）
+
+通过回调函数来接收并修改默认配置：
+
+```ts
+import { defineConfig } from '@dz-web/esboot';
+import pluginTailwind3 from '@dz-web/esboot-plugin-tailwind3';
+
+export default defineConfig({
+  plugins: [
+    pluginTailwind3({
+      tailwindcssOptions: (config) => {
+        return {
+          ...config,
+          theme: {
+            ...config.theme,
+            screens: {
+              sm: { max: '1200px' },
+              xl: '1201px',
+            },
+            extend: {
+              colors: {
+                primary: '#2E79F8',
+                brand: '#0050b4',
+              },
+            },
+          },
+        };
+      },
+    }),
+  ],
+});
+```
+
+### 2. 对象形式
+
+直接传入要合并的配置对象：
+
+```ts
+import { defineConfig } from '@dz-web/esboot';
+import pluginTailwind3 from '@dz-web/esboot-plugin-tailwind3';
+
+export default defineConfig({
+  plugins: [
+    pluginTailwind3({
+      tailwindcssOptions: {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#2E79F8',
+            },
+          },
+        },
+      },
+    }),
+  ],
+});
+```
