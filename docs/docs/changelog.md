@@ -4,6 +4,19 @@ sidebar_position: 999
 
 # Changelog
 
+## 4.4.4
+
+`260714`
+
+### Performance
+
+- perf(bundler-vite): optimize `vite-plugin-lang-json-picker` resolution speed by fast-filtering non-localization JSON imports, avoiding costly `this.resolve` calls for unrelated files.
+- perf(bundler-common): optimize `react-styleName` transformation speed by introducing a fast-path check for `styleName` usage, skipping character-by-character scan on files without styleName.
+
+### Examples
+
+- fix(mp-base): remove static language imports in `import-locales` helper to prevent `[INEFFECTIVE_DYNAMIC_IMPORT]` warning during production build.
+
 ## 4.4.3
 
 `260714`
