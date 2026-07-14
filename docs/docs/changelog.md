@@ -8,6 +8,15 @@ sidebar_position: 999
 
 `next`
 
+### CLI / Prepare
+
+- feat(prepare): check and require `pnpm` version 10 or later when running `esboot prepare`.
+
+### Plugins / Vitest
+
+- feat(plugin-vitest): support transparent option and flag proxying (like `-h`, `--watch`, `--ui`, or specific test paths) directly to the underlying `vitest` process without requiring the `-p/--passThrough` option.
+- fix(plugin-vitest): dynamically resolve `@dz-web/esboot-bundler-vite` relative to the project root directory (`process.cwd()`) to fix package resolution errors under strict package manager layouts like pnpm.
+
 ### Bundler / Rspack
 
 - feat(rspack): upgrade `@rspack/core` to `^2.1.3` and enable Rspack's native Rust React Compiler through the existing `experimental.reactCompiler` option.
@@ -15,6 +24,11 @@ sidebar_position: 999
 - feat(rspack): pass `cssMinifierOptions` to the Lightning CSS minimizer and map `css.modules.localsConvention` to `css-loader`'s `modules.exportLocalsConvention`.
 - test(rspack): cover React Compiler SWC options for React 19, React 18, and disabled configurations.
 - test(rspack): add optimization and style-rule coverage for minifier toggles, CSS minimizer options, and CSS Modules locals convention.
+
+### Bundler / Common
+
+- fix(bundler-common): preserve absolute path aliases in `createResolveIntent` instead of joining them with `cwd` (preventing absolute path aliases from being broken).
+- fix(bundler-vite): preserve absolute path aliases in Vite's resolve configuration to align with `createResolveIntent`.
 
 ### Docs
 
