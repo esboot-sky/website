@@ -428,6 +428,56 @@ export enum CSSMinifier {
 
 :::
 
+## codeSplitting
+
+**类型**：`CodeSplitting`
+
+**默认值**：无
+
+生产环境代码分包策略配置。可以直接配置在最外层，所有选用的 bundler（Vite、Webpack、Rspack）都将统一遵循此分包行为。你也可以在各个 `bundlerOptions` 内单独配置进行微调或覆盖。
+
+### 属性
+
+#### jsStrategy
+
+**类型**：`CodeSplittingType` (枚举值)
+
+- `granularChunks`：细粒度分包策略（推荐）
+- `bigVendors`：将所有第三方依赖合并打包到单个 `vendors` 包中
+- `depPerChunk`（仅 Webpack/Rspack 支持）：将每个 node_modules 依赖库打包到独立的 chunk 中
+
+#### jsStrategyOptions
+
+分包策略的微调选项。
+
+- **frameworkBundles**：`string[]` - 在 `granularChunks` 模式下，被指定打入公共 `framework` 代码库的库包名列表。
+- **customGroups**：`Record<string, Matcher | CustomGroupConfig>` - 自定义拆包分组，用于将某些特定的大型库或依赖（如 `echarts`）抽离为独立的 chunk。
+  - **简写形式**：直接配置匹配规则，支持 `(string | RegExp)[]`、`RegExp` 正则或函数 `(id: string) => boolean`。匹配项若为字符串，会自动校验路径中是否包含 `node_modules/name/`。
+  - **对象形式**：`{ match: Matcher, priority?: number, enforce?: boolean, chunks?: string }`。其中 `match` 为上述匹配规则，其他选项（如 `priority` / `enforce` 等）在 Webpack/Rspack 模式下会直接 Spread 到最终生成的 `cacheGroups` 配置中；而在 Vite 模式下，Vite 会仅使用 `match` 规则正常分包，并安全忽略 Webpack 专属字段。
+
+**配置示例**：
+
+```ts
+import { defineConfig, CodeSplittingType } from 'esboot';
+
+export default defineConfig({
+  codeSplitting: {
+    jsStrategy: CodeSplittingType.granularChunks,
+    jsStrategyOptions: {
+      frameworkBundles: ['react', 'react-dom'],
+      customGroups: {
+        // 将 echarts 和 zrender 统一打包到单独的 'echarts' chunk
+        echarts: {
+          match: ['echarts', /zrender/],
+          priority: 60,
+          enforce: true
+        }
+      }
+    }
+  }
+});
+```
+
 ## alias
 
 **类型**：`Record<string, string>`

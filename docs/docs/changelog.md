@@ -4,6 +4,25 @@ sidebar_position: 999
 
 # Changelog
 
+## 4.4.6
+
+`260714`
+
+### Lint
+
+- **perf(lint)**: disable TypeScript type-aware linting (`projectService`) by default to speed up ESLint execution, improving single-file checks by 45% - 60% (saving 3 to 10 seconds per run, especially during git commit hooks).
+- **style(lint)**: disable `if-newline` and `style/if-newline` rules to allow writing clean, single-line inline if/guard statements.
+
+## 4.4.5
+
+`260714`
+
+### Code Splitting
+
+- feat(config): support top-level `codeSplitting` configuration in `.esbootrc.ts` so shared chunking behavior can be declared once instead of duplicated per-bundler options.
+- feat(code-splitting): support `customGroups` (renamed from `customSplitting`) configuration as a CustomGroupConfig object to specify engine-specific properties like `priority`, `enforce`, and `chunks` (used in Webpack/Rspack, gracefully ignored in Vite).
+- feat(code-splitting): support mixing string package names and regular expressions in `customGroups` arrays, allowing more flexible module matching.
+
 ## 4.4.4
 
 `260714`
