@@ -4,178 +4,124 @@ sidebar_position: 1
 
 # Environment Variables
 
-## .env 文件
+ESBoot 支持通过 shell、CI 和 `.env` 文件设置运行时环境变量。已有的 `process.env` 使用方式保持不变。
 
-`.env` 文件用于设置项目编译时的环境变量，目前支持：
+## `.env` 文件
 
-- **`.env`**：默认提交 Git，用于公用的环境变量
-- **`.env.local`**：默认不提交 Git，用于自己本地开发时的环境变量，`.env.local` 中的变量会覆盖 `.env` 中的变量
+ESBoot 按以下顺序加载环境文件：
 
-:::tip 推荐工具
+- **`.env`**：项目共享的基础变量，通常提交 Git。
+- **`.env.${NODE_ENV}`**：当前模式变量，例如 `.env.development`、`.env.production` 或 `.env.test`。
+- **`.env.local`**：本地覆盖变量，通常不提交 Git。
 
-推荐使用 [ESBoot](../getting-started#esboot) 插件，可以快速切换环境变量。
+最终优先级为：
 
-:::
+```text
+shell / CI > .env.local > .env.${NODE_ENV} > .env
+```
 
-:::note 优先级
+- shell 或 CI 中已经存在的变量不会被文件覆盖，包括显式空字符串。
+- 当 `NODE_ENV` 未设置时，不会读取 `.env.undefined`。
+- 不同 env 文件之间可以互相引用变量，展开时 shell/CI 值仍然具有最高优先级。
+- 自定义变量会进入 ESBoot 的 Node 配置环境，但不会自动暴露到浏览器。需要在前端使用时，请通过 `.esbootrc.ts` 的 `define` 显式声明。
 
-环境变量的优先级：`.env.local` > `.env`
+## 变量总览
 
-:::
+### 核心运行变量
 
-## 环境变量
+| 变量 | 可选值 / 类型 | 默认值 | 用途 |
+| --- | --- | --- | --- |
+| `NODE_ENV` | `development \| production \| test` | 由命令决定 | `esboot dev` 设置为 `development`，`esboot build` 设置为 `production`；同时决定 `.env.${NODE_ENV}`。 |
+| `ESBOOT_PLATFORM` | `pc \| mobile` | `pc` | 选择多平台项目的目标平台。 |
+| `ESBOOT_PAGE_TYPE` | `browser \| native` | `browser` | 选择浏览器页或客户端内嵌页。 |
+| `ESBOOT_IS_CI_BUILD` | `0 \| 1` | `0` | `1` 表示 CI prepare，只执行 base 阶段；`0` 执行 base 与 local 阶段。 |
+| `ESBOOT_CONTENT_PATH` | 路径字符串 | 空字符串 | 在内容根目录下进一步限定 entry 扫描路径。 |
+| `ESBOOT_CONTENT_PATTERN` | glob pattern | `*` | 限定要扫描的 `*.entry.ts(x)` 文件名。 |
+| `ESBOOT_CONTENT_IGNORE` | 逗号分隔的 pattern | 空字符串 | 排除指定 entry，例如 `trade,trade-setting`。 |
+| `ESBOOT_ESLINT_PROJECT_SERVICE` | `0 \| 1` | `1` | `1` 开启 TypeScript Project Service；`0` 使用快速、非 project-service ESLint。 |
+| `ESBOOT_PREPARE_DEBUG` | `0 \| 1` | `0` | `1` 输出 prepare task 的 stage、名称与执行顺序。 |
 
-### 平台相关
+### 构建、分析与 Mock
 
-#### ESBOOT_PLATFORM
+| 变量 | 类型 | 默认值 | 用途 |
+| --- | --- | --- | --- |
+| `ANALYZE_PORT` | 端口字符串/数字 | `8101` | Webpack production analyze server 端口。 |
+| `BUILD_VERSION` | 字符串 | 当前项目 `package.json` version | 覆盖注入 `config.js` URL 的版本查询参数。 |
+| `BRIDGE_MOCK_HOST` | 主机名或 IP | 当前 ESBoot IPv4 地址 | native dev 页面注入的 bridge mock host。 |
+| `BRIDGE_MOCK_PORT` | 端口字符串/数字 | `3000` | native dev 页面注入的 bridge mock port。 |
+| `DEBUG` | 推荐使用 `true \| false` | 未设置 | `true` 开启 ESBoot debug 判断；非空值也会开启底层 debug logger。 |
 
-指定目标平台是 PC 端还是移动端。
+### 工具与项目约定
 
-**类型**：`string`
+| 变量 | 可选值 / 类型 | 默认值 | 用途 |
+| --- | --- | --- | --- |
+| `ESBOOT_BUNDLER` | `vite \| webpack \| rspack` | 示例同步脚本中为 `webpack` | ESBoot examples 与 create-esboot 模板用于切换 `.esbootrc.ts`/bundler 配置的约定变量；不是核心 CLI 自动选择器。 |
 
-**可选值**：`pc | mobile`
+### ESBoot 自动维护的内部变量
 
-**默认值**：`pc`
+这些变量通常不需要用户手动设置，但属于 ESBoot 当前运行时协议的一部分：
 
-**示例**：
+| 变量 | 维护方 | 说明 |
+| --- | --- | --- |
+| `BROWSERSLIST_ENV` | common config | MP production 自动设置为 `${ESBOOT_PLATFORM}-${ESBOOT_PAGE_TYPE}-production`。 |
+| `VITEST` | Vitest / plugin-vitest | plugin-vitest 判断是否在 ESBoot 仓库自身测试环境中运行。 |
+| `APP_ROOT` | plugin-docs | Docs 命令自动设置为 `./docs`。 |
+| `DUMI_THEME` | plugin-docs | Docs 命令自动设置 Dumi theme 包路径。 |
+| `port` | plugin-docs | 传入 Docs `--port` 时同步保存的内部变量；变量名区分大小写。 |
+
+## 平台组合
+
+`ESBOOT_PLATFORM` 与 `ESBOOT_PAGE_TYPE` 通常组合使用：
+
+| 配置 | 目标 |
+| --- | --- |
+| `mobile + browser` | 移动端浏览器页面 |
+| `mobile + native` | 移动端客户端内嵌页面 |
+| `pc + browser` | PC 浏览器页面 |
+| `pc + native` | PC 客户端内嵌页面 |
 
 ```env
 ESBOOT_PLATFORM=mobile
-```
-
-#### ESBOOT_PAGE_TYPE
-
-指定页面类型是浏览器端还是嵌入到客户端中。
-
-**类型**：`string`
-
-**可选值**：`browser | native`
-
-**默认值**：`browser`
-
-**示例**：
-
-```env
 ESBOOT_PAGE_TYPE=native
 ```
 
-:::tip 组合使用
+## Entry 扫描示例 {#esboot_content_path}
 
-这两个环境变量通常组合使用，例如：
-
-- `ESBOOT_PLATFORM=mobile` + `ESBOOT_PAGE_TYPE=browser` → 移动端浏览器
-- `ESBOOT_PLATFORM=mobile` + `ESBOOT_PAGE_TYPE=native` → 移动端原生应用
-- `ESBOOT_PLATFORM=pc` + `ESBOOT_PAGE_TYPE=browser` → PC 端浏览器
-- `ESBOOT_PLATFORM=pc` + `ESBOOT_PAGE_TYPE=native` → PC 端原生应用
-
-:::
-
-### 内容匹配相关
-
-#### ESBOOT_CONTENT_PATH
-
-开发 MPA 的时候会区分模块，比如说交易、行情、个人中心等。每次全量启动会导致开发体验不好，所以可以在开发的时候设置只读取某个路径下的页面。
-
-**类型**：`string`
-
-**可选值**：路径地址
-
-**说明**：基于根路径是 `./platforms/${ESBOOT_PLATFORM}/${ESBOOT_PAGE_TYPE}`。如果不写默认就是读取这个目录下的全量入口。
-
-**示例**：
+只扫描 personal-center 模块中的 trade 与 trade-setting 页面，并忽略 trade-setting：
 
 ```env
-ESBOOT_CONTENT_PATH=./modules/personal-center
-```
-
-#### ESBOOT_CONTENT_PATTERN
-
-读取页面地址的正则匹配，用于筛选要启动的页面。
-
-**类型**：`string`
-
-**可选值**：正则表达式
-
-**默认值**：`*`（代表匹配 `ESBOOT_CONTENT_PATH` 下所有的 `*.entry.{tsx,ts}`）
-
-**示例**：
-
-只运行 `trade.html`：
-
-```env
-ESBOOT_CONTENT_PATTERN=trade
-```
-
-运行 `trade.html` 和 `trade-setting.html`：
-
-```env
+ESBOOT_CONTENT_PATH=modules/personal-center
 ESBOOT_CONTENT_PATTERN=+(trade|trade-setting)
+ESBOOT_CONTENT_IGNORE=trade-setting
 ```
 
-#### ESBOOT_CONTENT_IGNORE
+`ESBOOT_CONTENT_PATH` 基于当前内容根目录：
 
-忽略某些页面，不进行构建和启动。
-
-**类型**：`string`
-
-**可选值**：正则表达式，多个用 `,` 隔开
-
-**示例**：
-
-忽略 `trade.html` 和 `trade-setting.html`：
-
-```env
-ESBOOT_CONTENT_IGNORE=trade,trade-setting
+```text
+SP: <cwd>/src
+MP: <cwd>/src/platforms/${ESBOOT_PLATFORM}/_${ESBOOT_PAGE_TYPE}
 ```
 
-使用通配符忽略所有以 `trade` 开头的页面：
+## ESLint Project Service 分层
 
-```env
-ESBOOT_CONTENT_IGNORE=trade*
+推荐按运行场景使用：
+
+| 场景 | 配置 | 说明 |
+| --- | --- | --- |
+| VSCode ESLint / 普通 ESLint | 未设置或 `1` | 开启 type-aware Project Service。 |
+| lint-staged / pre-commit | 自动传入 `0` | ESBoot 自动使用快速配置，无需项目手动设置。 |
+| CI 完整检查 | 未设置或显式 `1` | 开启 Project Service，执行完整检查。 |
+
+Project Service 只接受属于 TypeScript project 的文件。如果需要 lint `.esbootrc.ts`、`playwright.config.ts` 等配置文件，必须将它们加入项目 tsconfig：
+
+```json
+{
+  "include": [
+    ".esbootrc.ts",
+    "src/**/*",
+    "playwright.config.ts"
+  ]
+}
 ```
 
-:::tip 使用场景
-
-这些环境变量在开发大型 MPA 项目时非常有用：
-
-- **ESBOOT_CONTENT_PATH**：只启动特定模块，加快开发启动速度
-- **ESBOOT_CONTENT_PATTERN**：只启动特定页面，用于调试单个页面
-- **ESBOOT_CONTENT_IGNORE**：排除不需要的页面，减少构建时间
-
-:::
-
-### Mock 相关
-
-#### BRIDGE_MOCK_HOST
-
-bridge-mock 的监听主机地址。
-
-**类型**：`string`
-
-**可选值**：主机地址，如 `localhost`
-
-**示例**：
-
-```env
-BRIDGE_MOCK_HOST=localhost
-```
-
-#### BRIDGE_MOCK_PORT
-
-bridge-mock 的监听端口号。
-
-**类型**：`number`
-
-**可选值**：端口号，如 `3021`
-
-**示例**：
-
-```env
-BRIDGE_MOCK_PORT=3021
-```
-
-:::note 关于 bridge-mock
-
-bridge-mock 用于模拟原生客户端与 Web 页面的交互，更多详情请参考 [bridge-mock](http://asset.dzfe.net/ld/bridge-mock/#/)。
-
-:::
+也可以由 ESBoot 插件通过 `modifyTypescriptConfig` 合并 include，避免每个项目重复维护生成配置。

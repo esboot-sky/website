@@ -4,6 +4,32 @@ sidebar_position: 999
 
 # Changelog
 
+## Unreleased
+
+`260718`
+
+### Configuration / Environment
+
+- feat(common): add the public `@dz-web/esboot-common/environment` entry with a stable `shellEnv` facade and replaceable `EnvProvider`; the default provider remains backed by `process.env`.
+- refactor(runtime): route Node-side environment access in common config, CLI, lint, bundlers, plugins, and the VSCode sidebar through `shellEnv`, while preserving frontend compile-time `process.env.*` markers.
+- refactor(config): derive prepare artifacts, Vite/Vitest caches, Webpack cache/MFSU/resolve/Babel paths, Docs, Tailwind 3, and Husky paths from `cfg.cwd`.
+- **breaking(common)**: replace the process-relative `cacheDir` and `webpackCacheDir` exports with `getCacheDir(cwd)` and `getWebpackCacheDir(cwd)`; the old exports are removed without compatibility aliases.
+- fix(common): restore `.env.${NODE_ENV}` loading and enforce `shell/CI > .env.local > .env.${NODE_ENV} > .env` precedence without allowing env files to overwrite explicitly supplied shell or CI values.
+- fix(common): preserve cross-file variable expansion and use shell/CI values during expansion, including explicitly empty values.
+- perf(common): load the ordered env paths into an isolated environment with one dotenv merge, one expansion pass, and one final injection instead of repeating `existsSync`, config, and expansion for every file.
+
+### Lint / TypeScript
+
+- feat(lint): enable TypeScript Project Service by default for normal ESLint and VSCode runs, with `tsconfigRootDir` anchored to the ESLint process cwd.
+- feat(lint): add `ESBOOT_ESLINT_PROJECT_SERVICE=0|1`; unset/`1` enables Project Service and `0` disables it authoritatively, including removal of custom React parser Project Service options.
+- perf(lint-staged): automatically pass `ESBOOT_ESLINT_PROJECT_SERVICE=0` to staged ESLint workers so pre-commit checks avoid initializing the full TypeScript project; CI can keep the default or pass `1` for complete checks.
+- docs(lint): document that linted TypeScript config files such as `.esbootrc.ts` must be included in the consuming tsconfig (directly or through `modifyTypescriptConfig`) when Project Service is enabled.
+
+### Bundler / Webpack / Rspack
+
+- fix(bundler-webpack/rspack): treat a missing `bundlerOptions` configuration as an empty object so the `customConfig` helpers no longer throw when no bundler-specific options are provided.
+- fix(bundler-webpack): preserve the default MFSU behavior when `bundlerOptions` is omitted—disabled in production and enabled with defaults in development.
+
 ## 4.4.6
 
 `260714`
