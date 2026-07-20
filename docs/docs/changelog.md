@@ -4,9 +4,9 @@ sidebar_position: 999
 
 # Changelog
 
-## Unreleased
+## 4.4.7
 
-`260718`
+`260720`
 
 ### Configuration / Environment
 
@@ -17,6 +17,10 @@ sidebar_position: 999
 - fix(common): restore `.env.${NODE_ENV}` loading and enforce `shell/CI > .env.local > .env.${NODE_ENV} > .env` precedence without allowing env files to overwrite explicitly supplied shell or CI values.
 - fix(common): preserve cross-file variable expansion and use shell/CI values during expansion, including explicitly empty values.
 - perf(common): load the ordered env paths into an isolated environment with one dotenv merge, one expansion pass, and one final injection instead of repeating `existsSync`, config, and expansion for every file.
+
+### Bundler / Vite
+
+- fix(bundler-vite): prevent unused CSS Module stylesheets (containing theme/global styles) from being tree-shaken and discarded during production builds (Rolldown) by introducing an automatic side-effect statement injection.
 
 ### Lint / TypeScript
 
