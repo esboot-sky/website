@@ -4,6 +4,12 @@ sidebar_position: 999
 
 # Changelog
 
+## 4.4.9
+
+`261021`
+
+- Add `css.fontZoom.mode: 'offset' | 'scale'` across Vite, Webpack, and Rspack. Both modes use the existing `--font-offset` variable. Scale mode accepts unitless multipliers such as `1.1` with a fallback of `1`; existing configurations keep additive offsets with a `0px` fallback.
+
 ## 4.4.0
 
 `260707`

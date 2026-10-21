@@ -208,6 +208,52 @@ Whether to enable `styleName`.
 
 Controls how CSS Modules export keys are transformed.
 
+
+### fontZoom
+
+Enable runtime font sizing across Vite, Webpack, and Rspack. Since v4.4.9,
+`mode` selects addition or multiplication using the same CSS variable.
+
+```ts
+css: {
+  fontZoom: {
+    enable: true,
+    mode: 'scale',
+    offsetVar: '--font-offset',
+    zoomLineHeight: false,
+    minPixelValue: 0,
+  },
+}
+```
+
+```css
+:root {
+  --font-offset: 1.1;
+}
+```
+
+- `enable`: defaults to `false`.
+- `mode`: `'offset' | 'scale'`. Omitted or `'offset'` preserves addition:
+  `calc(14px + var(--font-offset, 0px))`. Use a length such as `2px`.
+  `'scale'` produces `calc(14px * var(--font-offset, 1))`. Use a unitless
+  multiplier: `1.1` means 110%, `1.2` means 120%, and `1` preserves the original size.
+- `offsetVar`: the shared variable name, default `'--font-offset'`. Custom names
+  work in either mode.
+- `zoomLineHeight`: defaults to `false`. Applies the same conversion to line
+  heights using px/rem/em or CSS variables; unitless line heights stay unchanged.
+- `minPixelValue`: defaults to `0`. Filters px lengths and rem/em lengths
+  estimated using a 16px base; variable expressions bypass this threshold.
+- `exclude`: optional path substring, regular expression, or an array of either.
+
+Change `mode` at build time and recompile. Change the variable at runtime:
+
+```ts
+document.documentElement.style.setProperty('--font-offset', '1.2');
+```
+
+When switching to scale mode, replace existing length values such as `2px`
+with unitless multipliers.
+
 ## cssMinifier
 
 **Type**: `CSSMinifier`

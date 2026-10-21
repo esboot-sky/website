@@ -352,12 +352,13 @@ export interface CSSOptions {
 
 **类型**：`FontZoomOptions`
 
-运行时高性能字体/行高动态缩放配置。开启后，ESBoot 会在编译 CSS 时将所有的绝对字号（及行高）自动改写为基于 CSS 变量的加法公式（如 `calc(14px + var(--font-offset, 0px))`），从而允许你在运行时动态放大缩小全局字体而不破坏页面布局与宽高，且无任何性能开销。
+运行时字体/行高动态缩放配置。开启后，ESBoot 会在编译 CSS 时将字号改写为基于 CSS 变量的计算公式。Vite、Webpack 和 Rspack 使用相同的转换逻辑。
 
 ```ts
 css: {
   fontZoom: {
     enable: false,
+    mode: 'offset',
     offsetVar: '--font-offset',
     zoomLineHeight: false,
     minPixelValue: 0,
@@ -369,10 +370,57 @@ css: {
 支持的字段：
 
 - `enable`：是否启用运行时字体动态缩放，默认 `false`。
-- `offsetVar`：编译改写的 CSS 变量名称。当你在 JS 中通过 `document.documentElement.style.setProperty(offsetVar, '2px')` 修改该变量时，页面字体会动态缩放。默认值：`'--font-offset'`。
-- `zoomLineHeight`：是否同步缩放行高。开启后，PostCSS 会对绝对单位的行高进行同样的转换，自动跳过无单位相对行高。默认值：`false`。
-- `minPixelValue`：最小转换阈值（单位 `px`）。当原字号（及估算的 rem 对应 px 值）大于或等于该设定的像素值时，才进行变量计算包装。默认值：`0`（全量转换）。
-- `exclude`：排除过滤。用于排除特定的外部组件库（如 `/node_modules/`）或文件路径。支持字符串、正则表达式或其数组。默认值：`undefined`。
+- `mode`：`'offset' | 'scale'`，自 v4.4.9 起支持。省略或设为 `'offset'` 时固定相加，变量缺省值为 `0px`；设为 `'scale'` 时按比例相乘，变量缺省值为 `1`。已有配置保持固定相加行为。
+- `offsetVar`：两种模式共用的 CSS 变量名称，默认 `'--font-offset'`。固定偏移模式填写长度（如 `2px`），比例模式填写无单位倍数（如 `1.1`、`1.2`），无需新增变量。
+- `zoomLineHeight`：是否同步缩放行高。开启后，对具有 px、rem、em 单位或 CSS 变量的行高执行同样的转换，无单位相对行高保持不变。默认 `false`。
+- `minPixelValue`：最小转换阈值（单位 px）。px 字号及以 16px 为基准估算的 rem/em 字号达到阈值时才转换；CSS 变量表达式不应用此阈值。默认 `0`。
+- `exclude`：排除路径过滤，支持字符串、正则表达式或其数组。默认 `undefined`。
+
+#### 固定偏移（默认）
+
+```ts
+css: {
+  fontZoom: {
+    enable: true,
+    mode: 'offset', // Can be omitted.
+  },
+}
+```
+
+```css
+:root {
+  --font-offset: 2px;
+}
+```
+
+`font-size: 14px` 编译为 `font-size: calc(14px + var(--font-offset, 0px))`，上述设置得到 16px。
+
+#### 按比例调整
+
+```ts
+css: {
+  fontZoom: {
+    enable: true,
+    mode: 'scale',
+  },
+}
+```
+
+```css
+:root {
+  --font-offset: 1.1;
+}
+```
+
+`font-size: 14px` 编译为 `font-size: calc(14px * var(--font-offset, 1))`，上述设置得到 15.4px。`1.2` 表示 120%，`0.9` 表示 90%，`1` 表示原始大小。
+
+也可以在运行时修改同一个变量：
+
+```ts
+document.documentElement.style.setProperty('--font-offset', '1.2');
+```
+
+切换 `mode` 需要重新编译；运行时只需修改 CSS 变量。切换到比例模式时，请将原来的 `2px` 等长度值改为无单位倍数。若配置了自定义 `offsetVar`，两种模式均使用该变量。
 
 ## cssMinifier
 

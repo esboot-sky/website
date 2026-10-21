@@ -4,6 +4,15 @@ sidebar_position: 999
 
 # Changelog
 
+## 4.4.9
+
+`261021`
+
+### CSS / Font zoom
+
+- feat(common/bundler-common): add `css.fontZoom.mode: 'offset' | 'scale'`. Scale mode multiplies font sizes and optional line heights by the existing `--font-offset` variable with a unitless fallback of `1`; values such as `1.1` and `1.2` apply proportional scaling across Vite, Webpack, and Rspack.
+- Existing configurations retain additive offsets with a `0px` fallback; custom `offsetVar`, thresholds, and exclusions remain supported.
+
 ## 4.4.7
 
 `260720`
